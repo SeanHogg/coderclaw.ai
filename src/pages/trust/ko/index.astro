@@ -487,7 +487,10 @@ const langLinks = {
   <nav class="topbar">
     <div class="topbar-inner">
       <a href="https://coderclaw.ai" class="topbar-brand">
-        <img src="/coderclaw-logo-text-dark.png" alt="CoderClaw" />
+        <picture>
+          <source media="(prefers-color-scheme: light)" srcset="/coderclaw-logo-text-dark.png" />
+          <img src="/coderclaw-logo-text.png" alt="CoderClaw" />
+        </picture>
       </a>
       <div class="topbar-nav">
         <a href={trustHref} class="topbar-link active">{t.nav.trust}</a>

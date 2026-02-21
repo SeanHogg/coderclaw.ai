@@ -58,7 +58,10 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
     <!-- Hero Section -->
     <header class="hero">
       <div class="lobster-icon" aria-hidden="true">
-        <img src="/coderclaw-logo-text-dark.png" alt="CoderClaw Logo" />
+        <picture>
+          <source media="(prefers-color-scheme: light)" srcset="/coderclaw-logo-text-dark.png" />
+          <img src="/coderclaw-logo-text.png" alt="CoderClaw Logo" />
+        </picture>
       </div>
 
       <h1 class="title">
