@@ -6,7 +6,7 @@
       "name": "coderclaw-landing",
       "dependencies": {
         "@astrojs/rss": "^4.0.15",
-        "@lucide/astro": "^0.574.0",
+        "@lucide/astro": "^0.575.0",
         "@vercel/analytics": "^1.6.1",
         "astro": "^5.17.2",
         "js-yaml": "^4.1.1",
@@ -146,7 +146,7 @@
 
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.5", "", {}, "sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og=="],
 
-    "@lucide/astro": ["@lucide/astro@0.574.0", "", { "peerDependencies": { "astro": "^4 || ^5" } }, "sha512-OEC5D70hXEzv8cv4c10NUqGczHKk62nVUEmLiIy/MGj/VicSR7Vom9mZw3Wz3rmKc8NMQ6hn2c1yGPHJxLv29w=="],
+    "@lucide/astro": ["@lucide/astro@0.575.0", "", { "peerDependencies": { "astro": "^4 || ^5" } }, "sha512-hU47BbgApVR473CxSk6C4OBxqO0P91ZrY9uYvQB7xqW9f5mqmkz1RJ4jl2iK2LovntrrfAZix5ce+r7v2+2gHg=="],
 
     "@oslojs/encoding": ["@oslojs/encoding@1.1.0", "", {}, "sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ=="],
 
