@@ -1,5 +1,6 @@
 ---
 import Analytics from '@vercel/analytics/astro';
+import Navigation from '../components/Navigation.astro';
 
 interface Props {
   title: string;
@@ -218,7 +219,7 @@ const {
         position: fixed;
         top: 16px;
         right: 16px;
-        z-index: 999;
+        z-index: 101;
         width: 40px;
         height: 40px;
         display: grid;
@@ -266,6 +267,7 @@ const {
     </style>
   </head>
   <body>
+    <Navigation />
     <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">
       <span class="theme-toggle-icon" data-theme-icon aria-hidden="true"></span>
     </button>
