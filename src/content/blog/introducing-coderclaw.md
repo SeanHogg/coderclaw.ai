@@ -5,7 +5,6 @@ date: 2026-02-21
 author: "Sean Hogg"
 authorHandle: "seanhogg"
 tags: ["announcement", "agents", "framework"]
-image: "/blog/coderclaw-logo-text.png"
 ---
 
 The future of development isn't about writing more code—it's about orchestrating intelligent agents that handle the work for you.
