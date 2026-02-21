@@ -1,5 +1,6 @@
 ---
 import Analytics from '@vercel/analytics/astro';
+import Navigation from '../components/Navigation.astro';
 
 interface Props {
   title: string;
@@ -21,9 +22,9 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/webp" href="https://cdn.builder.io/api/v1/image/assets%2Fac94883aaa0849cc897eb61793256164%2Fc284d818569a472aa80fdbee574db744?format=webp&width=32&height=32" sizes="32x32" />
+    <link rel="icon" type="image/webp" href="https://cdn.builder.io/api/v1/image/assets%2Fac94883aaa0849cc897eb61793256164%2Fc284d818569a472aa80fdbee574db744?format=webp&width=64&height=64" sizes="64x64" />
+    <link rel="apple-touch-icon" href="https://cdn.builder.io/api/v1/image/assets%2Fac94883aaa0849cc897eb61793256164%2Fc284d818569a472aa80fdbee574db744?format=webp&width=180&height=180" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" type="application/rss+xml" title="CoderClaw Blog" href="/rss.xml" />
 
@@ -218,7 +219,7 @@ const {
         position: fixed;
         top: 16px;
         right: 16px;
-        z-index: 999;
+        z-index: 101;
         width: 40px;
         height: 40px;
         display: grid;
@@ -266,6 +267,7 @@ const {
     </style>
   </head>
   <body>
+    <Navigation />
     <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">
       <span class="theme-toggle-icon" data-theme-icon aria-hidden="true"></span>
     </button>
