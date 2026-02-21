@@ -599,39 +599,6 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
       </div>
     </section>
 
-    <!-- Press Section -->
-    <section class="press-section">
-      <h2 class="section-title">
-        <span class="claw-accent">⟩</span> Featured In
-      </h2>
-      <div class="press-grid">
-        <a href="https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/" target="_blank" rel="noopener" class="press-card press-featured">
-          <div class="press-logo">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="press-icon">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-            </svg>
-            <span class="press-name">MacStories</span>
-          </div>
-          <blockquote class="press-quote">
-            "CoderClaw Showed Me What the Future of Personal AI Assistants Looks Like"
-          </blockquote>
-          <span class="press-author">Federico Viticci</span>
-        </a>
-        <a href="https://www.starryhope.com/minipcs/clawdbot-mac-mini-ai-agent-trend/" target="_blank" rel="noopener" class="press-card">
-          <div class="press-logo">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="press-icon">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-            <span class="press-name">StarryHope</span>
-          </div>
-          <blockquote class="press-quote">
-            "The Lobster Takeover: Why Developers Are Buying Mac Minis to Run Their Own AI Agents"
-          </blockquote>
-          <span class="press-author">Jim Mendenhall</span>
-        </a>
-      </div>
-    </section>
-
     <!-- CTA Grid -->
     <nav class="cta-grid">
       <a href="https://app.coderclaw.ai" class="cta cta-link" target="_blank" rel="noopener">
@@ -1234,91 +1201,6 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
     font-size: 0.9rem;
   }
 
-  /* Press Section */
-  .press-section {
-    margin-bottom: 56px;
-    animation: fadeInUp 0.8s ease-out 0.65s both;
-  }
-
-  .press-section .section-title {
-    margin-bottom: 20px;
-  }
-
-  .press-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  @media (max-width: 640px) {
-    .press-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .press-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 24px 28px;
-    border-radius: 16px;
-    border: 1px solid var(--border-subtle);
-    background: var(--surface-card-strong);
-    backdrop-filter: blur(12px);
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    text-align: center;
-  }
-
-  .press-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--coral-bright);
-    box-shadow: 0 12px 40px var(--shadow-coral-soft);
-  }
-
-  .press-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .press-icon {
-    width: 28px;
-    height: 28px;
-    color: var(--text-muted);
-  }
-
-  .press-name {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    letter-spacing: 0.02em;
-  }
-
-  .press-quote {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5;
-    color: var(--text-primary);
-    margin: 0;
-    font-style: italic;
-  }
-
-  .press-author {
-    font-size: 0.9rem;
-    color: var(--coral-bright);
-    font-weight: 500;
-  }
-
-  .press-featured {
-    border-color: var(--border-accent);
-    background: var(--press-featured-gradient);
-  }
-
   /* Quick Start */
   .quickstart {
     margin-bottom: 56px;
@@ -1727,55 +1609,6 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
     font-size: 0.8rem;
     color: var(--text-muted);
     opacity: 0.7;
-  }
-
-  /* Latest Blog Post */
-  .latest-post {
-    margin-bottom: 40px;
-    animation: fadeInUp 0.8s ease-out 0.5s both;
-    text-align: center;
-  }
-
-  .latest-post-card {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    background: var(--surface-card-strong);
-    border: 1px solid var(--border-subtle);
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .latest-post-card:hover {
-    border-color: var(--coral-bright);
-    box-shadow: 0 4px 20px var(--shadow-coral-mid);
-  }
-
-  .latest-post-badge {
-    padding: 3px 8px;
-    border-radius: 12px;
-    background: var(--coral-bright);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .latest-post-title {
-    font-size: 0.9rem;
-    color: var(--text-primary);
-  }
-
-  .latest-post-link {
-    color: var(--text-muted);
-    transition: color 0.2s;
-  }
-
-  .latest-post-card:hover .latest-post-link {
-    color: var(--coral-bright);
   }
 
   /* Testimonials */
