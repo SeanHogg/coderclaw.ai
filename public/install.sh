@@ -803,20 +803,6 @@ map_legacy_env() {
     fi
 }
 
-map_legacy_env "CODERCLAW_TAGLINE_INDEX" "CLAWDBOT_TAGLINE_INDEX"
-map_legacy_env "CODERCLAW_NO_ONBOARD" "CLAWDBOT_NO_ONBOARD"
-map_legacy_env "CODERCLAW_NO_PROMPT" "CLAWDBOT_NO_PROMPT"
-map_legacy_env "CODERCLAW_DRY_RUN" "CLAWDBOT_DRY_RUN"
-map_legacy_env "CODERCLAW_INSTALL_METHOD" "CLAWDBOT_INSTALL_METHOD"
-map_legacy_env "CODERCLAW_VERSION" "CLAWDBOT_VERSION"
-map_legacy_env "CODERCLAW_BETA" "CLAWDBOT_BETA"
-map_legacy_env "CODERCLAW_GIT_DIR" "CLAWDBOT_GIT_DIR"
-map_legacy_env "CODERCLAW_GIT_UPDATE" "CLAWDBOT_GIT_UPDATE"
-map_legacy_env "CODERCLAW_NPM_LOGLEVEL" "CLAWDBOT_NPM_LOGLEVEL"
-map_legacy_env "CODERCLAW_VERBOSE" "CLAWDBOT_VERBOSE"
-map_legacy_env "CODERCLAW_PROFILE" "CLAWDBOT_PROFILE"
-map_legacy_env "CODERCLAW_USE_GUM" "CLAWDBOT_USE_GUM"
-map_legacy_env "CODERCLAW_INSTALL_SH_NO_RUN" "CLAWDBOT_INSTALL_SH_NO_RUN"
 
 pick_tagline() {
     append_holiday_taglines
@@ -1729,7 +1715,7 @@ run_bootstrap_onboarding_if_needed() {
     fi
 
     local config_path="${CODERCLAW_CONFIG_PATH:-$HOME/.coderclaw/coderclaw.json}"
-    if [[ -f "${config_path}" || -f "$HOME/.clawdbot/clawdbot.json" || -f "$HOME/.moltbot/moltbot.json" || -f "$HOME/.moldbot/moldbot.json" ]]; then
+    if [[ -f "${config_path}" ]]; then
         return
     fi
 
@@ -2042,7 +2028,7 @@ main() {
             ui_info "Skipping onboard (requested); run coderclaw onboard later"
         else
             local config_path="${CODERCLAW_CONFIG_PATH:-$HOME/.coderclaw/coderclaw.json}"
-            if [[ -f "${config_path}" || -f "$HOME/.clawdbot/clawdbot.json" || -f "$HOME/.moltbot/moltbot.json" || -f "$HOME/.moldbot/moldbot.json" ]]; then
+            if [[ -f "${config_path}" ]]; then
                 ui_info "Config already present; running doctor"
                 run_doctor
                 should_open_dashboard=true

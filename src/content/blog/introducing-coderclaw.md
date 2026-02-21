@@ -1,6 +1,6 @@
 ---
 title: "Introducing CoderClaw"
-description: "The journey from Clawd to Moltbot to CoderClaw—and why this name is here to stay."
+description: "Introducing CoderClaw—an intelligent coding assistant that runs on your machine."
 date: 2026-01-29
 author: "Peter Steinberger"
 authorHandle: "steipete"
@@ -10,17 +10,9 @@ image: "/blog/coderclaw-logo-text.png"
 
 Two months ago, I hacked together a weekend project. What started as "Code Assistant" now has over 100,000 GitHub stars and drew 2 million visitors in a single week.
 
-Today, I'm excited to announce our new name: **CoderClaw**.
+Today, I'm thrilled to introduce **CoderClaw**.
 
-## The Naming Journey
-
-We've been through some names.
-
-**Clawd** was born in November 2025—a playful pun on "Claude" with a claw. It felt perfect until Anthropic's legal team politely asked us to reconsider. Fair enough.
-
-**Moltbot** came next, chosen in a chaotic 5am Discord brainstorm with the community. Molting represents growth - developers evolve and improve. It was meaningful, but <a href="https://x.com/NetworkChuck/status/2016254397496414317" target="_blank" rel="noopener">it never quite rolled off the tongue</a>.
-
-**CoderClaw** is where we land. And this time, we did our homework: trademark searches came back clear, domains have been purchased, migration code has been written. The name captures what this project has become:
+The name captures what this project has become:
 
 - **Coder**: For developers, by developers—a coding assistant in your workflow
 - **Claw**: Our lobster heritage, a nod to where we came from
@@ -54,7 +46,7 @@ This project has grown far beyond what I could maintain alone. Over the last few
 
 To the Claw Crew—every clawtributor who's shipped code, filed issues, joined our Discord, or just tried the project: thank you. You are what makes CoderClaw special.
 
-The lobster has molted into its final form. Welcome to CoderClaw.
+Welcome to CoderClaw.
 
 ---
 

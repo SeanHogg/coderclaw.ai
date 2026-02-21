@@ -1,6 +1,6 @@
 # Code Optimizations Summary
 
-This document summarizes the technical improvements made to the OpenClaw landing page codebase.
+This document summarizes the technical improvements made to the CoderClaw landing page codebase.
 
 ## Changes Made
 

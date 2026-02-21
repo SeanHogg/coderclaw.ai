@@ -2,30 +2,23 @@
 
 ## Overview
 
-This repository contains the CoderClaw website - a duplicate and rebrand of the openclaw.ai website. CoderClaw is positioned as an AI coding assistant that helps developers write code faster with intelligent assistance.
+This repository contains the CoderClaw website. CoderClaw is an AI coding assistant that helps developers write code faster with intelligent assistance.
 
 ## What Was Done
 
-### 1. Website Duplication ✅
-- Copied all files from the official [openclaw/openclaw.ai](https://github.com/openclaw/openclaw.ai) repository
-- Maintained the same technology stack: Astro static site generator
-- Preserved all features including integrations page, blog, testimonials, and trust/security pages
+### 1. Website ✅
+- Built with Astro static site generator
+- Features: integrations page, blog, testimonials, and trust/security pages
 
-### 2. Complete Rebranding ✅
-- **Brand Name**: OpenClaw → CoderClaw
-- **Domain**: openclaw.ai → coderclaw.ai
-- **Package Name**: clawd-bot-landing → coderclaw-landing
-- **Positioning**: Changed from general AI assistant to AI coding assistant
-- **Content Updates**: 
-  - 489 instances replaced across 30+ files
-  - All references in code, documentation, and content updated
-  - Blog posts rewritten for CoderClaw branding
-  - Testimonials and social media handles updated
+### 2. Branding ✅
+- **Brand Name**: CoderClaw
+- **Domain**: coderclaw.ai
+- **Package Name**: coderclaw-landing
+- **Positioning**: AI coding assistant for developers
 
-### 3. Asset Updates ✅
-- Renamed all logo files from `openclaw-*` to `coderclaw-*`
-- Updated image references in all pages
-- Maintained the lobster/claw mascot icon
+### 3. Assets ✅
+- Logo files: `coderclaw-*`
+- Lobster/claw mascot icon
 - Updated favicons and OG images
 
 ### 4. Cloudflare Pages CI/CD ✅

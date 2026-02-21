@@ -51,7 +51,7 @@ const {
 
     <script is:inline>
       (() => {
-        const key = 'oc-theme';
+        const key = 'cc-theme';
         const saved = localStorage.getItem(key);
         const theme = saved === 'light' || saved === 'dark' ? saved : 'dark';
         document.documentElement.dataset.theme = theme;
@@ -274,7 +274,7 @@ const {
 
     <script is:inline>
       (() => {
-        const key = 'oc-theme';
+        const key = 'cc-theme';
         const root = document.documentElement;
         const toggle = document.querySelector('[data-theme-toggle]');
         const icon = document.querySelector('[data-theme-icon]');

@@ -8,7 +8,7 @@ if [[ -n "${CODERCLAW_INSTALL_URL:-}" ]]; then
 elif [[ -f "$LOCAL_INSTALL_PATH" ]]; then
   INSTALL_URL="file://${LOCAL_INSTALL_PATH}"
 else
-  INSTALL_URL="https://clawd.bot/install.sh"
+  INSTALL_URL="https://coderclaw.ai/install.sh"
 fi
 
 if [[ -n "${CODERCLAW_INSTALL_CLI_URL:-}" ]]; then
@@ -16,7 +16,7 @@ if [[ -n "${CODERCLAW_INSTALL_CLI_URL:-}" ]]; then
 elif [[ -f "$LOCAL_CLI_INSTALL_PATH" ]]; then
   CLI_INSTALL_URL="file://${LOCAL_CLI_INSTALL_PATH}"
 else
-  CLI_INSTALL_URL="https://clawd.bot/install-cli.sh"
+  CLI_INSTALL_URL="https://coderclaw.ai/install-cli.sh"
 fi
 
 curl_install() {

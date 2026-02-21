@@ -53,7 +53,6 @@ TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
 
 export CODERCLAW_INSTALL_SH_NO_RUN=1
-export CLAWDBOT_INSTALL_SH_NO_RUN=1
 # shellcheck source=../public/install.sh
 source "${ROOT_DIR}/public/install.sh"
 

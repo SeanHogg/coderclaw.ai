@@ -7,7 +7,7 @@ if [[ -n "${CODERCLAW_INSTALL_URL:-}" ]]; then
 elif [[ -f "$LOCAL_INSTALL_PATH" ]]; then
   INSTALL_URL="file://${LOCAL_INSTALL_PATH}"
 else
-  INSTALL_URL="https://clawd.bot/install.sh"
+  INSTALL_URL="https://coderclaw.ai/install.sh"
 fi
 
 fetch_registry_versions() {

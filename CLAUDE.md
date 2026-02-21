@@ -1,4 +1,4 @@
-# clawd.bot Landing Page
+# CoderClaw Landing Page
 
 ## Data Files
 
