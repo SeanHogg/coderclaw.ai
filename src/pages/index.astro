@@ -87,54 +87,6 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
       </section>
     )}
 
-    <!-- Testimonials (moved up for social proof) -->
-    <section class="testimonials">
-      <div class="section-header">
-        <h2 class="section-title">
-          <span class="claw-accent">⟩</span> What People Say
-        </h2>
-        <a href="/shoutouts" class="section-link">View all <span class="sr-only">community shoutouts</span>
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-      <div class="testimonials-track">
-        <div class="testimonials-row row-1" style={`--duration: ${duration1}s`}>
-          {row1.map((t) => (
-            <a href={t.url} target="_blank" rel="noopener" class="testimonial-card" tabindex="-1">
-              <img
-                src={`https://unavatar.io/x/${t.author}`}
-                alt={t.author}
-                class="testimonial-avatar"
-                loading="lazy"
-                onerror={`this.src='https://ui-avatars.com/api/?name=${t.author}&background=FF4D4D&color=fff&size=88'`}
-              />
-              <div class="testimonial-content">
-                <p class="testimonial-quote">"{t.quote}"</p>
-                <span class="testimonial-author">@{t.author}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-        <div class="testimonials-row row-2" style={`--duration: ${duration2}s`}>
-          {row2.map((t) => (
-            <a href={t.url} target="_blank" rel="noopener" class="testimonial-card">
-              <img
-                src={`https://unavatar.io/x/${t.author}`}
-                alt={t.author}
-                class="testimonial-avatar"
-                loading="lazy"
-                onerror={`this.src='https://ui-avatars.com/api/?name=${t.author}&background=FF4D4D&color=fff&size=88'`}
-              />
-              <div class="testimonial-content">
-                <p class="testimonial-quote">"{t.quote}"</p>
-                <span class="testimonial-author">@{t.author}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
     <!-- Quick Start -->
     <section class="quickstart">
       <h2 class="section-title">
