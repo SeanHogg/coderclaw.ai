@@ -1,11 +1,11 @@
-# OpenClaw 威胁模型
+# CoderClaw 威胁模型
 # 基于 MITRE ATLAS 框架（AI 系统对抗性威胁态势）
 # 版本: 1.0-draft
 # 最后更新: 2026-02-04
 # 方法论: MITRE ATLAS + 数据流图
 #
 # 参与贡献: 请参阅 CONTRIBUTING.md
-# 报告安全问题: security@openclaw.ai
+# 报告安全问题: security@coderclaw.ai
 
 metadata:
   version: "1.0-draft"
@@ -27,7 +27,7 @@ metadata:
 
 scope:
   included:
-    - component: OpenClaw Agent Runtime
+    - component: CoderClaw Agent Runtime
       notes: 核心代理执行、工具调用、会话
     - component: Gateway
       notes: 身份验证、路由、渠道集成
@@ -83,7 +83,7 @@ threats:
     atlas: AML.T0006
     risk: Medium
     category: recon
-    description: 攻击者扫描暴露的 OpenClaw 网关端点
+    description: 攻击者扫描暴露的 CoderClaw 网关端点
     attackVector: 网络扫描、Shodan 查询、DNS 枚举
     affected: 网关、暴露的 API 端点
     mitigations: Tailscale 认证选项、默认绑定回环地址
@@ -151,7 +151,7 @@ threats:
     category: access
     description: 攻击者从配置文件中窃取身份验证令牌
     attackVector: 恶意软件、未授权设备访问、配置备份泄露
-    affected: ~/.openclaw/credentials/、配置存储
+    affected: ~/.coderclaw/credentials/、配置存储
     mitigations: 文件权限控制
     residualRisk: 令牌以明文存储
     recommendations: 实现令牌静态加密、添加令牌轮换机制
@@ -481,7 +481,7 @@ threats:
     category: exfil
     description: 恶意技能从代理上下文和环境中收集凭据
     attackVector: 技能代码读取环境变量、配置文件、API 密钥
-    affected: 技能执行环境、~/.openclaw/
+    affected: 技能执行环境、~/.coderclaw/
     mitigations: 无针对技能的特定措施
     residualRisk: 技能以代理权限运行
     recommendations: 技能沙箱化、凭据隔离、基于能力的访问控制
@@ -494,7 +494,7 @@ threats:
     category: exfil
     description: 攻击者窃取包含敏感数据的对话记录
     attackVector: 技能或提示词注入读取并发送对话记录文件
-    affected: 会话记录、~/.openclaw/sessions/
+    affected: 会话记录、~/.coderclaw/sessions/
     mitigations: 文件权限控制
     residualRisk: 技能可读取对话记录文件
     recommendations: 对话记录加密、技能文件系统隔离
@@ -897,9 +897,9 @@ key_security_files:
 
 glossary:
   ATLAS: "MITRE 的 AI 系统对抗性威胁态势框架"
-  ClawHub: "OpenClaw 的技能市场"
-  Gateway: "OpenClaw 的消息路由和身份验证层"
+  ClawHub: "CoderClaw 的技能市场"
+  Gateway: "CoderClaw 的消息路由和身份验证层"
   MCP: 模型上下文协议 - 工具提供方接口
   Prompt Injection: 在输入中嵌入恶意指令的攻击方式
-  Skill: OpenClaw 代理的可下载扩展
+  Skill: CoderClaw 代理的可下载扩展
   SSRF: 服务端请求伪造

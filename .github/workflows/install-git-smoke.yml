@@ -13,13 +13,13 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Build git smoke image
-        run: docker build -t clawdbot-install-git-smoke:ci -f scripts/docker/install-sh-git-smoke/Dockerfile .
+        run: docker build -t coderclaw-install-git-smoke:ci -f scripts/docker/install-sh-git-smoke/Dockerfile .
 
       - name: Run git smoke
         env:
-          CLAWDBOT_NO_ONBOARD: "1"
-          CLAWDBOT_NO_PROMPT: "1"
-        run: docker run --rm -t -e CLAWDBOT_NO_ONBOARD -e CLAWDBOT_NO_PROMPT clawdbot-install-git-smoke:ci
+          CODERCLAW_NO_ONBOARD: "1"
+          CODERCLAW_NO_PROMPT: "1"
+        run: docker run --rm -t -e CODERCLAW_NO_ONBOARD -e CODERCLAW_NO_PROMPT coderclaw-install-git-smoke:ci
 
   install-cli-git-smoke:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Build git smoke image (install-cli.sh)
-        run: docker build -t openclaw-install-cli-git-smoke:ci -f scripts/docker/install-cli-git-smoke/Dockerfile .
+        run: docker build -t coderclaw-install-cli-git-smoke:ci -f scripts/docker/install-cli-git-smoke/Dockerfile .
 
       - name: Run git smoke (install-cli.sh)
-        run: docker run --rm -t openclaw-install-cli-git-smoke:ci
+        run: docker run --rm -t coderclaw-install-cli-git-smoke:ci

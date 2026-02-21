@@ -11,9 +11,9 @@ RUN apt-get update \
     g++ \
   && rm -rf /var/lib/apt/lists/*
 
-COPY scripts/docker/install-sh-git-smoke/run.sh /usr/local/bin/openclaw-install-git-smoke
-COPY public/install.sh /opt/openclaw-install.sh
-RUN chmod +x /usr/local/bin/openclaw-install-git-smoke \
-  && chmod a+r /opt/openclaw-install.sh
+COPY scripts/docker/install-sh-git-smoke/run.sh /usr/local/bin/coderclaw-install-git-smoke
+COPY public/install.sh /opt/coderclaw-install.sh
+RUN chmod +x /usr/local/bin/coderclaw-install-git-smoke \
+  && chmod a+r /opt/coderclaw-install.sh
 
-ENTRYPOINT ["/usr/local/bin/openclaw-install-git-smoke"]
+ENTRYPOINT ["/usr/local/bin/coderclaw-install-git-smoke"]

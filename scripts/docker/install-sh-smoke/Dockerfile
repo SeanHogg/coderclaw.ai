@@ -9,9 +9,9 @@ RUN apt-get update \
     sudo \
   && rm -rf /var/lib/apt/lists/*
 
-COPY scripts/docker/install-sh-smoke/run.sh /usr/local/bin/clawdbot-install-smoke
-COPY public/install.sh /opt/clawdbot-install.sh
-RUN chmod +x /usr/local/bin/clawdbot-install-smoke \
-  && chmod a+r /opt/clawdbot-install.sh
+COPY scripts/docker/install-sh-smoke/run.sh /usr/local/bin/coderclaw-install-smoke
+COPY public/install.sh /opt/coderclaw-install.sh
+RUN chmod +x /usr/local/bin/coderclaw-install-smoke \
+  && chmod a+r /opt/coderclaw-install.sh
 
-ENTRYPOINT ["/usr/local/bin/clawdbot-install-smoke"]
+ENTRYPOINT ["/usr/local/bin/coderclaw-install-smoke"]
