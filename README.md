@@ -1,8 +1,10 @@
 # coderclaw.ai
 
-Landing page for CoderClaw — your personal AI coding assistant.
+Landing page for CoderClaw — the ultimate coding agent framework.
 
 **Live**: [coderclaw.ai](https://coderclaw.ai)
+
+CoderClaw is the independent agent and subagent manager. [CoderClawLink](https://app.coderclaw.ai) is the project management and mesh orchestrator, enabling teams to transition from coding to managing business outcomes. Documentation is available at [docs.coderclaw.ai](https://docs.coderclaw.ai).
 
 ## Pages
 
