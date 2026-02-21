@@ -1,69 +1,125 @@
 ---
 title: "Introducing CoderClaw"
-description: "The journey from Clawd to Moltbot to CoderClaw—and why this name is here to stay."
+description: "Meet CoderClaw: The ultimate coding agent framework for autonomous development."
 date: 2026-01-29
-author: "Peter Steinberger"
-authorHandle: "steipete"
-tags: ["announcement", "roadmap"]
+author: "Sean Hogg"
+authorHandle: "seanhogg"
+tags: ["announcement", "agents", "framework"]
 image: "/blog/coderclaw-logo-text.png"
 ---
 
-Two months ago, I hacked together a weekend project. What started as "Code Assistant" now has over 100,000 GitHub stars and drew 2 million visitors in a single week.
+The future of development isn't about writing more code—it's about orchestrating intelligent agents that handle the work for you.
 
-Today, I'm excited to announce our new name: **CoderClaw**.
+Today, I'm excited to introduce **CoderClaw**, the ultimate coding agent framework designed for developers who want to transition from coding to managing business outcomes.
 
-## The Naming Journey
+## What is CoderClaw?
 
-We've been through some names.
+CoderClaw is a powerful framework for building autonomous coding agents that can:
 
-**Clawd** was born in November 2025—a playful pun on "Claude" with a claw. It felt perfect until Anthropic's legal team politely asked us to reconsider. Fair enough.
+- **Manage Complex Tasks**: Break down large development projects into independent, manageable agent workflows
+- **Coordinate Multiple Agents**: Create hierarchical agent structures where parent agents manage sub-agents working in parallel
+- **Orchestrate Across Your Mesh**: Use CoderClawLink to coordinate agents, projects, and services across your entire development infrastructure
+- **Focus on Outcomes**: Stop writing boilerplate and start defining what you want to achieve. Let the agents handle the execution.
 
-**Moltbot** came next, chosen in a chaotic 5am Discord brainstorm with the community. Molting represents growth - developers evolve and improve. It was meaningful, but <a href="https://x.com/NetworkChuck/status/2016254397496414317" target="_blank" rel="noopener">it never quite rolled off the tongue</a>.
+## Core Capabilities
 
-**CoderClaw** is where we land. And this time, we did our homework: trademark searches came back clear, domains have been purchased, migration code has been written. The name captures what this project has become:
+### Autonomous Agents
+Create specialized agents for different tasks—code review, testing, documentation, performance optimization, and more. Each agent runs independently and reports back on progress.
 
-- **Coder**: For developers, by developers—a coding assistant in your workflow
-- **Claw**: Our lobster heritage, a nod to where we came from
+### Sub-Agent Architecture
+For complex projects, parent agents can dynamically create and manage sub-agents. This enables true parallel processing and dramatically improves throughput on large tasks.
 
-## What CoderClaw Is
+### Mesh Orchestration with CoderClawLink
+CoderClawLink is the brain of your agent network. It:
+- Provides service discovery for agents across your infrastructure
+- Manages inter-agent communication and coordination
+- Monitors agent health and performance in real-time
+- Handles task distribution and load balancing
 
-CoderClaw is an intelligent coding assistant that runs on your machine and integrates seamlessly into your development environment. Whether you're in your IDE, terminal, or code review platform, your AI coding partner is right there with you.
+### Full System Access
+Agents can:
+- Read and write files in your workspace
+- Execute shell commands and scripts
+- Browse the web and interact with APIs
+- Integrate with 50+ services and platforms
+- Control your IDE and development tools
 
-**Your coding assistant. Your machine. Your rules.**
+## Why CoderClaw?
 
-Unlike cloud-based coding assistants where your code lives on someone else's servers, CoderClaw runs where you choose—laptop, homelab, or private server. Your infrastructure. Your keys. Your code security.
+### Transition from Coding to Management
+Stop writing code. Start managing agents that write code for you. CoderClaw lets you focus on business outcomes while agents handle technical execution.
 
-## What's New in This Release
+### Built for Scale
+Whether you're working on a single project or orchestrating hundreds of agents across multiple teams, CoderClaw scales with you.
 
-Along with the rebrand, we're shipping:
+### Your Infrastructure, Your Rules
+CoderClaw runs where you choose—on your machine, in your homelab, or on a private server. Your code stays secure. You control everything.
 
-- **New Channels**: Twitch and Google Chat plugins
-- **Models**: Support for KIMI K2.5 & Xiaomi MiMo-V2-Flash
-- **Web Chat**: Send images just like you can in messaging apps
-- **Security**: 34 security-related commits to harden the codebase
+### Community-Driven
+Extend CoderClaw with community-created skills. Build your own. Share them with others. The framework grows with your needs.
 
-I'd like to thank all security folks for their hard work in helping us harden the project. We've released <a href="https://github.com/vignesh07/coderclaw-formal-models" target="_blank" rel="noopener">machine-checkable security models</a> this week and are continuing to work on additional security improvements. Remember that prompt injection is still an industry-wide unsolved problem, so it's important to use strong models and to study our <a href="https://docs.coderclaw.ai/gateway/security" target="_blank" rel="noopener">security best practices</a>.
+## Getting Started
+
+Getting up and running is simple:
+
+```bash
+curl https://get.coderclaw.ai | sh
+```
+
+That's it. The installer handles everything—Node.js, dependencies, and setup.
+
+Then create your first agent:
+
+```typescript
+import { Agent } from 'coderclaw';
+
+const codeReviewer = new Agent({
+  name: 'CodeReviewer',
+  model: 'claude-opus',
+  instructions: 'You are an expert code reviewer. Analyze code and provide detailed feedback.'
+});
+
+const result = await codeReviewer.run({
+  task: 'Review this code for issues',
+  input: sourceCode
+});
+```
+
+## What's Included
+
+CoderClaw comes with:
+
+- **Framework SDK** for building and managing agents
+- **CoderClawLink Dashboard** for orchestration and monitoring
+- **50+ Pre-built Integrations** (Discord, Slack, GitHub, etc.)
+- **Community Skills Directory** for extending functionality
+- **Complete Documentation** and examples
+- **Security Best Practices** and threat modeling
 
 ## The Road Ahead
 
-What's next? Security remains our top priority. We're also focused on gateway reliability and adding polish plus support for more models and providers.
+We're focused on:
 
-This project has grown far beyond what I could maintain alone. Over the last few days I've worked on adding maintainers and we're slowly setting up processes so we can deal with the insane influx of PRs and Issues. I'm also figuring out how to pay maintainers properly—full-time if possible. If you wanna help, consider <a href="https://github.com/seanhogg/coderclaw/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">contributing</a> or <a href="https://github.com/sponsors/seanhogg" target="_blank" rel="noopener">sponsoring the org</a>.
+1. **Performance**: Optimizing agent execution speed and reducing latency
+2. **Reliability**: Hardening the mesh orchestration layer
+3. **Security**: Continuous security audits and improvements
+4. **Ecosystem**: Growing the community skills library
+5. **Models**: Supporting new LLMs and providers
 
-## Thank You
+## Join the Community
 
-To the Claw Crew—every clawtributor who's shipped code, filed issues, joined our Discord, or just tried the project: thank you. You are what makes CoderClaw special.
+The strength of CoderClaw comes from developers like you. Whether you're building agents, contributing skills, reporting issues, or sharing ideas—you're making this framework better.
 
-The lobster has molted into its final form. Welcome to CoderClaw.
+**Get started:** <a href="https://coderclaw.ai" target="_blank" rel="noopener">coderclaw.ai</a>
+
+**Join Discord:** <a href="https://discord.gg/pkCQ3Wdt" target="_blank" rel="noopener">discord.gg/pkCQ3Wdt</a>
+
+**View on GitHub:** <a href="https://github.com/seanhogg/coderclaw" target="_blank" rel="noopener">github.com/seanhogg/coderclaw</a>
+
+**Read the Docs:** <a href="/docs/getting-started" target="_blank" rel="noopener">Getting Started Guide</a>
 
 ---
 
-*Get started: <a href="https://coderclaw.ai" target="_blank" rel="noopener">coderclaw.ai</a>*
+Welcome to the future of development. Welcome to CoderClaw. 🦞
 
-*Join the Claw Crew: <a href="https://discord.gg/coderclaw" target="_blank" rel="noopener">Discord</a>*
-
-*Star on GitHub: <a href="https://github.com/seanhogg/coderclaw" target="_blank" rel="noopener">github.com/seanhogg/coderclaw</a>*
-
-— Peter
-
-P.S. Yes, the mascot is still a lobster. Some things are sacred. 🦞
+*P.S. Build something amazing with CoderClaw and share it in the showcase. We'd love to see what you create.*
