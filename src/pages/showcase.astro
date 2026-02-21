@@ -473,10 +473,15 @@ import Layout from '../layouts/Layout.astro';
     const grid = document.getElementById('showcase-grid') as HTMLDivElement;
     const loading = document.getElementById('loading') as HTMLDivElement;
     const filterButtons = document.querySelectorAll('.filter-toggle');
-    
+
     try {
-      // Fetch showcase data from the JSON file
-      const response = await fetch('/src/data/showcase.json');
+      // Fetch showcase data from API endpoint
+      const response = await fetch('/api/showcase');
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch showcase data');
+      }
+
       const allTweets: Tweet[] = await response.json();
       
       // Filter for CodercClaw mentions
