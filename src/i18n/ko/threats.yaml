@@ -1,11 +1,11 @@
-# OpenClaw 위협 모델
+# CoderClaw 위협 모델
 # MITRE ATLAS 프레임워크 기반 (AI 시스템을 위한 적대적 위협 환경)
 # Version: 1.0-draft
 # Last Updated: 2026-02-04
 # Methodology: MITRE ATLAS + Data Flow Diagrams
 #
 # 기여 방법: CONTRIBUTING.md 참조
-# 보안 문제 신고: security@openclaw.ai
+# 보안 문제 신고: security@coderclaw.ai
 
 metadata:
   version: "1.0-draft"
@@ -27,7 +27,7 @@ metadata:
 
 scope:
   included:
-    - component: OpenClaw Agent Runtime
+    - component: CoderClaw Agent Runtime
       notes: 핵심 에이전트 실행, 도구 호출, 세션
     - component: Gateway
       notes: 인증, 라우팅, 채널 연동
@@ -83,7 +83,7 @@ threats:
     atlas: AML.T0006
     risk: Medium
     category: recon
-    description: 공격자가 노출된 OpenClaw 게이트웨이 엔드포인트를 탐색합니다
+    description: 공격자가 노출된 CoderClaw 게이트웨이 엔드포인트를 탐색합니다
     attackVector: 네트워크 스캔, Shodan 쿼리, DNS 열거
     affected: 게이트웨이, 노출된 API 엔드포인트
     mitigations: Tailscale 인증 옵션, 기본적으로 루프백에 바인딩
@@ -151,7 +151,7 @@ threats:
     category: access
     description: 공격자가 설정 파일에서 인증 토큰을 탈취합니다
     attackVector: 악성코드, 무단 기기 접근, 설정 백업 노출
-    affected: ~/.openclaw/credentials/, 설정 저장소
+    affected: ~/.coderclaw/credentials/, 설정 저장소
     mitigations: 파일 권한 설정
     residualRisk: 토큰이 평문으로 저장됨
     recommendations: 저장 시 토큰 암호화 구현, 토큰 순환 추가
@@ -481,7 +481,7 @@ threats:
     category: exfil
     description: 악성 스킬이 에이전트 컨텍스트와 환경에서 자격 증명을 수집합니다
     attackVector: 스킬 코드가 환경 변수, 설정 파일, API 키를 읽음
-    affected: 스킬 실행 환경, ~/.openclaw/
+    affected: 스킬 실행 환경, ~/.coderclaw/
     mitigations: 스킬에 특화된 대책 없음
     residualRisk: 스킬이 에이전트 권한으로 실행됨
     recommendations: 스킬 샌드박싱, 자격 증명 격리, 기능 기반 접근
@@ -494,7 +494,7 @@ threats:
     category: exfil
     description: 공격자가 민감한 데이터가 포함된 대화 기록을 유출합니다
     attackVector: 스킬 또는 프롬프트 인젝션이 기록 파일을 읽고 전송
-    affected: 세션 기록, ~/.openclaw/sessions/
+    affected: 세션 기록, ~/.coderclaw/sessions/
     mitigations: 파일 권한 설정
     residualRisk: 스킬이 기록 파일을 읽을 수 있음
     recommendations: 기록 암호화, 스킬 파일시스템 격리
@@ -897,9 +897,9 @@ key_security_files:
 
 glossary:
   ATLAS: "MITRE의 AI 시스템을 위한 적대적 위협 환경"
-  ClawHub: "OpenClaw의 스킬 마켓플레이스"
-  Gateway: "OpenClaw의 메시지 라우팅 및 인증 레이어"
+  ClawHub: "CoderClaw의 스킬 마켓플레이스"
+  Gateway: "CoderClaw의 메시지 라우팅 및 인증 레이어"
   MCP: Model Context Protocol - 도구 제공자 인터페이스
   Prompt Injection: 악성 명령이 입력에 삽입되는 공격
-  Skill: OpenClaw 에이전트를 위한 다운로드 가능한 확장 기능
+  Skill: CoderClaw 에이전트를 위한 다운로드 가능한 확장 기능
   SSRF: 서버 측 요청 위조

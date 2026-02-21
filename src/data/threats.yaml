@@ -1,11 +1,11 @@
-# OpenClaw Threat Model
+# CoderClaw Threat Model
 # Based on MITRE ATLAS Framework (Adversarial Threat Landscape for AI Systems)
 # Version: 1.0-draft
 # Last Updated: 2026-02-04
 # Methodology: MITRE ATLAS + Data Flow Diagrams
 #
 # To contribute: see CONTRIBUTING.md
-# Report security issues: security@openclaw.ai
+# Report security issues: security@coderclaw.ai
 
 metadata:
   version: "1.0-draft"
@@ -27,7 +27,7 @@ metadata:
 
 scope:
   included:
-    - component: OpenClaw Agent Runtime
+    - component: CoderClaw Agent Runtime
       notes: Core agent execution, tool calls, sessions
     - component: Gateway
       notes: Authentication, routing, channel integration
@@ -83,7 +83,7 @@ threats:
     atlas: AML.T0006
     risk: Medium
     category: recon
-    description: Attacker scans for exposed OpenClaw gateway endpoints
+    description: Attacker scans for exposed CoderClaw gateway endpoints
     attackVector: Network scanning, shodan queries, DNS enumeration
     affected: Gateway, exposed API endpoints
     mitigations: Tailscale auth option, bind to loopback by default
@@ -151,7 +151,7 @@ threats:
     category: access
     description: Attacker steals authentication tokens from config files
     attackVector: Malware, unauthorized device access, config backup exposure
-    affected: ~/.openclaw/credentials/, config storage
+    affected: ~/.coderclaw/credentials/, config storage
     mitigations: File permissions
     residualRisk: Tokens stored in plaintext
     recommendations: Implement token encryption at rest, add token rotation
@@ -481,7 +481,7 @@ threats:
     category: exfil
     description: Malicious skill harvests credentials from agent context and environment
     attackVector: Skill code reads environment variables, config files, API keys
-    affected: Skill execution environment, ~/.openclaw/
+    affected: Skill execution environment, ~/.coderclaw/
     mitigations: None specific to skills
     residualRisk: Skills run with agent privileges
     recommendations: Skill sandboxing, credential isolation, capability-based access
@@ -494,7 +494,7 @@ threats:
     category: exfil
     description: Attacker exfiltrates conversation transcripts containing sensitive data
     attackVector: Skill or prompt injection reads and sends transcript files
-    affected: Session transcripts, ~/.openclaw/sessions/
+    affected: Session transcripts, ~/.coderclaw/sessions/
     mitigations: File permissions
     residualRisk: Skills can read transcript files
     recommendations: Transcript encryption, skill filesystem isolation
@@ -897,9 +897,9 @@ key_security_files:
 
 glossary:
   ATLAS: "MITRE's Adversarial Threat Landscape for AI Systems"
-  ClawHub: "OpenClaw's skill marketplace"
-  Gateway: "OpenClaw's message routing and authentication layer"
+  ClawHub: "CoderClaw's skill marketplace"
+  Gateway: "CoderClaw's message routing and authentication layer"
   MCP: Model Context Protocol - tool provider interface
   Prompt Injection: Attack where malicious instructions are embedded in input
-  Skill: Downloadable extension for OpenClaw agents
+  Skill: Downloadable extension for CoderClaw agents
   SSRF: Server-Side Request Forgery

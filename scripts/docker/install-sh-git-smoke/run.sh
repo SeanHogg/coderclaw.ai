@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-LOCAL_INSTALL_PATH="/opt/openclaw-install.sh"
-if [[ -n "${OPENCLAW_INSTALL_URL:-}" ]]; then
-  INSTALL_URL="$OPENCLAW_INSTALL_URL"
-elif [[ -n "${CLAWDBOT_INSTALL_URL:-}" ]]; then
-  INSTALL_URL="$CLAWDBOT_INSTALL_URL"
+LOCAL_INSTALL_PATH="/opt/coderclaw-install.sh"
+if [[ -n "${CODERCLAW_INSTALL_URL:-}" ]]; then
+  INSTALL_URL="$CODERCLAW_INSTALL_URL"
 elif [[ -f "$LOCAL_INSTALL_PATH" ]]; then
   INSTALL_URL="file://${LOCAL_INSTALL_PATH}"
 else
-  INSTALL_URL="https://openclaw.ai/install.sh"
+  INSTALL_URL="https://coderclaw.ai/install.sh"
 fi
 
 curl_install() {
@@ -24,10 +22,10 @@ echo "==> Installer: --help"
 curl_install | bash -s -- --help >/tmp/install-help.txt
 grep -q -- "--install-method" /tmp/install-help.txt
 
-echo "==> Clone Openclaw repo"
-REPO_DIR="/tmp/openclaw-src"
+echo "==> Clone CoderClaw repo"
+REPO_DIR="/tmp/coderclaw-src"
 rm -rf "$REPO_DIR"
-git clone --depth 1 https://github.com/openclaw/openclaw.git "$REPO_DIR"
+git clone --depth 1 https://github.com/coderclaw/coderclaw.git "$REPO_DIR"
 
 echo "==> Verify autodetect defaults to npm (no TTY)"
 (
@@ -55,18 +53,18 @@ echo "==> Install from Git (using detected checkout)"
 )
 
 echo "==> Verify wrapper exists"
-test -x "$HOME/.local/bin/openclaw"
+test -x "$HOME/.local/bin/coderclaw"
 
-echo "==> Verify openclaw runs"
+echo "==> Verify coderclaw runs"
 export PATH="$HOME/.local/bin:$PATH"
-openclaw --help >/dev/null
+coderclaw --help >/dev/null
 
 echo "==> Verify version matches checkout"
 EXPECTED_VERSION="$(node -e "console.log(JSON.parse(require('fs').readFileSync('${REPO_DIR}/package.json','utf8')).version)")"
-INSTALLED_VERSION="$(openclaw --version 2>/dev/null | head -n 1 | tr -d '\r')"
+INSTALLED_VERSION="$(coderclaw --version 2>/dev/null | head -n 1 | tr -d '\r')"
 echo "installed=$INSTALLED_VERSION expected=$EXPECTED_VERSION"
 if [[ "$INSTALLED_VERSION" != "$EXPECTED_VERSION" ]]; then
-  echo "ERROR: expected openclaw@$EXPECTED_VERSION, got $INSTALLED_VERSION" >&2
+  echo "ERROR: expected coderclaw@$EXPECTED_VERSION, got $INSTALLED_VERSION" >&2
   exit 1
 fi
 

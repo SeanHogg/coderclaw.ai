@@ -1,6 +1,6 @@
-# OpenClaw Installer for Windows
-# Usage: iwr -useb https://openclaw.ai/install.ps1 | iex
-#        & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -Tag beta -NoOnboard -DryRun
+# CoderClaw Installer for Windows
+# Usage: iwr -useb https://coderclaw.ai/install.ps1 | iex
+#        & ([scriptblock]::Create((iwr -useb https://coderclaw.ai/install.ps1))) -Tag beta -NoOnboard -DryRun
 
 param(
     [string]$Tag = "latest",
@@ -15,7 +15,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 Write-Host ""
-Write-Host "  OpenClaw Installer" -ForegroundColor Cyan
+Write-Host "  CoderClaw Installer" -ForegroundColor Cyan
 Write-Host ""
 
 # Check if running in PowerShell
@@ -27,34 +27,34 @@ if ($PSVersionTable.PSVersion.Major -lt 5) {
 Write-Host "[OK] Windows detected" -ForegroundColor Green
 
 if (-not $PSBoundParameters.ContainsKey("InstallMethod")) {
-    if (-not [string]::IsNullOrWhiteSpace($env:OPENCLAW_INSTALL_METHOD)) {
-        $InstallMethod = $env:OPENCLAW_INSTALL_METHOD
+    if (-not [string]::IsNullOrWhiteSpace($env:CODERCLAW_INSTALL_METHOD)) {
+        $InstallMethod = $env:CODERCLAW_INSTALL_METHOD
     }
 }
 if (-not $PSBoundParameters.ContainsKey("GitDir")) {
-    if (-not [string]::IsNullOrWhiteSpace($env:OPENCLAW_GIT_DIR)) {
-        $GitDir = $env:OPENCLAW_GIT_DIR
+    if (-not [string]::IsNullOrWhiteSpace($env:CODERCLAW_GIT_DIR)) {
+        $GitDir = $env:CODERCLAW_GIT_DIR
     }
 }
 if (-not $PSBoundParameters.ContainsKey("NoOnboard")) {
-    if ($env:OPENCLAW_NO_ONBOARD -eq "1") {
+    if ($env:CODERCLAW_NO_ONBOARD -eq "1") {
         $NoOnboard = $true
     }
 }
 if (-not $PSBoundParameters.ContainsKey("NoGitUpdate")) {
-    if ($env:OPENCLAW_GIT_UPDATE -eq "0") {
+    if ($env:CODERCLAW_GIT_UPDATE -eq "0") {
         $NoGitUpdate = $true
     }
 }
 if (-not $PSBoundParameters.ContainsKey("DryRun")) {
-    if ($env:OPENCLAW_DRY_RUN -eq "1") {
+    if ($env:CODERCLAW_DRY_RUN -eq "1") {
         $DryRun = $true
     }
 }
 
 if ([string]::IsNullOrWhiteSpace($GitDir)) {
     $userHome = [Environment]::GetFolderPath("UserProfile")
-    $GitDir = (Join-Path $userHome "openclaw")
+    $GitDir = (Join-Path $userHome "coderclaw")
 }
 
 # Check for Node.js
@@ -123,11 +123,11 @@ function Install-Node {
     exit 1
 }
 
-# Check for existing OpenClaw installation
-function Check-ExistingOpenClaw {
+# Check for existing CoderClaw installation
+function Check-ExistingCoderClaw {
     try {
-        $null = Get-Command openclaw -ErrorAction Stop
-    Write-Host "[*] Existing OpenClaw installation detected" -ForegroundColor Yellow
+        $null = Get-Command coderclaw -ErrorAction Stop
+    Write-Host "[*] Existing CoderClaw installation detected" -ForegroundColor Yellow
     return $true
     } catch {
         return $false
@@ -153,8 +153,8 @@ function Require-Git {
     exit 1
 }
 
-function Ensure-OpenClawOnPath {
-    if (Get-Command openclaw -ErrorAction SilentlyContinue) {
+function Ensure-CoderClawOnPath {
+    if (Get-Command coderclaw -ErrorAction SilentlyContinue) {
         return $true
     }
 
@@ -173,12 +173,12 @@ function Ensure-OpenClawOnPath {
             $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
             Write-Host "[!] Added $npmBin to user PATH (restart terminal if command not found)" -ForegroundColor Yellow
         }
-        if (Test-Path (Join-Path $npmBin "openclaw.cmd")) {
+        if (Test-Path (Join-Path $npmBin "coderclaw.cmd")) {
             return $true
         }
     }
 
-    Write-Host "[!] openclaw is not on PATH yet." -ForegroundColor Yellow
+    Write-Host "[!] coderclaw is not on PATH yet." -ForegroundColor Yellow
     Write-Host "Restart PowerShell or add the npm global bin folder to PATH." -ForegroundColor Yellow
     if ($npmPrefix) {
         Write-Host "Expected path: $npmPrefix\\bin" -ForegroundColor Cyan
@@ -209,17 +209,17 @@ function Ensure-Pnpm {
     Write-Host "[OK] pnpm installed" -ForegroundColor Green
 }
 
-# Install OpenClaw
-function Install-OpenClaw {
+# Install CoderClaw
+function Install-CoderClaw {
     if ([string]::IsNullOrWhiteSpace($Tag)) {
         $Tag = "latest"
     }
-    # Use openclaw package for beta, openclaw for stable
-    $packageName = "openclaw"
+    # Use coderclaw package for beta, coderclaw for stable
+    $packageName = "coderclaw"
     if ($Tag -eq "beta" -or $Tag -match "^beta\.") {
-        $packageName = "openclaw"
+        $packageName = "coderclaw"
     }
-    Write-Host "[*] Installing OpenClaw ($packageName@$Tag)..." -ForegroundColor Yellow
+    Write-Host "[*] Installing CoderClaw ($packageName@$Tag)..." -ForegroundColor Yellow
     $prevLogLevel = $env:NPM_CONFIG_LOGLEVEL
     $prevUpdateNotifier = $env:NPM_CONFIG_UPDATE_NOTIFIER
     $prevFund = $env:NPM_CONFIG_FUND
@@ -238,7 +238,7 @@ function Install-OpenClaw {
                 Write-Host "  https://git-scm.com/download/win" -ForegroundColor Cyan
             } else {
                 Write-Host "Re-run with verbose output to see the full error:" -ForegroundColor Yellow
-                Write-Host "  iwr -useb https://openclaw.ai/install.ps1 | iex" -ForegroundColor Cyan
+                Write-Host "  iwr -useb https://coderclaw.ai/install.ps1 | iex" -ForegroundColor Cyan
             }
             $npmOutput | ForEach-Object { Write-Host $_ }
             exit 1
@@ -249,11 +249,11 @@ function Install-OpenClaw {
         $env:NPM_CONFIG_FUND = $prevFund
         $env:NPM_CONFIG_AUDIT = $prevAudit
     }
-    Write-Host "[OK] OpenClaw installed" -ForegroundColor Green
+    Write-Host "[OK] CoderClaw installed" -ForegroundColor Green
 }
 
-# Install OpenClaw from GitHub
-function Install-OpenClawFromGit {
+# Install CoderClaw from GitHub
+function Install-CoderClawFromGit {
     param(
         [string]$RepoDir,
         [switch]$SkipUpdate
@@ -261,8 +261,8 @@ function Install-OpenClawFromGit {
     Require-Git
     Ensure-Pnpm
 
-    $repoUrl = "https://github.com/openclaw/openclaw.git"
-    Write-Host "[*] Installing OpenClaw from GitHub ($repoUrl)..." -ForegroundColor Yellow
+    $repoUrl = "https://github.com/coderclaw/coderclaw.git"
+    Write-Host "[*] Installing CoderClaw from GitHub ($repoUrl)..." -ForegroundColor Yellow
 
     if (-not (Test-Path $RepoDir)) {
         git clone $repoUrl $RepoDir
@@ -290,7 +290,7 @@ function Install-OpenClawFromGit {
     if (-not (Test-Path $binDir)) {
         New-Item -ItemType Directory -Force -Path $binDir | Out-Null
     }
-    $cmdPath = Join-Path $binDir "openclaw.cmd"
+    $cmdPath = Join-Path $binDir "coderclaw.cmd"
     $cmdContents = "@echo off`r`nnode ""$RepoDir\\dist\\entry.js"" %*`r`n"
     Set-Content -Path $cmdPath -Value $cmdContents -NoNewline
 
@@ -301,7 +301,7 @@ function Install-OpenClawFromGit {
         Write-Host "[!] Added $binDir to user PATH (restart terminal if command not found)" -ForegroundColor Yellow
     }
 
-    Write-Host "[OK] OpenClaw wrapper installed to $cmdPath" -ForegroundColor Green
+    Write-Host "[OK] CoderClaw wrapper installed to $cmdPath" -ForegroundColor Green
     Write-Host "[i] This checkout uses pnpm. For deps, run: pnpm install (avoid npm install in the repo)." -ForegroundColor Gray
 }
 
@@ -309,7 +309,7 @@ function Install-OpenClawFromGit {
 function Run-Doctor {
     Write-Host "[*] Running doctor to migrate settings..." -ForegroundColor Yellow
     try {
-        openclaw doctor --non-interactive
+        coderclaw doctor --non-interactive
     } catch {
         # Ignore errors from doctor
     }
@@ -317,11 +317,11 @@ function Run-Doctor {
 }
 
 function Get-LegacyRepoDir {
-    if (-not [string]::IsNullOrWhiteSpace($env:OPENCLAW_GIT_DIR)) {
-        return $env:OPENCLAW_GIT_DIR
+    if (-not [string]::IsNullOrWhiteSpace($env:CODERCLAW_GIT_DIR)) {
+        return $env:CODERCLAW_GIT_DIR
     }
     $userHome = [Environment]::GetFolderPath("UserProfile")
-    return (Join-Path $userHome "openclaw")
+    return (Join-Path $userHome "coderclaw")
 }
 
 function Remove-LegacySubmodule {
@@ -365,7 +365,7 @@ function Main {
     Remove-LegacySubmodule -RepoDir $RepoDir
 
     # Check for existing installation
-    $isUpgrade = Check-ExistingOpenClaw
+    $isUpgrade = Check-ExistingCoderClaw
 
     # Step 1: Node.js
     if (-not (Check-Node)) {
@@ -382,17 +382,17 @@ function Main {
 
     $finalGitDir = $null
 
-    # Step 2: OpenClaw
+    # Step 2: CoderClaw
     if ($InstallMethod -eq "git") {
         $finalGitDir = $GitDir
-        Install-OpenClawFromGit -RepoDir $GitDir -SkipUpdate:$NoGitUpdate
+        Install-CoderClawFromGit -RepoDir $GitDir -SkipUpdate:$NoGitUpdate
     } else {
-        Install-OpenClaw
+        Install-CoderClaw
     }
 
-    if (-not (Ensure-OpenClawOnPath)) {
-        Write-Host "Install completed, but OpenClaw is not on PATH yet." -ForegroundColor Yellow
-        Write-Host "Open a new terminal, then run: openclaw doctor" -ForegroundColor Cyan
+    if (-not (Ensure-CoderClawOnPath)) {
+        Write-Host "Install completed, but CoderClaw is not on PATH yet." -ForegroundColor Yellow
+        Write-Host "Open a new terminal, then run: coderclaw doctor" -ForegroundColor Cyan
         return
     }
 
@@ -403,15 +403,15 @@ function Main {
 
     $installedVersion = $null
     try {
-        $installedVersion = (openclaw --version 2>$null).Trim()
+        $installedVersion = (coderclaw --version 2>$null).Trim()
     } catch {
         $installedVersion = $null
     }
     if (-not $installedVersion) {
         try {
             $npmList = npm list -g --depth 0 --json 2>$null | ConvertFrom-Json
-            if ($npmList -and $npmList.dependencies -and $npmList.dependencies.openclaw -and $npmList.dependencies.openclaw.version) {
-                $installedVersion = $npmList.dependencies.openclaw.version
+            if ($npmList -and $npmList.dependencies -and $npmList.dependencies.coderclaw -and $npmList.dependencies.coderclaw.version) {
+                $installedVersion = $npmList.dependencies.coderclaw.version
             }
         } catch {
             $installedVersion = $null
@@ -420,9 +420,9 @@ function Main {
 
     Write-Host ""
     if ($installedVersion) {
-        Write-Host "OpenClaw installed successfully ($installedVersion)!" -ForegroundColor Green
+        Write-Host "CoderClaw installed successfully ($installedVersion)!" -ForegroundColor Green
     } else {
-        Write-Host "OpenClaw installed successfully!" -ForegroundColor Green
+        Write-Host "CoderClaw installed successfully!" -ForegroundColor Green
     }
     Write-Host ""
     if ($isUpgrade) {
@@ -469,23 +469,23 @@ function Main {
 
     if ($InstallMethod -eq "git") {
         Write-Host "Source checkout: $finalGitDir" -ForegroundColor Cyan
-        Write-Host "Wrapper: $env:USERPROFILE\\.local\\bin\\openclaw.cmd" -ForegroundColor Cyan
+        Write-Host "Wrapper: $env:USERPROFILE\\.local\\bin\\coderclaw.cmd" -ForegroundColor Cyan
         Write-Host ""
     }
 
     if ($isUpgrade) {
         Write-Host "Upgrade complete. Run " -NoNewline
-        Write-Host "openclaw doctor" -ForegroundColor Cyan -NoNewline
+        Write-Host "coderclaw doctor" -ForegroundColor Cyan -NoNewline
         Write-Host " to check for additional migrations."
     } else {
         if ($NoOnboard) {
             Write-Host "Skipping onboard (requested). Run " -NoNewline
-            Write-Host "openclaw onboard" -ForegroundColor Cyan -NoNewline
+            Write-Host "coderclaw onboard" -ForegroundColor Cyan -NoNewline
             Write-Host " later."
         } else {
             Write-Host "Starting setup..." -ForegroundColor Cyan
             Write-Host ""
-            openclaw onboard
+            coderclaw onboard
         }
     }
 }

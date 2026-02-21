@@ -1,11 +1,11 @@
-# OpenClaw 脅威モデル
+# CoderClaw 脅威モデル
 # MITRE ATLASフレームワーク（AIシステムに対する敵対的脅威ランドスケープ）に基づく
 # バージョン: 1.0-draft
 # 最終更新: 2026-02-04
 # 方法論: MITRE ATLAS + データフロー図
 #
 # コントリビュート方法: CONTRIBUTING.md を参照
-# セキュリティの問題を報告: security@openclaw.ai
+# セキュリティの問題を報告: security@coderclaw.ai
 
 metadata:
   version: "1.0-draft"
@@ -27,7 +27,7 @@ metadata:
 
 scope:
   included:
-    - component: OpenClaw Agent Runtime
+    - component: CoderClaw Agent Runtime
       notes: コアのエージェント実行、ツール呼び出し、セッション
     - component: Gateway
       notes: 認証、ルーティング、チャネル統合
@@ -83,7 +83,7 @@ threats:
     atlas: AML.T0006
     risk: Medium
     category: recon
-    description: 攻撃者が公開されたOpenClaw Gatewayエンドポイントをスキャンする
+    description: 攻撃者が公開されたCoderClaw Gatewayエンドポイントをスキャンする
     attackVector: ネットワークスキャン、Shodanクエリ、DNS列挙
     affected: Gateway、公開されたAPIエンドポイント
     mitigations: Tailscale認証オプション、デフォルトでループバックにバインド
@@ -151,7 +151,7 @@ threats:
     category: access
     description: 攻撃者が設定ファイルから認証トークンを窃取する
     attackVector: マルウェア、不正なデバイスアクセス、設定バックアップの漏洩
-    affected: ~/.openclaw/credentials/、設定ストレージ
+    affected: ~/.coderclaw/credentials/、設定ストレージ
     mitigations: ファイルパーミッション
     residualRisk: トークンが平文で保存されている
     recommendations: トークンの保存時暗号化を実装、トークンローテーションを追加
@@ -481,7 +481,7 @@ threats:
     category: exfil
     description: 悪意のあるスキルがエージェントのコンテキストと環境から認証情報を収集する
     attackVector: スキルコードが環境変数、設定ファイル、APIキーを読み取る
-    affected: スキル実行環境、~/.openclaw/
+    affected: スキル実行環境、~/.coderclaw/
     mitigations: スキルに対する特定の対策なし
     residualRisk: スキルはエージェント権限で実行される
     recommendations: スキルのサンドボックス化、認証情報の分離、ケイパビリティベースのアクセス制御
@@ -494,7 +494,7 @@ threats:
     category: exfil
     description: 攻撃者が機密データを含む会話のトランスクリプトを窃取する
     attackVector: スキルまたはプロンプトインジェクションがトランスクリプトファイルを読み取り、送信する
-    affected: セッションのトランスクリプト、~/.openclaw/sessions/
+    affected: セッションのトランスクリプト、~/.coderclaw/sessions/
     mitigations: ファイルパーミッション
     residualRisk: スキルがトランスクリプトファイルを読み取り可能
     recommendations: トランスクリプトの暗号化、スキルのファイルシステム分離
@@ -897,9 +897,9 @@ key_security_files:
 
 glossary:
   ATLAS: "MITREのAIシステムに対する敵対的脅威ランドスケープ"
-  ClawHub: "OpenClawのスキルマーケットプレイス"
-  Gateway: "OpenClawのメッセージルーティングおよび認証レイヤー"
+  ClawHub: "CoderClawのスキルマーケットプレイス"
+  Gateway: "CoderClawのメッセージルーティングおよび認証レイヤー"
   MCP: モデルコンテキストプロトコル - ツールプロバイダーインターフェース
   Prompt Injection: 入力に悪意のある指示を埋め込む攻撃
-  Skill: OpenClawエージェント用のダウンロード可能なエクステンション
+  Skill: CoderClawエージェント用のダウンロード可能なエクステンション
   SSRF: サーバーサイドリクエストフォージェリ

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-LOCAL_INSTALL_PATH="/opt/clawdbot-install.sh"
-if [[ -n "${CLAWDBOT_INSTALL_URL:-}" ]]; then
-  INSTALL_URL="$CLAWDBOT_INSTALL_URL"
+LOCAL_INSTALL_PATH="/opt/coderclaw-install.sh"
+if [[ -n "${CODERCLAW_INSTALL_URL:-}" ]]; then
+  INSTALL_URL="$CODERCLAW_INSTALL_URL"
 elif [[ -f "$LOCAL_INSTALL_PATH" ]]; then
   INSTALL_URL="file://${LOCAL_INSTALL_PATH}"
 else
@@ -14,7 +14,7 @@ fetch_registry_versions() {
   node - <<'NODE'
 const https = require("node:https");
 
-const url = process.env.NPM_REGISTRY_URL || "https://registry.npmjs.org/clawdbot";
+const url = process.env.NPM_REGISTRY_URL || "https://registry.npmjs.org/coderclaw";
 
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -95,29 +95,29 @@ curl_install | bash -s -- --help >/tmp/install-help.txt
 grep -q -- "--install-method" /tmp/install-help.txt
 
 echo "==> Preinstall previous (forces installer upgrade path)"
-npm install -g "clawdbot@${PREVIOUS_VERSION}"
+npm install -g "coderclaw@${PREVIOUS_VERSION}"
 
 echo "==> Run official installer one-liner"
 curl_install | bash -s -- --no-onboard
 
 echo "==> Verify installed version"
-INSTALLED_VERSION="$(clawdbot --version 2>/dev/null | head -n 1 | tr -d '\r')"
+INSTALLED_VERSION="$(coderclaw --version 2>/dev/null | head -n 1 | tr -d '\r')"
 echo "installed=$INSTALLED_VERSION latest=$LATEST_VERSION next=$NEXT_VERSION"
 
 if [[ "$INSTALLED_VERSION" != "$LATEST_VERSION" && "$INSTALLED_VERSION" != "$NEXT_VERSION" ]]; then
-  echo "ERROR: expected clawdbot@$LATEST_VERSION (latest) or @$NEXT_VERSION (next), got @$INSTALLED_VERSION" >&2
+  echo "ERROR: expected coderclaw@$LATEST_VERSION (latest) or @$NEXT_VERSION (next), got @$INSTALLED_VERSION" >&2
   exit 1
 fi
 
 echo "==> Sanity: CLI runs"
-clawdbot --help >/dev/null
+coderclaw --help >/dev/null
 
 echo "==> Installer: detect source checkout (dry-run)"
-TMP_REPO="/tmp/clawdbot-repo-detect"
+TMP_REPO="/tmp/coderclaw-repo-detect"
 rm -rf "$TMP_REPO"
 mkdir -p "$TMP_REPO"
 cat > "$TMP_REPO/package.json" <<'EOF'
-{"name":"clawdbot"}
+{"name":"coderclaw"}
 EOF
 touch "$TMP_REPO/pnpm-workspace.yaml"
 
@@ -141,6 +141,6 @@ touch "$TMP_REPO/pnpm-workspace.yaml"
 
 echo "==> Installer: dry-run (explicit methods)"
 curl_install | bash -s -- --dry-run --no-onboard --install-method npm --no-prompt >/dev/null
-curl_install | bash -s -- --dry-run --no-onboard --install-method git --git-dir /tmp/clawdbot-src --no-prompt >/dev/null
+curl_install | bash -s -- --dry-run --no-onboard --install-method git --git-dir /tmp/coderclaw-src --no-prompt >/dev/null
 
 echo "OK"
