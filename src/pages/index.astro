@@ -76,17 +76,6 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
       </p>
     </header>
 
-    <!-- Latest Blog Post -->
-    {latestPost && (
-      <section class="latest-post">
-        <a href={`/blog/${latestPost.slug}`} class="latest-post-card">
-          <span class="latest-post-badge">New</span>
-          <span class="latest-post-title">{latestPost.data.title}</span>
-          <span class="latest-post-link">→</span>
-        </a>
-      </section>
-    )}
-
     <!-- Quick Start -->
     <section class="quickstart">
       <h2 class="section-title">
