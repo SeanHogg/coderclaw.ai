@@ -87,54 +87,6 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
       </section>
     )}
 
-    <!-- Testimonials (moved up for social proof) -->
-    <section class="testimonials">
-      <div class="section-header">
-        <h2 class="section-title">
-          <span class="claw-accent">⟩</span> What People Say
-        </h2>
-        <a href="/shoutouts" class="section-link">View all <span class="sr-only">community shoutouts</span>
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-      <div class="testimonials-track">
-        <div class="testimonials-row row-1" style={`--duration: ${duration1}s`}>
-          {row1.map((t) => (
-            <a href={t.url} target="_blank" rel="noopener" class="testimonial-card" tabindex="-1">
-              <img
-                src={`https://unavatar.io/x/${t.author}`}
-                alt={t.author}
-                class="testimonial-avatar"
-                loading="lazy"
-                onerror={`this.src='https://ui-avatars.com/api/?name=${t.author}&background=FF4D4D&color=fff&size=88'`}
-              />
-              <div class="testimonial-content">
-                <p class="testimonial-quote">"{t.quote}"</p>
-                <span class="testimonial-author">@{t.author}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-        <div class="testimonials-row row-2" style={`--duration: ${duration2}s`}>
-          {row2.map((t) => (
-            <a href={t.url} target="_blank" rel="noopener" class="testimonial-card">
-              <img
-                src={`https://unavatar.io/x/${t.author}`}
-                alt={t.author}
-                class="testimonial-avatar"
-                loading="lazy"
-                onerror={`this.src='https://ui-avatars.com/api/?name=${t.author}&background=FF4D4D&color=fff&size=88'`}
-              />
-              <div class="testimonial-content">
-                <p class="testimonial-quote">"{t.quote}"</p>
-                <span class="testimonial-author">@{t.author}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
     <!-- Quick Start -->
     <section class="quickstart">
       <h2 class="section-title">
@@ -226,7 +178,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
             <div class="code-line comment"># You clearly know what you're doing</div>
             <div class="code-line cmd">
               <span class="code-prompt">$</span>
-              <span>git clone https://github.com/coderclaw/coderclaw.git</span>
+              <span>git clone https://github.com/seanhogg/coderclaw.git</span>
               <button class="copy-line-btn" data-cmd="clone" title="Copy">
                 <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                 <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><polyline points="20 6 9 17 4 12"/></svg>
@@ -504,7 +456,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
         },
         'onboard': () => 'coderclaw onboard',
         'hackable-installer': () => "curl -fsSL https://coderclaw.ai/install.sh | bash -s -- --install-method git",
-        'clone': () => 'git clone https://github.com/coderclaw/coderclaw.git',
+        'clone': () => 'git clone https://github.com/seanhogg/coderclaw.git',
         'build': () => 'cd coderclaw && pnpm install && pnpm run build',
         'hackable-onboard': () => 'pnpm run coderclaw onboard',
       };

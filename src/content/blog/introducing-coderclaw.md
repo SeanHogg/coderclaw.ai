@@ -48,7 +48,7 @@ I'd like to thank all security folks for their hard work in helping us harden th
 
 What's next? Security remains our top priority. We're also focused on gateway reliability and adding polish plus support for more models and providers.
 
-This project has grown far beyond what I could maintain alone. Over the last few days I've worked on adding maintainers and we're slowly setting up processes so we can deal with the insane influx of PRs and Issues. I'm also figuring out how to pay maintainers properly—full-time if possible. If you wanna help, consider <a href="https://github.com/coderclaw/coderclaw/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">contributing</a> or <a href="https://github.com/sponsors/coderclaw" target="_blank" rel="noopener">sponsoring the org</a>.
+This project has grown far beyond what I could maintain alone. Over the last few days I've worked on adding maintainers and we're slowly setting up processes so we can deal with the insane influx of PRs and Issues. I'm also figuring out how to pay maintainers properly—full-time if possible. If you wanna help, consider <a href="https://github.com/seanhogg/coderclaw/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">contributing</a> or <a href="https://github.com/sponsors/seanhogg" target="_blank" rel="noopener">sponsoring the org</a>.
 
 ## Thank You
 
@@ -62,7 +62,7 @@ The lobster has molted into its final form. Welcome to CoderClaw.
 
 *Join the Claw Crew: <a href="https://discord.gg/coderclaw" target="_blank" rel="noopener">Discord</a>*
 
-*Star on GitHub: <a href="https://github.com/coderclaw/coderclaw" target="_blank" rel="noopener">github.com/coderclaw/coderclaw</a>*
+*Star on GitHub: <a href="https://github.com/seanhogg/coderclaw" target="_blank" rel="noopener">github.com/seanhogg/coderclaw</a>*
 
 — Peter
 
