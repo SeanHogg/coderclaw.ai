@@ -1,20 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import showcaseData from '../data/showcase.json';
 
-// Use JSON order directly.
-const sortedShowcase = showcaseData;
-
-const categoryLabels: Record<string, string> = {
-  'power-user': '🚀 Power User',
-  'automation': '⚡ Automation',
-  'productivity': '📋 Productivity',
-  'integration': '🔗 Integration',
-  'developer': '💻 Developer',
-  'personal': '👤 Personal',
-  'family': '👨‍👩‍👧 Family',
-  'smart-home': '🏠 Smart Home',
-};
+// Static page structure - content loads dynamically via JavaScript
 ---
 
 <Layout title="Showcase — What People Are Building with CoderClaw">
@@ -28,35 +15,19 @@ const categoryLabels: Record<string, string> = {
         <span class="claw-accent">⟩</span> What People Are Building
       </h1>
       <p class="subtitle">Real projects, real automation, real magic.</p>
+      <div class="filter-controls">
+        <button class="filter-toggle active" data-filter="coderclaw" aria-pressed="true">
+          CoderClaw Projects (<span id="coderclaw-count">0</span>)
+        </button>
+        <button class="filter-toggle" data-filter="all" aria-pressed="false">
+          All Projects (<span id="all-count">0</span>)
+        </button>
+      </div>
+      <div id="loading" class="loading-message">Loading projects...</div>
     </header>
 
-    <div class="showcase-grid">
-      {sortedShowcase.map((item) => (
-        <a href={`https://x.com/${item.author}/status/${item.id}`} target="_blank" rel="noopener" class="showcase-card">
-          <div class="card-header">
-            <img
-              src={`https://unavatar.io/x/${item.author}`}
-              alt={item.author}
-              class="avatar"
-              loading="lazy"
-            />
-            <div class="author-info">
-              <span class="author-name">@{item.author}</span>
-              <span class="category-tag">{categoryLabels[item.category] || item.category}</span>
-            </div>
-            <span class="likes">❤️ {item.likes}</span>
-          </div>
-          <p class="quote">{item.quote}</p>
-          {item.images && item.images.length > 0 && (
-            <div class="images">
-              {item.images.map((img: string) => (
-                <img src={img} alt="Screenshot" class="tweet-image" loading="lazy" />
-              ))}
-            </div>
-          )}
-          <span class="view-link">View on X →</span>
-        </a>
-      ))}
+    <div class="showcase-grid" id="showcase-grid">
+      <!-- Content loaded dynamically -->
     </div>
 
     <section class="cta-section">
@@ -85,7 +56,7 @@ const categoryLabels: Record<string, string> = {
         <span class="footer-separator">·</span>
         <a href="https://trust.coderclaw.ai/">Trust</a>
       </nav>
-      <p>Built by <a href="https://molty.me" target="_blank" rel="noopener">Molty</a> 🦞</p>
+      <p>Built by coders</p>
     </footer>
   </main>
 </Layout>
@@ -175,11 +146,55 @@ const categoryLabels: Record<string, string> = {
   .subtitle {
     color: var(--text-secondary);
     font-size: 1.1rem;
+    margin-bottom: 24px;
+  }
+
+  .filter-controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .filter-toggle {
+    padding: 10px 20px;
+    background: var(--surface-card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-toggle:hover {
+    border-color: var(--border-accent);
+    color: var(--text-primary);
+  }
+
+  .filter-toggle.active {
+    background: var(--coral-bright);
+    border-color: var(--coral-bright);
+    color: white;
+  }
+
+  .loading-message {
+    text-align: center;
+    padding: 32px;
+    color: var(--text-secondary);
+    font-size: 16px;
+  }
+
+  .loading-message.hidden {
+    display: none;
   }
 
   .showcase-grid {
-    column-width: 340px;
-    column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
     margin-bottom: 56px;
   }
 
@@ -195,21 +210,17 @@ const categoryLabels: Record<string, string> = {
     text-decoration: none;
     color: var(--text-primary);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
-    break-inside: avoid-column;
-    margin-bottom: 20px;
   }
 
   .showcase-card:hover {
     border-color: var(--coral-bright);
     transform: translateY(-4px);
-    box-shadow: 0 16px 48px var(--shadow-coral-soft);
+    box-shadow: 0 12px 40px var(--shadow-coral-soft);
   }
 
   .card-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
   }
 
@@ -217,68 +228,77 @@ const categoryLabels: Record<string, string> = {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    flex-shrink: 0;
     border: 2px solid var(--border-subtle);
     background: var(--bg-elevated);
-    object-fit: cover;
+    flex-shrink: 0;
   }
 
   .author-info {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
     flex: 1;
   }
 
   .author-name {
     font-weight: 600;
-    color: var(--coral-bright);
+    color: var(--text-primary);
     font-size: 0.95rem;
   }
 
   .category-tag {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
   }
 
   .likes {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
+    white-space: nowrap;
   }
 
   .quote {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     color: var(--text-secondary);
-    white-space: pre-line;
+    margin: 0;
+    flex: 1;
   }
 
   .images {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 8px;
-    margin-top: 12px;
   }
 
   .tweet-image {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    border: 1px solid var(--border-subtle);
     object-fit: cover;
-    max-height: 200px;
   }
 
   .view-link {
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    display: inline-block;
+    margin-top: 8px;
     padding-top: 12px;
     border-top: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
     transition: color 0.2s ease;
   }
 
   .showcase-card:hover .view-link {
     color: var(--coral-bright);
+  }
+
+  .showcase-card.hidden {
+    display: none;
+  }
+
+  .showcase-grid.filter-coderclaw .showcase-card:not([data-type="coderclaw"]) {
+    display: none;
   }
 
   .cta-section {
@@ -306,7 +326,7 @@ const categoryLabels: Record<string, string> = {
 
   .cta-buttons {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -316,56 +336,56 @@ const categoryLabels: Record<string, string> = {
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    border-radius: 10px;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 0.95rem;
+    border-radius: 12px;
     text-decoration: none;
-    transition: all 0.25s ease;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
   }
 
   .cta-primary {
     background: linear-gradient(135deg, var(--coral-bright) 0%, var(--coral-dark) 100%);
     color: white;
-    box-shadow: 0 4px 20px var(--shadow-coral-mid);
   }
 
   .cta-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(255, 77, 77, 0.4);
+    box-shadow: 0 8px 24px var(--shadow-coral-soft);
   }
 
   .cta-hub {
-    background: var(--surface-cyan-soft);
-    border: 1px solid var(--cyan-bright);
-    color: var(--cyan-bright);
+    background: var(--surface-interactive);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
   }
 
   .cta-hub:hover {
-    background: rgba(0, 229, 204, 0.25);
-    transform: translateY(-2px);
+    background: var(--surface-interactive-hover);
+    border-color: var(--coral-bright);
   }
 
   .cta-secondary {
-    background: rgba(88, 101, 242, 0.15);
-    border: 1px solid #5865F2;
-    color: #5865F2;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
   }
 
   .cta-secondary:hover {
-    background: rgba(88, 101, 242, 0.25);
-    transform: translateY(-2px);
+    border-color: var(--coral-bright);
+    color: var(--coral-bright);
   }
 
   .more-examples {
     text-align: center;
-    color: var(--text-muted);
+    color: var(--text-secondary);
+    margin-bottom: 48px;
     font-size: 0.95rem;
-    margin-bottom: 32px;
   }
 
   .more-examples a {
-    color: var(--cyan-bright);
+    color: var(--coral-bright);
     text-decoration: none;
   }
 
@@ -387,6 +407,7 @@ const categoryLabels: Record<string, string> = {
     align-items: center;
     gap: 12px;
     margin-bottom: 16px;
+    flex-wrap: wrap;
   }
 
   .footer-separator {
@@ -402,18 +423,13 @@ const categoryLabels: Record<string, string> = {
     color: var(--cyan-bright);
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     .container {
       padding: 24px 16px;
     }
 
     .showcase-grid {
-      column-width: auto;
-      column-count: 1;
-    }
-
-    .showcase-card {
-      padding: 20px;
+      grid-template-columns: 1fr;
     }
 
     .cta-buttons {
@@ -428,3 +444,137 @@ const categoryLabels: Record<string, string> = {
     }
   }
 </style>
+
+<script>
+  const categoryLabels: Record<string, string> = {
+    'power-user': '🚀 Power User',
+    'automation': '⚡ Automation',
+    'productivity': '📋 Productivity',
+    'integration': '🔗 Integration',
+    'developer': '💻 Developer',
+    'personal': '👤 Personal',
+    'family': '👨‍👩‍👧 Family',
+    'smart-home': '🏠 Smart Home',
+    'creative': '🎨 Creative',
+    'hardware': '⚙️ Hardware',
+    'general': '📱 General',
+    'setup': '🔧 Setup',
+  };
+
+  interface Tweet {
+    id: string;
+    author: string;
+    quote: string;
+    likes: number;
+    images?: string[];
+  }
+
+  async function loadShowcase() {
+    const grid = document.getElementById('showcase-grid') as HTMLDivElement;
+    const loading = document.getElementById('loading') as HTMLDivElement;
+    const filterButtons = document.querySelectorAll('.filter-toggle');
+
+    try {
+      // Fetch showcase data from API endpoint
+      const response = await fetch('/api/showcase');
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch showcase data');
+      }
+
+      const allTweets: Tweet[] = await response.json();
+      
+      // Filter for CodercClaw mentions
+      const coderclawTweets = allTweets.filter(tweet => {
+        const text = `${tweet.quote} ${tweet.author}`.toLowerCase();
+        return text.includes('@coderclaw') || text.includes('#coderclaw');
+      });
+
+      // Render tweets
+      const renderTweets = (tweets: Tweet[], showAll: boolean = false) => {
+        grid.innerHTML = '';
+        const tweetsToRender = showAll ? allTweets : coderclawTweets;
+        
+        tweetsToRender.forEach(tweet => {
+          const hasCoderclaw = `${tweet.quote} ${tweet.author}`.toLowerCase().includes('@coderclaw') || 
+                               `${tweet.quote} ${tweet.author}`.toLowerCase().includes('#coderclaw');
+          
+          const card = document.createElement('a');
+          card.href = `https://x.com/${tweet.author}/status/${tweet.id}`;
+          card.target = '_blank';
+          card.rel = 'noopener';
+          card.className = `showcase-card ${hasCoderclaw ? 'has-coderclaw' : ''}`;
+          card.setAttribute('data-type', hasCoderclaw ? 'coderclaw' : 'other');
+          
+          let imagesHTML = '';
+          if (tweet.images && tweet.images.length > 0) {
+            imagesHTML = `
+              <div class="images">
+                ${tweet.images.map(img => `<img src="${img}" alt="Screenshot" class="tweet-image" loading="lazy" />`).join('')}
+              </div>
+            `;
+          }
+          
+          card.innerHTML = `
+            <div class="card-header">
+              <img src="https://unavatar.io/x/${tweet.author}" alt="${tweet.author}" class="avatar" loading="lazy" />
+              <div class="author-info">
+                <span class="author-name">@${tweet.author}</span>
+                <span class="category-tag">💬 Tweet</span>
+              </div>
+              <span class="likes">❤️ ${tweet.likes}</span>
+            </div>
+            <p class="quote">${tweet.quote}</p>
+            ${imagesHTML}
+            <span class="view-link">View on X →</span>
+          `;
+          
+          grid.appendChild(card);
+        });
+
+        // Update counts
+        (document.getElementById('coderclaw-count') as HTMLSpanElement).textContent = coderclawTweets.length.toString();
+        (document.getElementById('all-count') as HTMLSpanElement).textContent = allTweets.length.toString();
+      };
+
+      // Initial render with coderclaw filter
+      renderTweets(coderclawTweets, false);
+      grid.classList.add('filter-coderclaw');
+
+      // Setup filter buttons
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = (button as HTMLElement).getAttribute('data-filter');
+          
+          // Update active state
+          filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-pressed', 'false');
+          });
+          button.classList.add('active');
+          button.setAttribute('aria-pressed', 'true');
+
+          // Update grid
+          if (filter === 'coderclaw') {
+            grid.classList.add('filter-coderclaw');
+          } else {
+            grid.classList.remove('filter-coderclaw');
+          }
+        });
+      });
+
+      // Hide loading message
+      loading.classList.add('hidden');
+    } catch (error) {
+      console.error('Error loading showcase:', error);
+      loading.textContent = 'Unable to load projects. Please try again later.';
+    }
+  }
+
+  // Load on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadShowcase);
+  } else {
+    loadShowcase();
+  }
+</script>
