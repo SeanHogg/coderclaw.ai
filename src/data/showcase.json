@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "2012535486401671588",
     "author": "dreetje",
@@ -102,7 +102,7 @@
   {
     "id": "2012028725710192741",
     "author": "jdrhyne",
-    "quote": "Just built a GA4 skill for @coderclaw in ~20 minutes.\n\nSolved my own problem → packaged it → published to ClawHub.\n\nNow anyone can `clawhub install ga4` and start querying their analytics.\n\nThe best part of agent skills: pay it forward so the next person doesn't have to figure it out.",
+    "quote": "Just built a GA4 skill for @coderclaw in ~20 minutes.\n\nSolved my own problem → packaged it → published to CoderClaw Skills.\n\nNow anyone can `CoderClaw Skills install ga4` and start querying their analytics.\n\nThe best part of agent skills: pay it forward so the next person doesn't have to figure it out.",
     "category": "developer",
     "likes": 42,
     "images": [
@@ -156,7 +156,7 @@
   {
     "id": "2008336434827002232",
     "author": "jdrhyne",
-    "quote": "Honestly, @coderclaw is super powerful because of its ease of use. It literally just connected to JIRA and built a skill since it wasn't on @clawhub yet. Look how simple it was",
+    "quote": "Honestly, @coderclaw is super powerful because of its ease of use. It literally just connected to JIRA and built a skill since it wasn't on @CoderClaw Skills yet. Look how simple it was",
     "category": "developer",
     "likes": 46,
     "images": [
@@ -612,7 +612,7 @@
   {
     "id": "2013196232181637500",
     "author": "christinetyip",
-    "quote": "I connected mine to an external memory layer - check out the shared-memory skill in clawhub.\n\nCoderClaw helps me build my second brain and selectively shares context and state with my partner's CoderClaw.",
+    "quote": "I connected mine to an external memory layer - check out the shared-memory skill in CoderClaw Skills.\n\nCoderClaw helps me build my second brain and selectively shares context and state with my partner's CoderClaw.",
     "category": "integration",
     "likes": 1
   },

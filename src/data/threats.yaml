@@ -1,4 +1,4 @@
-# CoderClaw Threat Model
+﻿# CoderClaw Threat Model
 # Based on MITRE ATLAS Framework (Adversarial Threat Landscape for AI Systems)
 # Version: 1.0-draft
 # Last Updated: 2026-02-04
@@ -33,7 +33,7 @@ scope:
       notes: Authentication, routing, channel integration
     - component: Channel Integrations
       notes: WhatsApp, Telegram, Discord, Signal, Slack, etc.
-    - component: ClawHub Marketplace
+    - component: CoderClaw Skills Marketplace
       notes: Skill publishing, moderation, distribution
     - component: MCP Servers
       notes: External tool providers
@@ -109,9 +109,9 @@ threats:
     atlas: AML.T0006
     risk: Low
     category: recon
-    description: Attacker analyzes ClawHub to identify high-value targets and popular skills
-    attackVector: Browsing ClawHub, analyzing download stats, identifying skills with sensitive permissions
-    affected: ClawHub public listings
+    description: Attacker analyzes CoderClaw Skills to identify high-value targets and popular skills
+    attackVector: Browsing CoderClaw Skills, analyzing download stats, identifying skills with sensitive permissions
+    affected: CoderClaw Skills public listings
     mitigations: None - public by design
     residualRisk: Attackers can prioritize targets
     recommendations: Monitor for suspicious browsing patterns, rate limit API access
@@ -162,9 +162,9 @@ threats:
     atlas: AML.T0010.001
     risk: Critical
     category: access
-    description: User installs malicious skill from ClawHub, granting attacker initial access
+    description: User installs malicious skill from CoderClaw Skills, granting attacker initial access
     attackVector: Social engineering, typosquatting, fake popular skills, SEO manipulation
-    affected: ClawHub discovery, skill installation flow
+    affected: CoderClaw Skills discovery, skill installation flow
     mitigations: GitHub account age verification, download stats visibility
     residualRisk: Users may install without verification
     recommendations: Prominent security warnings, verified publisher badges, install confirmations
@@ -177,7 +177,7 @@ threats:
     category: access
     description: Attacker compromises legitimate skill and pushes malicious update to existing users
     attackVector: Account takeover of skill publisher, social engineering, credential theft
-    affected: ClawHub update mechanism, existing skill installations
+    affected: CoderClaw Skills update mechanism, existing skill installations
     mitigations: Version fingerprinting
     residualRisk: Trusted skills become attack vectors
     recommendations: Update signing, publisher 2FA requirement, update diff review
@@ -296,7 +296,7 @@ threats:
     category: persistence
     description: Malicious update to legitimate skill maintains persistent access
     attackVector: Auto-update pulls compromised version, persists across sessions
-    affected: ClawHub versioning, auto-update flows
+    affected: CoderClaw Skills versioning, auto-update flows
     mitigations: Version fingerprinting
     residualRisk: Trusted skill becomes persistent backdoor
     recommendations: Update signing, version pinning, update notifications
@@ -349,7 +349,7 @@ threats:
     category: evasion
     description: Attacker crafts skill content to evade moderation patterns
     attackVector: Unicode homoglyphs, encoding tricks, dynamic loading, code obfuscation
-    affected: ClawHub moderation.ts
+    affected: CoderClaw Skills moderation.ts
     mitigations: Pattern-based FLAG_RULES
     residualRisk: Simple regex easily bypassed
     recommendations: Add behavioral analysis (VirusTotal Code Insight), AST-based detection
@@ -388,7 +388,7 @@ threats:
     category: evasion
     description: Skill downloads malicious payload after passing initial scan
     attackVector: Clean skill passes moderation, then fetches malicious code at runtime
-    affected: ClawHub scanning, skill runtime
+    affected: CoderClaw Skills scanning, skill runtime
     mitigations: None - runtime fetches not monitored
     residualRisk: Scans only check initial code
     recommendations: Runtime network monitoring, outbound fetch restrictions for skills
@@ -568,7 +568,7 @@ threats:
 attack_chains:
   - name: Malicious Skill Full Kill Chain
     steps: [T-RECON-003, T-EVADE-001, T-ACCESS-004, T-EXEC-005, T-PERSIST-001, T-EXFIL-003]
-    description: "Recon ClawHub \u2192 Craft evasive skill \u2192 User installs \u2192 Code executes \u2192 Persists \u2192 Harvests credentials"
+    description: "Recon CoderClaw Skills \u2192 Craft evasive skill \u2192 User installs \u2192 Code executes \u2192 Persists \u2192 Harvests credentials"
 
   - name: Skill Supply Chain Attack
     steps: [T-ACCESS-005, T-EVADE-004, T-EXEC-005, T-PERSIST-002, T-EXFIL-004]
@@ -595,7 +595,7 @@ trust_boundaries:
   # Supply chain (pre-install) → Channel access (message in) → Session (routing) → Execution + External content (adjacent)
   - id: 1
     name: Supply Chain
-    zone: ClawHub
+    zone: CoderClaw Skills
     phase: pre-install
     controls:
       - Skill publishing (semver, SKILL.md required)
@@ -662,7 +662,7 @@ data_flows:
     data: web_fetch requests
     protection: SSRF blocking
   - id: F5
-    source: ClawHub
+    source: CoderClaw Skills
     destination: Agent
     data: Skill code
     protection: Moderation, scanning
@@ -886,7 +886,7 @@ key_security_files:
     purpose: Tool policy enforcement
     risk_level: Critical
   - path: convex/lib/moderation.ts
-    purpose: ClawHub moderation
+    purpose: CoderClaw Skills moderation
     risk_level: High
   - path: convex/lib/skillPublish.ts
     purpose: Skill publishing flow
@@ -897,7 +897,7 @@ key_security_files:
 
 glossary:
   ATLAS: "MITRE's Adversarial Threat Landscape for AI Systems"
-  ClawHub: "CoderClaw's skill marketplace"
+  CoderClaw Skills: "CoderClaw's skill marketplace"
   Gateway: "CoderClaw's message routing and authentication layer"
   MCP: Model Context Protocol - tool provider interface
   Prompt Injection: Attack where malicious instructions are embedded in input

@@ -1,4 +1,4 @@
-# CoderClaw 威胁模型
+﻿# CoderClaw 威胁模型
 # 基于 MITRE ATLAS 框架（AI 系统对抗性威胁态势）
 # 版本: 1.0-draft
 # 最后更新: 2026-02-04
@@ -33,7 +33,7 @@ scope:
       notes: 身份验证、路由、渠道集成
     - component: Channel Integrations
       notes: WhatsApp、Telegram、Discord、Signal、Slack 等
-    - component: ClawHub Marketplace
+    - component: CoderClaw Skills Marketplace
       notes: 技能发布、审核、分发
     - component: MCP Servers
       notes: 外部工具提供方
@@ -109,9 +109,9 @@ threats:
     atlas: AML.T0006
     risk: Low
     category: recon
-    description: 攻击者分析 ClawHub 以识别高价值目标和热门技能
-    attackVector: 浏览 ClawHub、分析下载统计、识别拥有敏感权限的技能
-    affected: ClawHub 公开列表
+    description: 攻击者分析 CoderClaw Skills 以识别高价值目标和热门技能
+    attackVector: 浏览 CoderClaw Skills、分析下载统计、识别拥有敏感权限的技能
+    affected: CoderClaw Skills 公开列表
     mitigations: 无 - 公开性为设计初衷
     residualRisk: 攻击者可确定攻击优先级
     recommendations: 监控可疑浏览行为，对 API 访问进行速率限制
@@ -162,9 +162,9 @@ threats:
     atlas: AML.T0010.001
     risk: Critical
     category: access
-    description: 用户从 ClawHub 安装恶意技能，使攻击者获得初始访问权限
+    description: 用户从 CoderClaw Skills 安装恶意技能，使攻击者获得初始访问权限
     attackVector: 社会工程、域名抢注、伪造热门技能、SEO 操纵
-    affected: ClawHub 发现机制、技能安装流程
+    affected: CoderClaw Skills 发现机制、技能安装流程
     mitigations: GitHub 账户注册时间验证、下载统计可见性
     residualRisk: 用户可能未验证即安装
     recommendations: 显著的安全警告、经过验证的发布者徽章、安装确认
@@ -177,7 +177,7 @@ threats:
     category: access
     description: 攻击者入侵合法技能并向现有用户推送恶意更新
     attackVector: 技能发布者账户被盗、社会工程、凭据窃取
-    affected: ClawHub 更新机制、已安装的技能
+    affected: CoderClaw Skills 更新机制、已安装的技能
     mitigations: 版本指纹识别
     residualRisk: 受信任的技能变为攻击载体
     recommendations: 更新签名、发布者双因素认证要求、更新差异审查
@@ -296,7 +296,7 @@ threats:
     category: persistence
     description: 对合法技能的恶意更新维持持久访问
     attackVector: 自动更新拉取受损版本，跨会话持久化
-    affected: ClawHub 版本管理、自动更新流程
+    affected: CoderClaw Skills 版本管理、自动更新流程
     mitigations: 版本指纹识别
     residualRisk: 受信任的技能变为持久后门
     recommendations: 更新签名、版本锁定、更新通知
@@ -349,7 +349,7 @@ threats:
     category: evasion
     description: 攻击者构造技能内容以规避审核模式
     attackVector: Unicode 同形字、编码技巧、动态加载、代码混淆
-    affected: ClawHub moderation.ts
+    affected: CoderClaw Skills moderation.ts
     mitigations: 基于模式的 FLAG_RULES
     residualRisk: 简单正则表达式易被绕过
     recommendations: 添加行为分析（VirusTotal Code Insight）、基于 AST 的检测
@@ -388,7 +388,7 @@ threats:
     category: evasion
     description: 技能通过初始扫描后下载恶意载荷
     attackVector: 干净的技能通过审核，然后在运行时获取恶意代码
-    affected: ClawHub 扫描、技能运行时
+    affected: CoderClaw Skills 扫描、技能运行时
     mitigations: 无 - 运行时获取未被监控
     residualRisk: 扫描仅检查初始代码
     recommendations: 运行时网络监控、限制技能的出站获取
@@ -568,7 +568,7 @@ threats:
 attack_chains:
   - name: 恶意技能完整攻击链
     steps: [T-RECON-003, T-EVADE-001, T-ACCESS-004, T-EXEC-005, T-PERSIST-001, T-EXFIL-003]
-    description: "侦察 ClawHub \u2192 构造规避性技能 \u2192 用户安装 \u2192 代码执行 \u2192 持久化 \u2192 窃取凭据"
+    description: "侦察 CoderClaw Skills \u2192 构造规避性技能 \u2192 用户安装 \u2192 代码执行 \u2192 持久化 \u2192 窃取凭据"
 
   - name: 技能供应链攻击
     steps: [T-ACCESS-005, T-EVADE-004, T-EXEC-005, T-PERSIST-002, T-EXFIL-004]
@@ -595,7 +595,7 @@ trust_boundaries:
   # 供应链（安装前）→ 渠道访问（消息输入）→ 会话（路由）→ 执行 + 外部内容（相邻）
   - id: 1
     name: 供应链
-    zone: ClawHub
+    zone: CoderClaw Skills
     phase: pre-install
     controls:
       - 技能发布（语义版本、SKILL.md 必需）
@@ -662,7 +662,7 @@ data_flows:
     data: web_fetch 请求
     protection: SSRF 阻止
   - id: F5
-    source: ClawHub
+    source: CoderClaw Skills
     destination: Agent
     data: 技能代码
     protection: 审核、扫描
@@ -886,7 +886,7 @@ key_security_files:
     purpose: 工具策略执行
     risk_level: Critical
   - path: convex/lib/moderation.ts
-    purpose: ClawHub 审核
+    purpose: CoderClaw Skills 审核
     risk_level: High
   - path: convex/lib/skillPublish.ts
     purpose: 技能发布流程
@@ -897,7 +897,7 @@ key_security_files:
 
 glossary:
   ATLAS: "MITRE 的 AI 系统对抗性威胁态势框架"
-  ClawHub: "CoderClaw 的技能市场"
+  CoderClaw Skills: "CoderClaw 的技能市场"
   Gateway: "CoderClaw 的消息路由和身份验证层"
   MCP: 模型上下文协议 - 工具提供方接口
   Prompt Injection: 在输入中嵌入恶意指令的攻击方式

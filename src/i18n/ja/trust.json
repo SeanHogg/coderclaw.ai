@@ -1,4 +1,4 @@
-{
+﻿{
   "meta": {
     "title": "トラスト - CoderClaw",
     "description": "CoderClaw セキュリティプログラム - 実世界のアクションを実行するAIエージェントのための公式セキュリティイニシアチブ。"
@@ -67,7 +67,7 @@
       {
         "title": "サービス",
         "items": [
-          "ClawHub (clawhub.ai) - スキルマーケットプレイスおよびレジストリ",
+          "CoderClaw Skills - スキルマーケットプレイスおよびレジストリ",
           "ドキュメント (docs.coderclaw.ai)",
           "すべてのホスティングインフラストラクチャ"
         ]
@@ -77,7 +77,7 @@
         "items": [
           "公式エクステンション（<code>extensions/</code>）",
           "プラグインSDKおよびサードパーティプラグイン",
-          "ClawHubを通じて配布されるスキル"
+          "CoderClaw Skillsを通じて配布されるスキル"
         ]
       },
       {
@@ -125,7 +125,7 @@
         ["<strong>C. データセキュリティ</strong>", "システムプロンプトの漏洩、ワークスペースの露出、メモリリーク、データ窃取"],
         ["<strong>D. インフラストラクチャ</strong>", "SSRF、Gatewayの露出、依存関係の脆弱性、ファイルパーミッション"],
         ["<strong>E. 運用</strong>", "機密データのロギング、不十分なモニタリング、リソース枯渇、設定ミス"],
-        ["<strong>F. サプライチェーン</strong>", "ClawHubスキルの完全性、エクステンションのセキュリティ、依存関係の脆弱性"]
+        ["<strong>F. サプライチェーン</strong>", "CoderClaw Skillsスキルの完全性、エクステンションのセキュリティ、依存関係の脆弱性"]
       ]
     },
     "tmScope": {
@@ -133,7 +133,7 @@
       "headers": ["コンポーネント", "対象に含まれる理由"],
       "rows": [
         ["コアプラットフォーム（CLI、Gateway、エージェント、ツール）", "主要な攻撃対象面"],
-        ["ClawHub (clawhub.ai)", "スキルマーケットプレイス - サプライチェーンリスク"],
+        ["CoderClaw Skills", "スキルマーケットプレイス - サプライチェーンリスク"],
         ["モバイルアプリ（iOS、Android）", "エージェント制御インターフェース、認証情報の保存"],
         ["デスクトップアプリ（macOS）", "Gatewayホスト、システム統合"],
         ["エクステンションとプラグイン", "サードパーティコードの実行"],
@@ -182,7 +182,7 @@
         {
           "category": "<strong>サプライチェーン</strong>",
           "rows": [
-            ["スキル検証", "ClawHubスキルの完全性チェック"],
+            ["スキル検証", "CoderClaw Skillsスキルの完全性チェック"],
             ["依存関係の監査", "自動化された脆弱性スキャン"],
             ["署名付きリリース", "アップデートの暗号学的検証"]
           ]
@@ -214,7 +214,7 @@
         ["macOSデスクトップアプリ", "<code>apps/macos/</code>", "Gatewayホスト、システム統合"],
         ["iOSモバイルアプリ", "<code>apps/ios/</code>", "エージェント制御、認証情報の保存"],
         ["Androidモバイルアプリ", "<code>apps/android/</code>", "エージェント制御、認証情報の保存"],
-        ["ClawHub", "clawhub.ai", "スキルレジストリ - サプライチェーンリスク"],
+        ["CoderClaw Skills", "coderclaw.ai/skills", "スキルレジストリ - サプライチェーンリスク"],
         ["公式エクステンション", "<code>extensions/</code>", "ファーストパーティプラグイン"],
         ["ビルドおよびリリースパイプライン", "CI/CD, scripts", "配布の完全性、署名"]
       ]
@@ -252,7 +252,7 @@
         { "label": "macOSデスクトップアプリ", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/macos)" },
         { "label": "iOSアプリ", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/ios)" },
         { "label": "Androidアプリ", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/android)" },
-        { "label": "ClawHub", "url": "https://github.com/coderclaw/clawhub/security/advisories/new", "name": "coderclaw/clawhub" },
+        { "label": "CoderClaw Skills", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw" },
         { "label": "トラストおよび脅威モデル", "url": "https://github.com/coderclaw/trust/issues/new", "name": "coderclaw/trust" }
       ],
       "fallback": "特定のリポジトリに該当しない場合、または不明な場合は <span class=\"email-display\" style=\"display: inline; padding: 4px 8px; font-size: 13px;\">security@coderclaw.ai</span> にメールをお送りください。適切に転送いたします。",
@@ -337,8 +337,8 @@
         "a": "<p>自動スキャナーやAIツールから、問題を真に理解することなく理論的な問題にフラグを立てるレポートが寄せられています。報告者に修正案の提案を求めることで、スキャナーのノイズをフィルタリングし、問題を理解した研究者からの実用的なレポートを受け取り、専門家の知見によって修正を加速できます。</p>"
       },
       {
-        "q": "「ClawHubについてはどうですか？」",
-        "a": "<p>ClawHub (clawhub.ai) はセキュリティプログラム全体のスコープに含まれています。脅威モデル、コードレビュー、継続的なモニタリングの対象です。スキルはエージェントのコンテキスト内で実行されるコードであり、サプライチェーンセキュリティは極めて重要です。</p>"
+        "q": "「CoderClaw Skillsについてはどうですか？」",
+        "a": "<p>CoderClaw Skills はセキュリティプログラム全体のスコープに含まれています。脅威モデル、コードレビュー、継続的なモニタリングの対象です。スキルはエージェントのコンテキスト内で実行されるコードであり、サプライチェーンセキュリティは極めて重要です。</p>"
       },
       {
         "q": "「モバイルアプリやデスクトップアプリはどうですか？」",

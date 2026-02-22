@@ -1,0 +1,15 @@
+name = "coderclaw-api"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ENVIRONMENT = "production"
+
+# DATABASE_URL and JWT_SECRET must be set as secrets:
+#   wrangler secret put DATABASE_URL
+#   wrangler secret put JWT_SECRET
+
+[[routes]]
+pattern = "api.coderclaw.ai/*"
+zone_name = "coderclaw.ai"

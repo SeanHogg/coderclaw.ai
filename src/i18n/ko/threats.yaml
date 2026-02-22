@@ -1,4 +1,4 @@
-# CoderClaw 위협 모델
+﻿# CoderClaw 위협 모델
 # MITRE ATLAS 프레임워크 기반 (AI 시스템을 위한 적대적 위협 환경)
 # Version: 1.0-draft
 # Last Updated: 2026-02-04
@@ -33,7 +33,7 @@ scope:
       notes: 인증, 라우팅, 채널 연동
     - component: Channel Integrations
       notes: WhatsApp, Telegram, Discord, Signal, Slack 등
-    - component: ClawHub Marketplace
+    - component: CoderClaw Skills Marketplace
       notes: 스킬 게시, 검수, 배포
     - component: MCP Servers
       notes: 외부 도구 제공자
@@ -109,9 +109,9 @@ threats:
     atlas: AML.T0006
     risk: Low
     category: recon
-    description: 공격자가 ClawHub를 분석하여 고가치 대상과 인기 스킬을 식별합니다
-    attackVector: ClawHub 탐색, 다운로드 통계 분석, 민감한 권한을 가진 스킬 식별
-    affected: ClawHub 공개 목록
+    description: 공격자가 CoderClaw Skills를 분석하여 고가치 대상과 인기 스킬을 식별합니다
+    attackVector: CoderClaw Skills 탐색, 다운로드 통계 분석, 민감한 권한을 가진 스킬 식별
+    affected: CoderClaw Skills 공개 목록
     mitigations: 없음 - 설계상 공개
     residualRisk: 공격자가 대상의 우선순위를 정할 수 있음
     recommendations: 의심스러운 탐색 패턴 모니터링, API 접근 속도 제한
@@ -162,9 +162,9 @@ threats:
     atlas: AML.T0010.001
     risk: Critical
     category: access
-    description: 사용자가 ClawHub에서 악성 스킬을 설치하여 공격자에게 초기 접근 권한을 부여합니다
+    description: 사용자가 CoderClaw Skills에서 악성 스킬을 설치하여 공격자에게 초기 접근 권한을 부여합니다
     attackVector: 사회 공학, 타이포스쿼팅, 인기 스킬 위장, SEO 조작
-    affected: ClawHub 탐색, 스킬 설치 흐름
+    affected: CoderClaw Skills 탐색, 스킬 설치 흐름
     mitigations: GitHub 계정 생성 일자 확인, 다운로드 통계 표시
     residualRisk: 사용자가 확인 없이 설치할 수 있음
     recommendations: 눈에 띄는 보안 경고, 인증된 게시자 배지, 설치 확인 절차
@@ -177,7 +177,7 @@ threats:
     category: access
     description: 공격자가 합법적인 스킬을 손상시키고 기존 사용자에게 악성 업데이트를 배포합니다
     attackVector: 스킬 게시자 계정 탈취, 사회 공학, 자격 증명 탈취
-    affected: ClawHub 업데이트 메커니즘, 기존 스킬 설치
+    affected: CoderClaw Skills 업데이트 메커니즘, 기존 스킬 설치
     mitigations: 버전 핑거프린팅
     residualRisk: 신뢰할 수 있는 스킬이 공격 벡터로 전환됨
     recommendations: 업데이트 서명, 게시자 2FA 필수화, 업데이트 변경사항 검토
@@ -296,7 +296,7 @@ threats:
     category: persistence
     description: 합법적인 스킬에 대한 악성 업데이트가 지속적인 접근을 유지합니다
     attackVector: 자동 업데이트가 손상된 버전을 가져와 세션 간 지속됨
-    affected: ClawHub 버전 관리, 자동 업데이트 흐름
+    affected: CoderClaw Skills 버전 관리, 자동 업데이트 흐름
     mitigations: 버전 핑거프린팅
     residualRisk: 신뢰할 수 있는 스킬이 영구 백도어로 전환됨
     recommendations: 업데이트 서명, 버전 고정, 업데이트 알림
@@ -349,7 +349,7 @@ threats:
     category: evasion
     description: 공격자가 검수 패턴을 회피하도록 스킬 콘텐츠를 조작합니다
     attackVector: 유니코드 호모글리프, 인코딩 트릭, 동적 로딩, 코드 난독화
-    affected: ClawHub moderation.ts
+    affected: CoderClaw Skills moderation.ts
     mitigations: 패턴 기반 FLAG_RULES
     residualRisk: 단순한 정규식은 쉽게 우회됨
     recommendations: 행위 분석 추가 (VirusTotal Code Insight), AST 기반 탐지
@@ -388,7 +388,7 @@ threats:
     category: evasion
     description: 스킬이 초기 검사를 통과한 후 악성 페이로드를 다운로드합니다
     attackVector: 정상 스킬이 검수를 통과한 후 런타임에 악성 코드를 가져옴
-    affected: ClawHub 검사, 스킬 런타임
+    affected: CoderClaw Skills 검사, 스킬 런타임
     mitigations: 없음 - 런타임 페치가 모니터링되지 않음
     residualRisk: 검사가 초기 코드만 확인
     recommendations: 런타임 네트워크 모니터링, 스킬의 아웃바운드 페치 제한
@@ -568,7 +568,7 @@ threats:
 attack_chains:
   - name: 악성 스킬 전체 킬 체인
     steps: [T-RECON-003, T-EVADE-001, T-ACCESS-004, T-EXEC-005, T-PERSIST-001, T-EXFIL-003]
-    description: "ClawHub 정찰 \u2192 회피 스킬 제작 \u2192 사용자 설치 \u2192 코드 실행 \u2192 지속성 확보 \u2192 자격 증명 수집"
+    description: "CoderClaw Skills 정찰 \u2192 회피 스킬 제작 \u2192 사용자 설치 \u2192 코드 실행 \u2192 지속성 확보 \u2192 자격 증명 수집"
 
   - name: 스킬 공급망 공격
     steps: [T-ACCESS-005, T-EVADE-004, T-EXEC-005, T-PERSIST-002, T-EXFIL-004]
@@ -595,7 +595,7 @@ trust_boundaries:
   # 공급망 (사전 설치) → 채널 접근 (메시지 수신) → 세션 (라우팅) → 실행 + 외부 콘텐츠 (인접)
   - id: 1
     name: 공급망
-    zone: ClawHub
+    zone: CoderClaw Skills
     phase: pre-install
     controls:
       - 스킬 게시 (시맨틱 버전, SKILL.md 필수)
@@ -662,7 +662,7 @@ data_flows:
     data: web_fetch 요청
     protection: SSRF 차단
   - id: F5
-    source: ClawHub
+    source: CoderClaw Skills
     destination: Agent
     data: 스킬 코드
     protection: 검수, 검사
@@ -886,7 +886,7 @@ key_security_files:
     purpose: 도구 정책 적용
     risk_level: Critical
   - path: convex/lib/moderation.ts
-    purpose: ClawHub 검수
+    purpose: CoderClaw Skills 검수
     risk_level: High
   - path: convex/lib/skillPublish.ts
     purpose: 스킬 게시 흐름
@@ -897,7 +897,7 @@ key_security_files:
 
 glossary:
   ATLAS: "MITRE의 AI 시스템을 위한 적대적 위협 환경"
-  ClawHub: "CoderClaw의 스킬 마켓플레이스"
+  CoderClaw Skills: "CoderClaw의 스킬 마켓플레이스"
   Gateway: "CoderClaw의 메시지 라우팅 및 인증 레이어"
   MCP: Model Context Protocol - 도구 제공자 인터페이스
   Prompt Injection: 악성 명령이 입력에 삽입되는 공격

@@ -1,4 +1,4 @@
-{
+﻿{
   "meta": {
     "title": "信任 - CoderClaw",
     "description": "CoderClaw 安全计划 - 针对可执行真实操作的 AI 代理的正式安全倡议。"
@@ -67,7 +67,7 @@
       {
         "title": "服务",
         "items": [
-          "ClawHub (clawhub.ai) - 技能市场和注册中心",
+          "CoderClaw Skills - 技能市场和注册中心",
           "文档 (docs.coderclaw.ai)",
           "所有托管基础设施"
         ]
@@ -77,7 +77,7 @@
         "items": [
           "官方扩展（<code>extensions/</code>）",
           "插件 SDK 和第三方插件",
-          "通过 ClawHub 分发的技能"
+          "通过 CoderClaw Skills 分发的技能"
         ]
       },
       {
@@ -125,7 +125,7 @@
         ["<strong>C. 数据安全</strong>", "系统提示泄露、工作区暴露、记忆泄漏、数据外泄"],
         ["<strong>D. 基础设施</strong>", "SSRF、网关暴露、依赖漏洞、文件权限"],
         ["<strong>E. 运维</strong>", "日志记录敏感数据、监控不足、资源耗尽、配置错误"],
-        ["<strong>F. 供应链</strong>", "ClawHub 技能完整性、扩展安全、依赖漏洞"]
+        ["<strong>F. 供应链</strong>", "CoderClaw Skills 技能完整性、扩展安全、依赖漏洞"]
       ]
     },
     "tmScope": {
@@ -133,7 +133,7 @@
       "headers": ["组件", "纳入原因"],
       "rows": [
         ["核心平台（CLI、Gateway、代理、工具）", "主要攻击面"],
-        ["ClawHub (clawhub.ai)", "技能市场 - 供应链风险"],
+        ["CoderClaw Skills", "技能市场 - 供应链风险"],
         ["移动应用（iOS、Android）", "代理控制界面、凭据存储"],
         ["桌面应用（macOS）", "Gateway 宿主、系统集成"],
         ["扩展和插件", "第三方代码执行"],
@@ -182,7 +182,7 @@
         {
           "category": "<strong>供应链</strong>",
           "rows": [
-            ["技能验证", "ClawHub 技能的完整性检查"],
+            ["技能验证", "CoderClaw Skills 技能的完整性检查"],
             ["依赖审计", "自动化漏洞扫描"],
             ["签名发布", "更新的加密验证"]
           ]
@@ -214,7 +214,7 @@
         ["macOS 桌面应用", "<code>apps/macos/</code>", "Gateway 宿主、系统集成"],
         ["iOS 移动应用", "<code>apps/ios/</code>", "代理控制、凭据存储"],
         ["Android 移动应用", "<code>apps/android/</code>", "代理控制、凭据存储"],
-        ["ClawHub", "clawhub.ai", "技能注册中心 - 供应链风险"],
+        ["CoderClaw Skills", "coderclaw.ai/skills", "技能注册中心 - 供应链风险"],
         ["官方扩展", "<code>extensions/</code>", "第一方插件"],
         ["构建和发布流水线", "CI/CD, scripts", "分发完整性、签名"]
       ]
@@ -252,7 +252,7 @@
         { "label": "macOS 桌面应用", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/macos)" },
         { "label": "iOS 应用", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/ios)" },
         { "label": "Android 应用", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/android)" },
-        { "label": "ClawHub", "url": "https://github.com/coderclaw/clawhub/security/advisories/new", "name": "coderclaw/clawhub" },
+        { "label": "CoderClaw Skills", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw" },
         { "label": "信任与威胁模型", "url": "https://github.com/coderclaw/trust/issues/new", "name": "coderclaw/trust" }
       ],
       "fallback": "对于不适用于特定仓库的问题，或者如果您不确定，请发送邮件至 <span class=\"email-display\" style=\"display: inline; padding: 4px 8px; font-size: 13px;\">security@coderclaw.ai</span>，我们会进行转发处理。",
@@ -337,8 +337,8 @@
         "a": "<p>我们会收到来自自动化扫描器和 AI 工具的报告，这些报告会标记理论性问题而并不真正理解它们。通过要求报告者提出修复方案，我们可以过滤扫描器噪声，获得来自理解问题的研究人员的可操作报告，并通过专家意见加速修复。</p>"
       },
       {
-        "q": "\"ClawHub 怎么样？\"",
-        "a": "<p>ClawHub (clawhub.ai) 被纳入了整个安全计划的范围 - 包括威胁模型、代码审查和持续监控。技能是在您的代理上下文中运行的代码 - 供应链安全至关重要。</p>"
+        "q": "\"CoderClaw Skills 怎么样？\"",
+        "a": "<p>CoderClaw Skills 被纳入了整个安全计划的范围 - 包括威胁模型、代码审查和持续监控。技能是在您的代理上下文中运行的代码 - 供应链安全至关重要。</p>"
       },
       {
         "q": "\"移动应用和桌面应用怎么样？\"",
