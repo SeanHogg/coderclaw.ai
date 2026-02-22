@@ -14,12 +14,3 @@ ENVIRONMENT = "production"
 [[routes]]
 pattern = "api.coderclaw.ai/*"
 zone_name = "coderclaw.ai"
-
-# worker to serve the app under /coderclawlink (app.coderclaw.ai or coderclaw.ai/coderclawlink)
-[[routes]]
-pattern = "coderclaw.ai/coderclawlink/*"
-zone_name = "coderclaw.ai"
-
-[[routes]]
-pattern = "app.coderclaw.ai/*"
-zone_name = "coderclaw.ai"
