@@ -1,9 +1,0 @@
-# Copy this file to .dev.vars (gitignored) and fill in real values for local dev.
-# For production, use: wrangler secret put DATABASE_URL  /  wrangler secret put JWT_SECRET
-#
-# DATABASE_URL: get from Neon dashboard → your project → Connection string
-# JWT_SECRET:   any long random string, e.g. `openssl rand -hex 32`
-
-DATABASE_URL=postgresql://user:password@ep-xxx.neon.tech/neondb?sslmode=require
-JWT_SECRET=replace-with-a-long-random-secret-min-32-chars
-ENVIRONMENT=development
