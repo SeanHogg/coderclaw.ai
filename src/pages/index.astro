@@ -716,6 +716,25 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
       </div>
     </section>
 
+    <!-- Discord Community -->
+    <section class="discord-section">
+      <h2 class="section-title">
+        <span class="claw-accent">⟩</span> Join the Community
+      </h2>
+      <p class="discord-desc">Chat with other builders, get help, and share what you're working on.</p>
+      <div class="discord-widget-wrap">
+        <iframe
+          src="https://discord.com/widget?id=1473959591032393971&theme=dark"
+          width="350"
+          height="500"
+          allowtransparency="true"
+          frameborder="0"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+          title="CoderClaw Discord"
+        ></iframe>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
       <nav class="footer-nav">
@@ -995,6 +1014,29 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
   }
 
   /* Newsletter */
+  /* Discord Community Section */
+  .discord-section {
+    margin-bottom: 56px;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out 0.65s both;
+  }
+
+  .discord-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+
+  .discord-widget-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .discord-widget-wrap iframe {
+    border-radius: 12px;
+    max-width: 100%;
+  }
+
   .newsletter {
     margin-bottom: 56px;
     animation: fadeInUp 0.8s ease-out 0.7s both;
