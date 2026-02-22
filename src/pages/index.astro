@@ -195,7 +195,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
               <span class="macos-tagline">Companion App (Beta)</span>
               <span class="macos-subtitle">Menubar access to your lobster. Works great alongside the CLI.</span>
             </div>
-            <a href="https://github.com/coderclaw/coderclaw/releases/latest" class="macos-download-btn" target="_blank" rel="noopener">
+            <a href="https://github.com/SeanHogg/coderClaw/releases/latest" class="macos-download-btn" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
@@ -444,7 +444,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
         'hackable-installer': () => "curl -fsSL https://coderclaw.ai/install.sh | bash -s -- --install-method git",
         'clone': () => 'git clone https://github.com/seanhogg/coderclaw.git',
         'build': () => 'cd coderclaw && pnpm install && pnpm run build',
-        'hackable-onboard': () => 'pnpm run coderclaw onboard',
+        'hackable-onboard': () => 'node coderclaw.mjs onboard',
       };
 
       document.querySelectorAll('.copy-line-btn').forEach(btn => {
@@ -752,7 +752,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
         <span class="footer-separator">·</span>
         <a href="https://trust.coderclaw.ai/">Trust</a>
       </nav>
-      <p>Built by <a href="https://steipete.me" target="_blank" rel="noopener">Peter Steinberger</a> & <a href="https://github.com/coderclaw/coderclaw#community" target="_blank" rel="noopener">community</a> 🦞</p>
+      <p>Built by <a href="https://github.com/SeanHogg" target="_blank" rel="noopener">Sean Hogg</a> & <a href="https://github.com/SeanHogg/coderClaw#community" target="_blank" rel="noopener">community</a> 🦞</p>
       <p class="disclaimer">Independent project, not affiliated with Anthropic.</p>
     </footer>
   </main>
