@@ -3,8 +3,9 @@ import type { Env, JwtPayload } from '../types'
 
 /** Minimal JWT verify/sign using Web Crypto (no external library needed). */
 
-function base64url(buf: ArrayBuffer): string {
-  return btoa(String.fromCharCode(...new Uint8Array(buf)))
+function base64url(buf: ArrayBuffer | Uint8Array): string {
+  const bytes = buf instanceof Uint8Array ? buf : new Uint8Array(buf)
+  return btoa(String.fromCharCode(...bytes))
     .replace(/\+/g, '-')
     .replace(/\//g, '_')
     .replace(/=+$/, '')
@@ -19,7 +20,7 @@ function decodeBase64url(s: string): Uint8Array {
   )
 }
 
-async function getKey(secret: string, usage: KeyUsage[]): Promise<CryptoKey> {
+async function getKey(secret: string, usage: ('sign' | 'verify')[]): Promise<CryptoKey> {
   const enc = new TextEncoder()
   return crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, usage)
 }
@@ -49,7 +50,9 @@ export async function verifyJwt(token: string, secret: string): Promise<JwtPaylo
     const sigInput = `${headerB64}.${payloadB64}`
 
     const key = await getKey(secret, ['verify'])
-    const valid = await crypto.subtle.verify('HMAC', key, decodeBase64url(sigB64), enc.encode(sigInput))
+    const sigBytes = decodeBase64url(sigB64)
+    const dataBytes = enc.encode(sigInput)
+    const valid = await crypto.subtle.verify('HMAC', key, sigBytes.buffer as ArrayBuffer, dataBytes.buffer as ArrayBuffer)
     if (!valid) return null
 
     const payload: JwtPayload = JSON.parse(new TextDecoder().decode(decodeBase64url(payloadB64)))

@@ -13,6 +13,12 @@ dist/
 .env.local
 .env.*.local
 
+# Wrangler local secrets (NEVER commit — use `wrangler secret put` for production)
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.wrangler/
+
 # Editor
 .vscode/
 .idea/

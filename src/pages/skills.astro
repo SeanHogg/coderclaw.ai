@@ -1,75 +1,94 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Sample skills data - in production this would come from a database
-const skills = [
-  {
-    id: '1',
-    name: 'Code Review Expert',
-    author: 'Sarah Chen',
-    description: 'Advanced code review agent that analyzes code quality, security, and best practices.',
-    category: 'Code Analysis',
-    likes: 234,
-    downloads: 1200,
-    tags: ['review', 'analysis', 'security'],
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=200&h=200&fit=crop',
-  },
-  {
-    id: '2',
-    name: 'Documentation Generator',
-    author: 'Alex Rodriguez',
-    description: 'Generates comprehensive API documentation and guides automatically from code.',
-    category: 'Documentation',
-    likes: 189,
-    downloads: 890,
-    tags: ['docs', 'api', 'automation'],
-    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=200&h=200&fit=crop',
-  },
-  {
-    id: '3',
-    name: 'Test Suite Creator',
-    author: 'Jordan Lee',
-    description: 'Automatically creates comprehensive test suites with high code coverage.',
-    category: 'Testing',
-    likes: 312,
-    downloads: 1540,
-    tags: ['testing', 'unit-tests', 'integration'],
-    image: 'https://images.unsplash.com/photo-1516534775068-bb6c2b8b4d44?w=200&h=200&fit=crop',
-  },
-  {
-    id: '4',
-    name: 'Performance Optimizer',
-    author: 'Maria Garcia',
-    description: 'Identifies performance bottlenecks and suggests optimization strategies.',
-    category: 'Performance',
-    likes: 267,
-    downloads: 1100,
-    tags: ['performance', 'optimization', 'profiling'],
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=200&h=200&fit=crop',
-  },
-  {
-    id: '5',
-    name: 'Bug Hunter',
-    author: 'Dev Team',
-    description: 'Intelligent bug detection and analysis using pattern matching and ML.',
-    category: 'Quality Assurance',
-    likes: 456,
-    downloads: 2100,
-    tags: ['bugs', 'detection', 'qa'],
-    image: 'https://images.unsplash.com/photo-1546927868-e6b52b20b817?w=200&h=200&fit=crop',
-  },
-  {
-    id: '6',
-    name: 'API Design Assistant',
-    author: 'Tech Leaders',
-    description: 'Helps design RESTful APIs with best practices and auto-generates specs.',
-    category: 'API Design',
-    likes: 198,
-    downloads: 760,
-    tags: ['api', 'design', 'rest'],
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
-  },
-];
+// Fetch skills from the registry at build/runtime
+// use local proxy which itself respects SKILLS_REGISTRY_URL
+let skills = [];
+
+try {
+  const res = await fetch(`/api/skills?limit=100`);
+  if (res.ok) {
+    const body = await res.json();
+    // expect { skills: [...], total: ..., page: ..., limit: ... }
+    skills = body.skills || [];
+  } else {
+    console.warn('skills page: failed to fetch registry', res.status, res.statusText);
+  }
+} catch (err) {
+  console.warn('skills page: error fetching registry', err);
+}
+
+// fallback sample data if fetch failed
+if (!skills || skills.length === 0) {
+  skills = [
+    {
+      id: '1',
+      name: 'Code Review Expert',
+      author: 'Sarah Chen',
+      description: 'Advanced code review agent that analyzes code quality, security, and best practices.',
+      category: 'Code Analysis',
+      likes: 234,
+      downloads: 1200,
+      tags: ['review', 'analysis', 'security'],
+      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=200&h=200&fit=crop',
+    },
+    {
+      id: '2',
+      name: 'Documentation Generator',
+      author: 'Alex Rodriguez',
+      description: 'Generates comprehensive API documentation and guides automatically from code.',
+      category: 'Documentation',
+      likes: 189,
+      downloads: 890,
+      tags: ['docs', 'api', 'automation'],
+      image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=200&h=200&fit=crop',
+    },
+    {
+      id: '3',
+      name: 'Test Suite Creator',
+      author: 'Jordan Lee',
+      description: 'Automatically creates comprehensive test suites with high code coverage.',
+      category: 'Testing',
+      likes: 312,
+      downloads: 1540,
+      tags: ['testing', 'unit-tests', 'integration'],
+      image: 'https://images.unsplash.com/photo-1516534775068-bb6c2b8b4d44?w=200&h=200&fit=crop',
+    },
+    {
+      id: '4',
+      name: 'Performance Optimizer',
+      author: 'Maria Garcia',
+      description: 'Identifies performance bottlenecks and suggests optimization strategies.',
+      category: 'Performance',
+      likes: 267,
+      downloads: 1100,
+      tags: ['performance', 'optimization', 'profiling'],
+      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=200&h=200&fit=crop',
+    },
+    {
+      id: '5',
+      name: 'Bug Hunter',
+      author: 'Dev Team',
+      description: 'Intelligent bug detection and analysis using pattern matching and ML.',
+      category: 'Quality Assurance',
+      likes: 456,
+      downloads: 2100,
+      tags: ['bugs', 'detection', 'qa'],
+      image: 'https://images.unsplash.com/photo-1546927868-e6b52b20b817?w=200&h=200&fit=crop',
+    },
+    {
+      id: '6',
+      name: 'API Design Assistant',
+      author: 'Tech Leaders',
+      description: 'Helps design RESTful APIs with best practices and auto-generates specs.',
+      category: 'API Design',
+      likes: 198,
+      downloads: 760,
+      tags: ['api', 'design', 'rest'],
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop',
+    },
+  ];
+}
 
 const categories = [...new Set(skills.map(s => s.category))];
 ---
