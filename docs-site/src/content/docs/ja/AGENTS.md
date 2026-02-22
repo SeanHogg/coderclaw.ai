@@ -1,3 +1,7 @@
+---
+title: "AGENTS.md - ja-JP docs translation workspace"
+---
+
 # AGENTS.md - ja-JP docs translation workspace
 
 ## Read When

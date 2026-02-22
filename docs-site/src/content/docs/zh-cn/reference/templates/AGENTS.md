@@ -1,4 +1,6 @@
 ---
+title: "AGENTS.md - 你的工作区"
+
 read_when:
   - 手动引导初始化工作区
 summary: AGENTS.md 的工作区模板

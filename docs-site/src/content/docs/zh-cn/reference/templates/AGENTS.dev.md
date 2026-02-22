@@ -1,4 +1,6 @@
 ---
+title: "AGENTS.md - CoderClaw 工作区"
+
 read_when:
   - 使用开发 gateway 模板
   - 更新默认开发智能体身份

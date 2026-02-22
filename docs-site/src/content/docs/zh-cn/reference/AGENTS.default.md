@@ -1,4 +1,6 @@
 ---
+title: "AGENTS.md — CoderClaw 个人助手（默认）"
+
 read_when:
   - 启动新的 CoderClaw 智能体会话
   - 启用或审计默认 Skills

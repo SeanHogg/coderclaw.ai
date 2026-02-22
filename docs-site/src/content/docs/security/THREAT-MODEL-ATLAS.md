@@ -1,3 +1,7 @@
+---
+title: "CoderClaw Threat Model v1.0"
+---
+
 # CoderClaw Threat Model v1.0
 
 ## MITRE ATLAS Framework

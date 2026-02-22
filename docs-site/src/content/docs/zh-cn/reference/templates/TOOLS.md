@@ -1,4 +1,6 @@
 ---
+title: "TOOLS.md - 本地备注"
+
 read_when:
   - 手动引导工作区
 summary: TOOLS.md 的工作区模板

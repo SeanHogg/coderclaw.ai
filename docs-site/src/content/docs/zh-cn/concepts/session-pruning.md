@@ -1,4 +1,6 @@
 ---
+title: "会话剪枝"
+
 read_when:
   - 你想减少工具输出导致的 LLM 上下文增长
   - 你正在调整 agents.defaults.contextPruning

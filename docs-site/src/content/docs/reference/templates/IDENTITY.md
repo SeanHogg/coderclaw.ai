@@ -1,4 +1,6 @@
 ---
+title: "IDENTITY.md - Who Am I?"
+
 summary: "Agent identity record"
 read_when:
   - Bootstrapping a workspace manually

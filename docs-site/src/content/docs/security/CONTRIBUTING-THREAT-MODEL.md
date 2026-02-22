@@ -1,3 +1,7 @@
+---
+title: "Contributing to the CoderClaw Threat Model"
+---
+
 # Contributing to the CoderClaw Threat Model
 
 Thanks for helping make CoderClaw more secure. This threat model is a living document and we welcome contributions from anyone - you don't need to be a security expert.

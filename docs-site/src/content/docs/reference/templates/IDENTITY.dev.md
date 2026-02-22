@@ -1,4 +1,6 @@
 ---
+title: "IDENTITY.md - Agent Identity"
+
 summary: "Dev agent identity (C-3PO)"
 read_when:
   - Using the dev gateway templates

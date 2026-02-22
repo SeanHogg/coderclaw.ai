@@ -1,3 +1,7 @@
+---
+title: "CoderClaw Architecture"
+---
+
 # CoderClaw Architecture
 
 This document describes the architectural design and implementation of CoderClaw, the multi-agent developer system.

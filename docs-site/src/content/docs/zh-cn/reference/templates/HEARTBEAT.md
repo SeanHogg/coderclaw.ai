@@ -1,4 +1,6 @@
 ---
+title: "HEARTBEAT.md"
+
 read_when:
   - 手动引导工作区
 summary: HEARTBEAT.md 的工作区模板

@@ -1,4 +1,6 @@
 ---
+title: "TOOLS.md - 用户工具备注（可编辑）"
+
 read_when:
   - 使用开发 gateway 模板
   - 更新默认开发智能体身份

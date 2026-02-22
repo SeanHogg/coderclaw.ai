@@ -1,3 +1,7 @@
+---
+title: "Phase 2: Distributed AI Runtime & Secure Control Mesh"
+---
+
 # Phase 2: Distributed AI Runtime & Secure Control Mesh
 
 CoderClaw Phase 2 introduces a networked, distributed AI node architecture with secure remote orchestration capabilities while maintaining deterministic execution and security boundaries.

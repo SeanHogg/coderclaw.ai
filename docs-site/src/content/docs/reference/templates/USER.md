@@ -1,4 +1,6 @@
 ---
+title: "USER.md - About Your Human"
+
 summary: "User profile record"
 read_when:
   - Bootstrapping a workspace manually

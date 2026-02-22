@@ -1,4 +1,6 @@
 ---
+title: "Trusted Proxy Auth"
+
 summary: "Delegate gateway authentication to a trusted reverse proxy (Pomerium, Caddy, nginx + OAuth)"
 read_when:
   - Running CoderClaw behind an identity-aware proxy

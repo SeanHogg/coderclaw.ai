@@ -1,4 +1,6 @@
 ---
+title: "SOUL.md - The Soul of C-3PO"
+
 summary: "Dev agent soul (C-3PO)"
 read_when:
   - Using the dev gateway templates

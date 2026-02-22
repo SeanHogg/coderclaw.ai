@@ -1,4 +1,6 @@
 ---
+title: "USER.md - 关于你的用户"
+
 read_when:
   - 手动引导工作区
 summary: 用户档案记录

@@ -1,3 +1,7 @@
+---
+title: "CoderClaw Workflow Patterns"
+---
+
 # CoderClaw Workflow Patterns
 
 This document describes the built-in and custom workflow patterns available in CoderClaw's multi-agent orchestration system.

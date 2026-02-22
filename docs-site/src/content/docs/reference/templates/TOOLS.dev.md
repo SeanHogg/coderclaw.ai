@@ -1,4 +1,6 @@
 ---
+title: "TOOLS.md - User Tool Notes (editable)"
+
 summary: "Dev agent tools notes (C-3PO)"
 read_when:
   - Using the dev gateway templates

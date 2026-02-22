@@ -1,4 +1,6 @@
 ---
+title: "USER.md - User Profile"
+
 summary: "Dev agent user profile (C-3PO)"
 read_when:
   - Using the dev gateway templates

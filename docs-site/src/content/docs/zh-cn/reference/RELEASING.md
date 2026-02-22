@@ -1,4 +1,6 @@
 ---
+title: "发布清单（npm + macOS）"
+
 read_when:
   - 发布新的 npm 版本
   - 发布新的 macOS 应用版本

@@ -1,4 +1,6 @@
 ---
+title: "LiteLLM"
+
 summary: "Run CoderClaw through LiteLLM Proxy for unified model access and cost tracking"
 read_when:
   - You want to route CoderClaw through a LiteLLM proxy

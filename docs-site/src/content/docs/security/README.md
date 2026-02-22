@@ -1,3 +1,7 @@
+---
+title: "CoderClaw Security & Trust"
+---
+
 # CoderClaw Security & Trust
 
 **Live:** [trust.coderclaw.ai](https://trust.coderclaw.ai)

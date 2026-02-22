@@ -1,4 +1,6 @@
 ---
+title: "SOUL.md - 你是谁"
+
 read_when:
   - 手动引导工作区
 summary: SOUL.md 的工作区模板

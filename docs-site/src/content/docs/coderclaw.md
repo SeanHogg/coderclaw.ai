@@ -1,3 +1,7 @@
+---
+title: "CoderClaw: Multi-Agent Developer System"
+---
+
 # CoderClaw: Multi-Agent Developer System
 
 coderClaw is a developer-first, multi-agent AI system designed for code creation, review, testing, debugging, refactoring, and deep codebase understanding. It operates as an **orchestration engine inside real developer workflows**.

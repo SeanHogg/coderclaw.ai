@@ -1,4 +1,6 @@
 ---
+title: "BOOTSTRAP.md - Hello, World"
+
 read_when:
   - 手动引导工作区时
 summary: 新智能体的首次启动流程

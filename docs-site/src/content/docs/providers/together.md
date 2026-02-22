@@ -1,4 +1,6 @@
 ---
+title: "Together AI"
+
 summary: "Together AI setup (auth + model selection)"
 read_when:
   - You want to use Together AI with CoderClaw

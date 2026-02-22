@@ -1,4 +1,6 @@
 ---
+title: "USER.md - 用户档案"
+
 read_when:
   - 使用开发 Gateway 网关模板
   - 更新默认开发智能体身份
