@@ -82,7 +82,6 @@
 /linux /platforms/linux 301
 /location /channels/location 301
 /location-command /nodes/location-command 301
-/lore /start/lore 301
 /mac/bun /platforms/mac/bundled-gateway 301
 /platforms/mac/bun /platforms/mac/bundled-gateway 301
 /mac/canvas /platforms/mac/canvas 301

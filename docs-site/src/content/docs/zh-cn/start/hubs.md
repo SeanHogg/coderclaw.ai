@@ -31,7 +31,6 @@ x-i18n:
 - [配置示例](/gateway/configuration-examples)
 - [CoderClaw 助手](/start/coderclaw)
 - [展示](/start/showcase)
-- [背景故事](/start/lore)
 
 ## 安装 + 更新
 

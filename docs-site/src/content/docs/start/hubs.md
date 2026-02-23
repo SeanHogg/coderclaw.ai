@@ -28,7 +28,6 @@ Use these hubs to discover every page, including deep dives and reference docs t
 - [Configuration examples](/gateway/configuration-examples)
 - [CoderClaw assistant](/start/coderclaw)
 - [Showcase](/start/showcase)
-- [Lore](/start/lore)
 
 ## Installation + updates
 
