@@ -8,8 +8,8 @@ export default defineConfig({
       title: 'CoderClaw',
       description: 'Self-hosted AI coding assistant with multi-channel messaging',
       logo: {
-        light: './src/assets/coderclaw-logo-text.png',
-        dark: './src/assets/coderclaw-logo-text-dark.png',
+        src: './src/assets/coderclaw.png',
+        alt: 'CoderClaw',
         replacesTitle: true,
       },
       favicon: '/favicon.svg',

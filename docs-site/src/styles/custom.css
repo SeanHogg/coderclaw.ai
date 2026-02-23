@@ -1,10 +1,72 @@
-:root {
-  --sl-color-accent: #ff5a36;
-  --sl-color-accent-high: #ff8a6b;
-  --sl-color-accent-low: #3d1107;
+/* ================================================================
+   CoderClaw Docs – mirrors coderclaw.ai marketing site theme
+   Deep space dark mode: navy backgrounds + blue / cyan accents
+   ================================================================ */
+
+/* Dark mode (Starlight default) */
+:root,
+[data-theme='dark'] {
+  --sl-color-accent-low:     #0d1f3d;
+  --sl-color-accent:         #4d9eff;
+  --sl-color-accent-high:    #00e5cc;
+
+  --sl-color-bg:             #050810;
+  --sl-color-bg-nav:         #0a0f1a;
+  --sl-color-bg-sidebar:     #0a0f1a;
+  --sl-color-bg-inline-code: #111827;
+
+  --sl-color-gray-1: #f0f4ff;
+  --sl-color-gray-2: #d0d8f0;
+  --sl-color-gray-3: #8892b0;
+  --sl-color-gray-4: #5a6480;
+  --sl-color-gray-5: #2a3050;
+  --sl-color-gray-6: #111827;
+  --sl-color-gray-7: #0a0f1a;
+
+  --sl-color-hairline:       rgba(136, 146, 176, 0.15);
+  --sl-color-hairline-light: rgba(136, 146, 176, 0.08);
+
+  --sl-color-text:        #f0f4ff;
+  --sl-color-text-accent: #4d9eff;
+  --sl-color-white:       #f0f4ff;
+  --sl-color-black:       #050810;
 }
 
+/* Light mode */
 [data-theme='light'] {
-  --sl-color-accent: #cc3d1e;
-  --sl-color-accent-high: #ff5a36;
+  --sl-color-accent-low:     #dbeafe;
+  --sl-color-accent:         #3b82f6;
+  --sl-color-accent-high:    #1e40af;
+
+  --sl-color-bg:             #f8faff;
+  --sl-color-bg-nav:         #ffffff;
+  --sl-color-bg-sidebar:     #f0f4ff;
+  --sl-color-bg-inline-code: #e8edfc;
+
+  --sl-color-gray-1: #111827;
+  --sl-color-gray-2: #374151;
+  --sl-color-gray-3: #5a6480;
+  --sl-color-gray-4: #8892b0;
+  --sl-color-gray-5: #c8d0e8;
+  --sl-color-gray-6: #e8edfc;
+  --sl-color-gray-7: #f0f4ff;
+
+  --sl-color-hairline:       rgba(77, 158, 255, 0.2);
+  --sl-color-hairline-light: rgba(77, 158, 255, 0.1);
+
+  --sl-color-text:        #111827;
+  --sl-color-text-accent: #3b82f6;
+}
+
+/* Active sidebar item: cyan highlight */
+a[aria-current='page'],
+[data-theme='dark'] a[aria-current='page'] {
+  color: #00e5cc !important;
+  background-color: rgba(0, 229, 204, 0.1) !important;
+}
+
+/* Logo sizing */
+.site-title img {
+  height: 2rem;
+  width: auto;
 }
