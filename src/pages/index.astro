@@ -422,12 +422,12 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
   .lobster-icon img {
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 0 20px var(--logo-glow));
+    filter: hue-rotate(200deg) saturate(1.4) drop-shadow(0 0 20px var(--logo-glow));
     transition: filter 0.3s ease;
   }
 
   .lobster-icon:hover img {
-    filter: drop-shadow(0 0 30px var(--logo-glow-hover));
+    filter: hue-rotate(200deg) saturate(1.6) drop-shadow(0 0 30px var(--logo-glow-hover));
   }
 
   @keyframes float {
