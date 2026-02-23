@@ -2625,4 +2625,4 @@ CoderClaw 默认阻止**跨提供商**消息。如果工具调用绑定到 Teleg
 
 ---
 
-仍然卡住？在 [Discord](https://discord.gg/coderclaw) 中提问或发起 [GitHub 讨论](https://github.com/SeanHogg/coderClaw/discussions)。
+仍然卡住？在 [Discord](https://discord.gg/9gUsc2sNG6) 中提问或发起 [GitHub 讨论](https://github.com/SeanHogg/coderClaw/discussions)。

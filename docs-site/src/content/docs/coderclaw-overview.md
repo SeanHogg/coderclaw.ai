@@ -222,7 +222,7 @@ CoderClaw welcomes contributions:
 
 ## Community
 
-[Join Discord](https://discord.gg/coderclaw)
+[Join Discord](https://discord.gg/9gUsc2sNG6)
 
 ## FAQ
 

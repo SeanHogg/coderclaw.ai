@@ -15,7 +15,7 @@ export default defineConfig({
       favicon: '/favicon.svg',
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/SeanHogg/coderClaw' },
-        { icon: 'discord', label: 'Discord', href: 'https://discord.gg/coderclaw' },
+        { icon: 'discord', label: 'Discord', href: 'https://discord.gg/9gUsc2sNG6' },
       ],
       customCss: ['./src/styles/custom.css'],
       defaultLocale: 'root',

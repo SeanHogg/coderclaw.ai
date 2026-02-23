@@ -228,4 +228,4 @@ git pull
 
 - Run `coderclaw doctor` again and read the output carefully (it often tells you the fix).
 - Check: [Troubleshooting](/gateway/troubleshooting)
-- Ask in Discord: [https://discord.gg/coderclaw](https://discord.gg/coderclaw)
+- Ask in Discord: [https://discord.gg/9gUsc2sNG6](https://discord.gg/9gUsc2sNG6)

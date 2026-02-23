@@ -430,5 +430,5 @@ cat .coderClaw/security.yaml
 
 - [Full Documentation](/)
 - [GitHub Issues](https://github.com/SeanHogg/coderClaw/issues)
-- [Discord Community](https://discord.gg/coderclaw)
+- [Discord Community](https://discord.gg/9gUsc2sNG6)
 - [Phase 2 Examples](https://github.com/SeanHogg/coderClaw/tree/main/examples/phase2)

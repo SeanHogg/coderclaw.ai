@@ -2856,4 +2856,4 @@ You can add options like `debounce:2s cap:25 drop:summarize` for followup modes.
 
 ---
 
-Still stuck? Ask in [Discord](https://discord.gg/coderclaw) or open a [GitHub discussion](https://github.com/SeanHogg/coderClaw/discussions).
+Still stuck? Ask in [Discord](https://discord.gg/9gUsc2sNG6) or open a [GitHub discussion](https://github.com/SeanHogg/coderClaw/discussions).

@@ -7,21 +7,6 @@ title: "CoderClaw"
 
 # CoderClaw 🦞
 
-<p align="center">
-    <img
-        src="/assets/coderclaw-logo-text-dark.png"
-        alt="CoderClaw"
-        width="500"
-        class="dark:hidden"
-    />
-    <img
-        src="/assets/coderclaw-logo-text.png"
-        alt="CoderClaw"
-        width="500"
-        class="hidden dark:block"
-    />
-</p>
-
 > _"EXFOLIATE! EXFOLIATE!"_ — A space lobster, probably
 
 <p align="center">

@@ -9,7 +9,7 @@ summary: "Community-built projects and integrations powered by CoderClaw"
 Real projects from the community. See what people are building with CoderClaw.
 
 <Info>
-**Want to be featured?** Share your project in [#showcase on Discord](https://discord.gg/coderclaw) or [tag @coderclaw on X](https://x.com/coderclaw).
+**Want to be featured?** Share your project in [#showcase on Discord](https://discord.gg/9gUsc2sNG6) or [tag @coderclaw on X](https://x.com/coderclaw).
 </Info>
 
 ## 🎥 CoderClaw in Action
@@ -405,7 +405,7 @@ Have something to share? We'd love to feature it!
 
 <Steps>
   <Step title="Share It">
-    Post in [#showcase on Discord](https://discord.gg/coderclaw) or [tweet @coderclaw](https://x.com/coderclaw)
+    Post in [#showcase on Discord](https://discord.gg/9gUsc2sNG6) or [tweet @coderclaw](https://x.com/coderclaw)
   </Step>
   <Step title="Include Details">
     Tell us what it does, link to the repo/demo, share a screenshot if you have one

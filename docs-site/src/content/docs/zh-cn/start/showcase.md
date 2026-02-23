@@ -16,7 +16,7 @@ x-i18n:
 来自社区的真实项目。看看大家正在用 CoderClaw 构建什么。
 
 <Info>
-**想要展示你的项目？** 在 [Discord 的 #showcase 频道](https://discord.gg/coderclaw) 分享或在 [X 上 @coderclaw](https://x.com/coderclaw)。
+**想要展示你的项目？** 在 [Discord 的 #showcase 频道](https://discord.gg/9gUsc2sNG6) 分享或在 [X 上 @coderclaw](https://x.com/coderclaw)。
 </Info>
 
 ## 🎥 CoderClaw 实战演示
@@ -412,7 +412,7 @@ CoderClaw 连接到 Jira，然后即时生成一个新的 skill（在它出现�
 
 <Steps>
   <Step title="分享它">
-    在 [Discord 的 #showcase 频道](https://discord.gg/coderclaw) 发布或在 [Twitter 上 @coderclaw](https://x.com/coderclaw)
+    在 [Discord 的 #showcase 频道](https://discord.gg/9gUsc2sNG6) 发布或在 [Twitter 上 @coderclaw](https://x.com/coderclaw)
   </Step>
   <Step title="包含详细信息">
     告诉我们它做什么，链接到仓库/演示，如果有的话分享截图

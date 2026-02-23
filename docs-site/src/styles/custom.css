@@ -4,7 +4,6 @@
    ================================================================ */
 
 /* Dark mode (Starlight default) */
-:root,
 [data-theme='dark'] {
   --sl-color-accent-low:     #0d1f3d;
   --sl-color-accent:         #4d9eff;
@@ -56,6 +55,53 @@
 
   --sl-color-text:        #111827;
   --sl-color-text-accent: #3b82f6;
+  --sl-color-white:       #ffffff;
+  --sl-color-black:       #111827;
+}
+
+/* Light mode readability fixes */
+[data-theme='light'] .sl-markdown-content :is(h1, h2, h3, h4, h5, h6),
+[data-theme='light'] .content-panel :is(h1, h2, h3, h4, h5, h6),
+[data-theme='light'] [data-page-title] {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] site-search button[data-open-modal] {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid rgba(77, 158, 255, 0.25) !important;
+}
+
+[data-theme='light'] site-search button[data-open-modal] svg {
+  color: #3b82f6 !important;
+}
+
+[data-theme='light'] site-search kbd {
+  background: #eff5ff !important;
+  color: #1f2937 !important;
+  border-color: rgba(77, 158, 255, 0.3) !important;
+}
+
+[data-theme='light'] site-search dialog .dialog-frame,
+[data-theme='light'] #starlight__search {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+
+[data-theme='light'] .sidebar-content,
+[data-theme='light'] .sidebar-pane,
+[data-theme='light'] .right-sidebar {
+  color: #1f2937 !important;
+}
+
+[data-theme='light'] .sidebar-content :is(summary, a, button, label, h2, h3),
+[data-theme='light'] .sidebar-pane :is(summary, a, button, label, h2, h3) {
+  color: #1f2937 !important;
+}
+
+[data-theme='light'] .sidebar-content a:hover,
+[data-theme='light'] .sidebar-pane a:hover {
+  color: #1d4ed8 !important;
 }
 
 /* Active sidebar item: cyan highlight */
