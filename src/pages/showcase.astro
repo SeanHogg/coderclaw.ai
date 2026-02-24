@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../layouts/Layout.astro';
 
 // Static page structure - content loads dynamically via JavaScript
@@ -10,9 +10,9 @@ import Layout from '../layouts/Layout.astro';
 
   <main class="container">
     <header class="header">
-      <a href="/" class="back-link">← Back to home</a>
+      <a href="/" class="back-link">? Back to home</a>
       <h1 class="title">
-        <span class="claw-accent">⟩</span> What People Are Building
+        <span class="claw-accent">?</span> What People Are Building
       </h1>
       <p class="subtitle">Real projects, real automation, real magic.</p>
       <div class="filter-controls">
@@ -36,12 +36,12 @@ import Layout from '../layouts/Layout.astro';
       <div class="cta-buttons">
         <a href="https://twitter.com/intent/tweet?text=Check%20out%20what%20I%20built%20with%20%40coderclaw%21" target="_blank" rel="noopener" class="cta-btn cta-primary">Share on X</a>
         <a href="https://coderclaw.ai/skills" target="_blank" rel="noopener" class="cta-btn cta-hub">Browse Skills</a>
-        <a href="https://discord.gg/coderclaw" target="_blank" rel="noopener" class="cta-btn cta-secondary">Join Discord</a>
+        <a href="https://discord.gg/9gUsc2sNG6" target="_blank" rel="noopener" class="cta-btn cta-secondary">Join Discord</a>
       </div>
     </section>
 
     <p class="more-examples">
-      Looking for more? Check out <a href="https://docs.coderclaw.ai/start/showcase" target="_blank" rel="noopener">even more examples in our docs</a> →
+      Looking for more? Check out <a href="https://docs.coderclaw.ai/start/showcase" target="_blank" rel="noopener">even more examples in our docs</a> ?
     </p>
 
     <footer class="footer">
@@ -445,18 +445,18 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
   const categoryLabels: Record<string, string> = {
-    'power-user': '🚀 Power User',
-    'automation': '⚡ Automation',
-    'productivity': '📋 Productivity',
-    'integration': '🔗 Integration',
-    'developer': '💻 Developer',
-    'personal': '👤 Personal',
-    'family': '👨‍👩‍👧 Family',
-    'smart-home': '🏠 Smart Home',
-    'creative': '🎨 Creative',
-    'hardware': '⚙️ Hardware',
-    'general': '📱 General',
-    'setup': '🔧 Setup',
+    'power-user': '?? Power User',
+    'automation': '? Automation',
+    'productivity': '?? Productivity',
+    'integration': '?? Integration',
+    'developer': '?? Developer',
+    'personal': '?? Personal',
+    'family': '???????? Family',
+    'smart-home': '?? Smart Home',
+    'creative': '?? Creative',
+    'hardware': '?? Hardware',
+    'general': '?? General',
+    'setup': '?? Setup',
   };
 
   interface Tweet {
@@ -518,13 +518,13 @@ import Layout from '../layouts/Layout.astro';
               <img src="https://unavatar.io/x/${tweet.author}" alt="${tweet.author}" class="avatar" loading="lazy" />
               <div class="author-info">
                 <span class="author-name">@${tweet.author}</span>
-                <span class="category-tag">💬 Tweet</span>
+                <span class="category-tag">?? Tweet</span>
               </div>
-              <span class="likes">❤️ ${tweet.likes}</span>
+              <span class="likes">?? ${tweet.likes}</span>
             </div>
             <p class="quote">${tweet.quote}</p>
             ${imagesHTML}
-            <span class="view-link">View on X →</span>
+            <span class="view-link">View on X ?</span>
           `;
           
           grid.appendChild(card);

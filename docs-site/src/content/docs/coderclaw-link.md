@@ -1,0 +1,212 @@
+---
+summary: "CoderClawLink — human-facing project management portal with AI-powered task writing, Kanban/List/Gantt views, and OpenRouter integration"
+read_when:
+  - You want to manage projects and tasks in a Jira-style web UI
+  - You want to use AI to write PRDs and task descriptions
+  - You want Kanban, List, or Gantt views for your work
+  - You want to connect CoderClaw agents to a remote execution portal
+title: "CoderClawLink"
+---
+
+# CoderClawLink
+
+[CoderClawLink](https://app.coderclaw.ai) is the human-facing project management portal for the CoderClaw ecosystem. It provides a Jira-style web UI for managing projects, tasks, and AI agent mesh — with Kanban, List, and Gantt views, AI-powered PRD writing via OpenRouter, drag-and-drop task management, and full multi-tenant workspace support.
+
+## Features
+
+### Task Board Views
+
+CoderClawLink supports three task board views you can switch between at any time:
+
+- **Kanban** — swim-lane board with drag-and-drop between columns (To Do, In Progress, In Review, Done, Blocked)
+- **List** — sortable table view with all task fields visible at a glance
+- **Gantt** — timeline chart showing task start/due dates as horizontal bars, with today marker and overdue highlighting
+
+### AI-Powered Task & PRD Writing
+
+Use OpenRouter to generate detailed task descriptions and PRDs directly in the task creation and edit forms:
+
+1. Go to **Workspace → AI Settings**
+2. Enter your [OpenRouter API key](https://openrouter.ai/keys)
+3. Select a model (Claude Sonnet 4.6 recommended)
+4. When creating or editing a task, click **✨ Generate with AI** to auto-write a full PRD including:
+   - Objective and background
+   - Acceptance criteria checklist
+   - Technical implementation notes
+   - Edge cases to consider
+
+### Task Management
+
+Each task supports:
+- **Status**: To Do, In Progress, In Review, Done, Blocked
+- **Priority**: Low, Medium, High, Critical
+- **Agent assignment**: Claude, OpenAI, Ollama, HTTP
+- **Start date & Due date** (used in Gantt view)
+- **GitHub PR link** (auto-set when agent creates a PR)
+- **Description / PRD** (AI-generated or manual)
+
+### Project Management
+
+- Create projects with a unique key (e.g., `PROJ`)
+- Link to a GitHub repository for PR automation
+- Auto-incremented task keys (e.g., `PROJ-001`)
+
+### Multi-Tenant Workspaces
+
+- Create isolated workspaces for different teams or repositories
+- Invite members with roles: Viewer, Developer, Manager, Owner
+- Switch between workspaces instantly
+
+### CoderClaw Mesh
+
+- Register any number of CoderClaw instances (claws) to your workspace
+- Each claw gets a unique one-time API key
+- Assign marketplace skills to your entire workspace or individual claws
+
+## Architecture
+
+CoderClawLink is built on:
+- **Cloudflare Workers** — serverless edge hosting
+- **Hono** — lightweight TypeScript web framework
+- **Drizzle ORM + Neon Postgres** — type-safe database with serverless PostgreSQL
+- **Clean Architecture** — Domain → Application → Infrastructure → Presentation layers
+- **JWT authentication** — web tokens (no-tenant) and tenant-scoped tokens
+
+## Quick Start
+
+### 1. Sign up
+
+Go to [app.coderclaw.ai](https://app.coderclaw.ai) and create a free account.
+
+### 2. Create a workspace
+
+After logging in, create your first workspace. This is your tenant — a fully isolated environment for your team.
+
+### 3. Create a project
+
+Navigate to **Projects → + New Project**. Set a short key (e.g., `APP`) and a name.
+
+### 4. Add tasks
+
+Go to **Tasks → + New Task**. Enter a title, then click **✨ Generate with AI** to auto-write the description using OpenRouter, or write it manually.
+
+Set start and due dates to use the Gantt view.
+
+### 5. Register your CoderClaw
+
+Go to **Claws → + Register Claw**. Copy the one-time API key and add it to your CoderClaw config:
+
+```bash
+export CODERCLAW_API_KEY=your-key-here
+# or save to .env file (download button available in UI)
+```
+
+### 6. Configure AI settings
+
+Go to **Workspace → AI Settings** and enter your OpenRouter API key. Choose your preferred model.
+
+## OpenRouter Integration
+
+CoderClawLink uses [OpenRouter](https://openrouter.ai) as a unified gateway to access Claude, GPT-4o, Gemini, Llama, and other models for task and PRD generation.
+
+**Supported models:**
+| Model | Notes |
+|-------|-------|
+| `anthropic/claude-sonnet-4-6` | Recommended — best quality |
+| `anthropic/claude-opus-4-6` | Highest capability |
+| `anthropic/claude-haiku-4-5` | Fastest |
+| `openai/gpt-4o` | Strong alternative |
+| `openai/gpt-4o-mini` | Fast and cheap |
+| `google/gemini-2.0-flash-001` | Good quality/speed ratio |
+| `meta-llama/llama-3.3-70b-instruct` | Open-weight model |
+
+Your API key is stored locally in your browser and never sent to CoderClawLink servers. All AI calls go directly from your browser to OpenRouter.
+
+## Task Status Flow
+
+```
+todo → in_progress → in_review → done
+            ↓
+         blocked
+```
+
+Drag cards between columns in Kanban view, or use the Status dropdown in the task edit modal.
+
+## Gantt View
+
+The Gantt view shows all tasks as horizontal timeline bars. Tasks without explicit start/due dates use `createdAt` as start and `createdAt + 7 days` as end for display purposes.
+
+- **Bars are colored by status** (blue = in progress, cyan = in review, green = done, red = blocked)
+- **Overdue tasks** are highlighted with a red outline
+- **Today marker** shows the current date as a red vertical line
+- Click any bar or row to open the task edit modal
+
+## Connecting CoderClaw to CoderClawLink
+
+CoderClaw agents can submit tasks directly to CoderClawLink via the execution API:
+
+```
+POST /api/runtime/executions           Submit a task for agent execution
+GET  /api/runtime/executions/:id       Get execution state
+PATCH /api/runtime/executions/:id/state  Agent callback to update state
+```
+
+```typescript
+import { ClawLinkTransportAdapter } from "coderclaw/transport";
+
+const adapter = new ClawLinkTransportAdapter({
+  baseUrl: "https://app.coderclaw.ai",
+  apiKey: process.env.CODERCLAW_API_KEY,
+});
+
+await adapter.connect();
+const state = await adapter.submitTask({
+  agentId: "claude",
+  description: "Implement login page",
+  input: "Create a login component with email + password fields",
+});
+```
+
+## API Reference
+
+All API endpoints are at `https://api.coderclaw.ai`.
+
+### Tasks
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET`    | `/api/tasks?project_id=1` | List tasks (tenant-scoped) |
+| `GET`    | `/api/tasks/:id` | Get task |
+| `POST`   | `/api/tasks` | Create task |
+| `PATCH`  | `/api/tasks/:id` | Update task (status, title, dates, etc.) |
+| `DELETE` | `/api/tasks/:id` | Delete task |
+
+### Projects
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET`    | `/api/projects` | List projects |
+| `POST`   | `/api/projects` | Create project |
+| `PATCH`  | `/api/projects/:id` | Update project |
+| `DELETE` | `/api/projects/:id` | Delete project |
+
+### Runtime (Agent Execution)
+| Method | Path | Description |
+|--------|------|-------------|
+| `POST`   | `/api/runtime/executions` | Submit task for execution |
+| `GET`    | `/api/runtime/executions` | List executions |
+| `GET`    | `/api/runtime/executions/:id` | Get execution state |
+| `POST`   | `/api/runtime/executions/:id/cancel` | Cancel execution |
+| `PATCH`  | `/api/runtime/executions/:id/state` | Agent state callback |
+
+### Auth
+| Method | Path | Description |
+|--------|------|-------------|
+| `POST` | `/api/auth/web/register` | Register |
+| `POST` | `/api/auth/web/login` | Login |
+| `POST` | `/api/auth/tenant-token` | Get tenant-scoped JWT |
+
+## Further reading
+
+- [CoderClawLink repository](https://github.com/SeanHogg/coderClawLink)
+- [OpenRouter documentation](https://openrouter.ai/docs)
+- [CoderClaw workflows](/coderclaw-workflows)
+- [Phase 2 distributed runtime](/phase2)

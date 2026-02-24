@@ -1,4 +1,4 @@
-ï»¿---
+---
 title: "Introducing CoderClaw"
 description: "Meet CoderClaw: The ultimate coding agent framework for autonomous development."
 date: 2026-02-21
@@ -7,7 +7,7 @@ authorHandle: "theseanhogg"
 tags: ["announcement", "agents", "framework"]
 ---
 
-The future of development isn't about writing more codeâ€”it's about orchestrating intelligent agents that handle the work for you.
+The future of development isn't about writing more code—it's about orchestrating intelligent agents that handle the work for you.
 
 Today, I'm excited to introduce **CoderClaw**, the ultimate coding agent framework designed for developers who want to transition from coding to managing business outcomes.
 
@@ -23,7 +23,7 @@ CoderClaw is a powerful framework for building autonomous coding agents that can
 ## Core Capabilities
 
 ### Autonomous Agents
-Create specialized agents for different tasksâ€”code review, testing, documentation, performance optimization, and more. Each agent runs independently and reports back on progress.
+Create specialized agents for different tasks—code review, testing, documentation, performance optimization, and more. Each agent runs independently and reports back on progress.
 
 ### Sub-Agent Architecture
 For complex projects, parent agents can dynamically create and manage sub-agents. This enables true parallel processing and dramatically improves throughput on large tasks.
@@ -52,7 +52,7 @@ Stop writing code. Start managing agents that write code for you. CoderClaw lets
 Whether you're working on a single project or orchestrating hundreds of agents across multiple teams, CoderClaw scales with you.
 
 ### Your Infrastructure, Your Rules
-CoderClaw runs where you chooseâ€”on your machine, in your homelab, or on a private server. Your code stays secure. You control everything.
+CoderClaw runs where you choose—on your machine, in your homelab, or on a private server. Your code stays secure. You control everything.
 
 ### Community-Driven
 Extend CoderClaw with community-created skills. Build your own. Share them with others. The framework grows with your needs.
@@ -65,7 +65,7 @@ Getting up and running is simple:
 curl https://get.coderclaw.ai | sh
 ```
 
-That's it. The installer handles everythingâ€”Node.js, dependencies, and setup.
+That's it. The installer handles everything—Node.js, dependencies, and setup.
 
 Then create your first agent:
 
@@ -107,11 +107,11 @@ We're focused on:
 
 ## Join the Community
 
-The strength of CoderClaw comes from developers like you. Whether you're building agents, contributing skills, reporting issues, or sharing ideasâ€”you're making this framework better.
+The strength of CoderClaw comes from developers like you. Whether you're building agents, contributing skills, reporting issues, or sharing ideas—you're making this framework better.
 
 **Get started:** <a href="https://coderclaw.ai" target="_blank" rel="noopener">coderclaw.ai</a>
 
-**Join Discord:** <a href="https://discord.gg/pkCQ3Wdt" target="_blank" rel="noopener">discord.gg/pkCQ3Wdt</a>
+**Join Discord:** <a href="https://discord.gg/9gUsc2sNG6" target="_blank" rel="noopener">discord.gg/pkCQ3Wdt</a>
 
 **View on GitHub:** <a href="https://github.com/seanhogg/coderclaw" target="_blank" rel="noopener">github.com/seanhogg/coderclaw</a>
 
@@ -119,6 +119,6 @@ The strength of CoderClaw comes from developers like you. Whether you're buildin
 
 ---
 
-Welcome to the future of development. Welcome to CoderClaw. ðŸ¦ž
+Welcome to the future of development. Welcome to CoderClaw. ??
 
 *P.S. Build something amazing with CoderClaw and share it in the showcase. We'd love to see what you create.*
