@@ -7,7 +7,7 @@ authorHandle: "theseanhogg"
 tags: ["announcement", "agents", "framework"]
 ---
 
-The future of development isn't about writing more code—it's about orchestrating intelligent agents that handle the work for you.
+The future of development isn't about writing more codeï¿½it's about orchestrating intelligent agents that handle the work for you.
 
 Today, I'm excited to introduce **CoderClaw**, the ultimate coding agent framework designed for developers who want to transition from coding to managing business outcomes.
 
@@ -23,7 +23,7 @@ CoderClaw is a powerful framework for building autonomous coding agents that can
 ## Core Capabilities
 
 ### Autonomous Agents
-Create specialized agents for different tasks—code review, testing, documentation, performance optimization, and more. Each agent runs independently and reports back on progress.
+Create specialized agents for different tasksï¿½code review, testing, documentation, performance optimization, and more. Each agent runs independently and reports back on progress.
 
 ### Sub-Agent Architecture
 For complex projects, parent agents can dynamically create and manage sub-agents. This enables true parallel processing and dramatically improves throughput on large tasks.
@@ -52,7 +52,7 @@ Stop writing code. Start managing agents that write code for you. CoderClaw lets
 Whether you're working on a single project or orchestrating hundreds of agents across multiple teams, CoderClaw scales with you.
 
 ### Your Infrastructure, Your Rules
-CoderClaw runs where you choose—on your machine, in your homelab, or on a private server. Your code stays secure. You control everything.
+CoderClaw runs where you chooseï¿½on your machine, in your homelab, or on a private server. Your code stays secure. You control everything.
 
 ### Community-Driven
 Extend CoderClaw with community-created skills. Build your own. Share them with others. The framework grows with your needs.
@@ -62,10 +62,10 @@ Extend CoderClaw with community-created skills. Build your own. Share them with 
 Getting up and running is simple:
 
 ```bash
-curl https://get.coderclaw.ai | sh
+curl -fsSL https://coderclaw.ai/install.sh | bash
 ```
 
-That's it. The installer handles everything—Node.js, dependencies, and setup.
+That's it. The installer handles everythingï¿½Node.js, dependencies, and setup.
 
 Then create your first agent:
 
@@ -107,7 +107,7 @@ We're focused on:
 
 ## Join the Community
 
-The strength of CoderClaw comes from developers like you. Whether you're building agents, contributing skills, reporting issues, or sharing ideas—you're making this framework better.
+The strength of CoderClaw comes from developers like you. Whether you're building agents, contributing skills, reporting issues, or sharing ideasï¿½you're making this framework better.
 
 **Get started:** <a href="https://coderclaw.ai" target="_blank" rel="noopener">coderclaw.ai</a>
 

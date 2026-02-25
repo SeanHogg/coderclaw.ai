@@ -99,6 +99,17 @@
   color: #1f2937 !important;
 }
 
+[data-theme='light'] .sidebar-content .group-label,
+[data-theme='light'] .sidebar-pane .group-label,
+[data-theme='light'] .sidebar-content .group-label .large,
+[data-theme='light'] .sidebar-pane .group-label .large,
+[data-theme='light'] .sidebar-content details > summary,
+[data-theme='light'] .sidebar-pane details > summary {
+  color: #0f172a !important;
+  opacity: 1 !important;
+  font-weight: 600;
+}
+
 [data-theme='light'] .sidebar-content a:hover,
 [data-theme='light'] .sidebar-pane a:hover {
   color: #1d4ed8 !important;

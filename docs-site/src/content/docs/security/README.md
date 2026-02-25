@@ -4,7 +4,7 @@ title: "CoderClaw Security & Trust"
 
 # CoderClaw Security & Trust
 
-**Live:** [trust.coderclaw.ai](https://trust.coderclaw.ai)
+**Live:** [coderclaw.ai/trust](https://coderclaw.ai/trust/)
 
 ## Documents
 
@@ -13,7 +13,7 @@ title: "CoderClaw Security & Trust"
 
 ## Reporting Vulnerabilities
 
-See the [Trust page](https://trust.coderclaw.ai) for full reporting instructions covering all repos.
+See the [Trust page](https://coderclaw.ai/trust/) for full reporting instructions covering all repos.
 
 ## Contact
 
