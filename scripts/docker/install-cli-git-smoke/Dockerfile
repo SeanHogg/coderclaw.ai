@@ -12,7 +12,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 COPY scripts/docker/install-cli-git-smoke/run.sh /usr/local/bin/coderclaw-install-cli-git-smoke
-COPY public/install-cli.sh /opt/coderclaw-install-cli.sh
+COPY landing/public/install-cli.sh /opt/coderclaw-install-cli.sh
 RUN chmod +x /usr/local/bin/coderclaw-install-cli-git-smoke \
   && chmod a+r /opt/coderclaw-install-cli.sh
 

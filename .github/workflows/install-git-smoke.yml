@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Build git smoke image
-        run: docker build -t coderclaw-install-git-smoke:ci -f scripts/docker/install-sh-git-smoke/Dockerfile .
+        run: docker build -t coderclaw-install-git-smoke:ci -f scripts/docker/install-sh-git-smoke/Dockerfile . --build-arg LANDING_DIR=landing
 
       - name: Run git smoke
         env:
@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Build git smoke image (install-cli.sh)
-        run: docker build -t coderclaw-install-cli-git-smoke:ci -f scripts/docker/install-cli-git-smoke/Dockerfile .
+        run: docker build -t coderclaw-install-cli-git-smoke:ci -f scripts/docker/install-cli-git-smoke/Dockerfile . --build-arg LANDING_DIR=landing
 
       - name: Run git smoke (install-cli.sh)
         run: docker run --rm -t coderclaw-install-cli-git-smoke:ci

@@ -1,35 +1,20 @@
-# CoderClaw Landing Page
+# coderclaw.ai monorepo
 
-## Data Files
+Two independent sites sharing one repo:
 
-### Showcase (`src/data/showcase.json`)
-- "What People Are Building" page - detailed tweets with projects/workflows
-- **Sorted into uniform rows**: all-SHORT rows, all-MED rows, all-LONG rows
-- This ensures consistent row heights in the 3-column CSS grid
-- Categories: SHORT (<200 chars), MED (200-400), LONG (>400)
-- Fields: `id`, `author`, `quote`, `category`, `likes`, `images?` (array of URLs)
-- **Important**: `showcase.astro` uses JSON order directly (no re-sorting) — maintain order in JSON
+- `landing/` — marketing site at coderclaw.ai (Astro static → Cloudflare Workers)
+- `docs-site/` — documentation at docs.coderclaw.ai (Astro Starlight → Cloudflare Pages)
 
-### Testimonials (`src/data/testimonials.json`)
-- Short praise quotes for the shoutouts page
-- Sorted by quote length (most detailed/impressive first)
-- Deduplicated by author (keep longest quote)
-- Backup: `testimonials-backup.json` contains weakest 10% removed
+Installer CI scripts live in `scripts/`. They test the install scripts hosted at `landing/public/`.
 
-## Maintenance
+## Deploy
 
-When adding new tweets:
-1. Use `bird read <tweet_id>` to fetch content and like count
-2. "Building" tweets → showcase.json (describe what they built)
-3. "Praise" tweets → testimonials.json (short praise/reactions)
-4. Re-sort after batch additions
+```bash
+# Landing
+cd landing && npx wrangler deploy
 
-Showcase sorting script pattern:
-```js
-// Group by size for uniform row heights
-const longs = sorted.filter(t => t.quote.length > 400);
-const meds = sorted.filter(t => t.quote.length > 200 && t.quote.length <= 400);
-const shorts = sorted.filter(t => t.quote.length <= 200);
-// Alternate: 3 shorts, 3 meds, 3 longs, repeat
-// Keeps high-engagement items near top within each category
+# Docs
+cd docs-site && npx wrangler deploy
 ```
+
+Both auto-deploy on push to main via `.github/workflows/`.

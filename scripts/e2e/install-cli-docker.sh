@@ -11,7 +11,7 @@ echo "Running install-cli E2E..."
 docker run --rm -t "$IMAGE_NAME" bash -lc '
   set -euo pipefail
   install_prefix="/tmp/coderclaw"
-  /app/public/install-cli.sh --json --no-onboard --prefix "$install_prefix" > /tmp/install.jsonl
+  /app/landing/public/install-cli.sh --json --no-onboard --prefix "$install_prefix" > /tmp/install.jsonl
   grep "\"event\":\"done\"" /tmp/install.jsonl
   "$install_prefix/bin/coderclaw" --version
 '

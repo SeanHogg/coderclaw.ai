@@ -119,7 +119,7 @@ run_case() {
   build_install_args
 
   local install_cmd=""
-  printf -v install_cmd '%q ' bash public/install.sh "${INSTALL_ARGS[@]}"
+  printf -v install_cmd '%q ' bash landing/public/install.sh "${INSTALL_ARGS[@]}"
 
   echo ""
   echo "============================================================"

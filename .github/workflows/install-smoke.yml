@@ -18,17 +18,17 @@ jobs:
 
       - name: install.sh dry run
         if: runner.os != 'Windows'
-        run: bash public/install.sh --dry-run --no-onboard --no-prompt
+        run: bash landing/public/install.sh --dry-run --no-onboard --no-prompt
 
       - name: install.ps1 dry run
         if: runner.os == 'Windows'
         shell: pwsh
-        run: .\\public\\install.ps1 -DryRun -NoOnboard -InstallMethod npm
+        run: .\\landing\\public\\install.ps1 -DryRun -NoOnboard -InstallMethod npm
 
       - name: install.cmd dry run
         if: runner.os == 'Windows'
         shell: cmd
-        run: set "CODERCLAW_INSTALL_PS1_URL=%GITHUB_WORKSPACE%\\public\\install.ps1" && .\\public\\install.cmd --dry-run --no-onboard --npm
+        run: set "CODERCLAW_INSTALL_PS1_URL=%GITHUB_WORKSPACE%\\landing\\public\\install.ps1" && .\\landing\\public\\install.cmd --dry-run --no-onboard --npm
 
   shellcheck:
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Build smoke image (root)
-        run: docker build -t coderclaw-install-smoke:ci -f scripts/docker/install-sh-smoke/Dockerfile .
+        run: docker build -t coderclaw-install-smoke:ci -f scripts/docker/install-sh-smoke/Dockerfile . --build-arg LANDING_DIR=landing
 
       - name: Run install smoke (root)
         env:
@@ -66,7 +66,7 @@ jobs:
         run: docker run --rm -t -e CODERCLAW_NO_ONBOARD coderclaw-install-smoke:ci
 
       - name: Build non-root image
-        run: docker build -t coderclaw-install-nonroot:ci -f scripts/docker/install-sh-nonroot/Dockerfile .
+        run: docker build -t coderclaw-install-nonroot:ci -f scripts/docker/install-sh-nonroot/Dockerfile . --build-arg LANDING_DIR=landing
 
       - name: Run install smoke (non-root + CLI)
         env:
@@ -83,7 +83,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Build git smoke image (install.sh)
-        run: docker build -t coderclaw-install-git-smoke:ci -f scripts/docker/install-sh-git-smoke/Dockerfile .
+        run: docker build -t coderclaw-install-git-smoke:ci -f scripts/docker/install-sh-git-smoke/Dockerfile . --build-arg LANDING_DIR=landing
 
       - name: Run git smoke (install.sh)
         env:
@@ -98,7 +98,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Build git smoke image (install-cli.sh)
-        run: docker build -t coderclaw-install-cli-git-smoke:ci -f scripts/docker/install-cli-git-smoke/Dockerfile .
+        run: docker build -t coderclaw-install-cli-git-smoke:ci -f scripts/docker/install-cli-git-smoke/Dockerfile . --build-arg LANDING_DIR=landing
 
       - name: Run git smoke (install-cli.sh)
         run: docker run --rm -t coderclaw-install-cli-git-smoke:ci

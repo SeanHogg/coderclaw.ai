@@ -19,8 +19,8 @@ ENV NPM_CONFIG_FUND=false
 ENV NPM_CONFIG_AUDIT=false
 
 COPY scripts/docker/install-sh-nonroot/run.sh /usr/local/bin/coderclaw-install-nonroot
-COPY public/install.sh /opt/coderclaw-install.sh
-COPY public/install-cli.sh /opt/coderclaw-install-cli.sh
+COPY landing/public/install.sh /opt/coderclaw-install.sh
+COPY landing/public/install-cli.sh /opt/coderclaw-install-cli.sh
 RUN sudo chmod +x /usr/local/bin/coderclaw-install-nonroot \
   && sudo chmod a+r /opt/coderclaw-install.sh /opt/coderclaw-install-cli.sh
 
