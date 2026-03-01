@@ -855,11 +855,11 @@ const langLinks = {
             <h4>Report a Vulnerability</h4>
             <p>We take security reports seriously. Report vulnerabilities directly to the repository where the issue lives:</p>
             <ul style="margin-top: 12px; margin-bottom: 12px;">
-              <li><strong>Core CLI and gateway</strong> - <a href="https://github.com/coderclaw/coderclaw/security/advisories/new">coderclaw/coderclaw</a></li>
-              <li><strong>macOS desktop app</strong> - <a href="https://github.com/coderclaw/coderclaw/security/advisories/new">coderclaw/coderclaw</a> (apps/macos)</li>
-              <li><strong>iOS app</strong> - <a href="https://github.com/coderclaw/coderclaw/security/advisories/new">coderclaw/coderclaw</a> (apps/ios)</li>
-              <li><strong>Android app</strong> - <a href="https://github.com/coderclaw/coderclaw/security/advisories/new">coderclaw/coderclaw</a> (apps/android)</li>
-              <li><strong>CoderClaw Skills</strong> - <a href="https://github.com/coderclaw/coderclaw/security/advisories/new">coderclaw/coderclaw</a></li>
+              <li><strong>Core CLI and gateway</strong> - <a href="https://github.com/seanhogg/coderclaw/security/advisories/new">seanhogg/coderclaw</a></li>
+              <li><strong>macOS desktop app</strong> - <a href="https://github.com/seanhogg/coderclaw/security/advisories/new">seanhogg/coderclaw</a> (apps/macos)</li>
+              <li><strong>iOS app</strong> - <a href="https://github.com/seanhogg/coderclaw/security/advisories/new">seanhogg/coderclaw</a> (apps/ios)</li>
+              <li><strong>Android app</strong> - <a href="https://github.com/seanhogg/coderclaw/security/advisories/new">seanhogg/coderclaw</a> (apps/android)</li>
+              <li><strong>CoderClaw Skills</strong> - <a href="https://github.com/seanhogg/coderclaw/security/advisories/new">seanhogg/coderclaw</a></li>
               <li><strong>Trust and threat model</strong> - <a href="https://github.com/coderclaw/trust/issues/new">coderclaw/trust</a></li>
             </ul>
             <p>For issues that don't fit a specific repo, or if you're unsure, email <span class="email-display" style="display: inline; padding: 4px 8px; font-size: 13px;">security@coderclaw.ai</span> and we'll route it.</p>
@@ -935,8 +935,8 @@ const langLinks = {
 
         <section class="section">
           <h2>Security & Trust</h2>
-          <p><strong>Jamieson O'Reilly</strong> (<a href="https://twitter.com/theonejvo">@theonejvo</a>) is Security & Trust at CoderClaw.</p>
-          <p>Jamieson is the founder of <a href="https://dvuln.com">Dvuln</a>, co-founder of <a href="https://tryaether.ai">Aether AI</a> (the world's most dangerous AI, in your corner), a member of the CREST Advisory Council, and brings extensive experience in offensive security, penetration testing, and security program development.</p>
+          <p><strong>Sean Hogg</strong> leads Security & Trust at CoderClaw.</p>
+          <p>Sean oversees threat modeling, secure architecture, vulnerability response, and rollout of practical controls such as optional TOTP MFA, recovery codes, and session/token revocation across CoderClaw services.</p>
 
           <h3>Responsibilities</h3>
           <ul>
@@ -994,6 +994,27 @@ const langLinks = {
               <div>
                 <strong>Gateway Auth Required</strong>
                 <p style="margin: 4px 0 0; font-size: 14px;">WebSocket connections must authenticate</p>
+              </div>
+            </div>
+            <div class="check">
+              <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3"><path d="M5 12l5 5L19 7"/></svg></div>
+              <div>
+                <strong>Optional TOTP MFA</strong>
+                <p style="margin: 4px 0 0; font-size: 14px;">Users can enable authenticator-app MFA with QR setup and one-time recovery codes</p>
+              </div>
+            </div>
+            <div class="check">
+              <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3"><path d="M5 12l5 5L19 7"/></svg></div>
+              <div>
+                <strong>Session Visibility & Revocation</strong>
+                <p style="margin: 4px 0 0; font-size: 14px;">Users can view active sessions across devices and revoke specific or all other sessions</p>
+              </div>
+            </div>
+            <div class="check">
+              <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3"><path d="M5 12l5 5L19 7"/></svg></div>
+              <div>
+                <strong>JWT Token Lifecycle Controls</strong>
+                <p style="margin: 4px 0 0; font-size: 14px;">Issued tokens are tracked and can be invalidated early via token/session revocation</p>
               </div>
             </div>
           </div>
@@ -1107,7 +1128,7 @@ ONGOING:
         </section>
 
         <div class="cta">
-          <a href="https://github.com/coderclaw/coderclaw/labels/security" class="btn btn-primary">
+          <a href="https://github.com/seanhogg/coderclaw/issues?q=is%3Aissue+label%3Asecurity" class="btn btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             View Security Roadmap
           </a>

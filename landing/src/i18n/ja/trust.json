@@ -248,11 +248,11 @@
       "title": "脆弱性の報告",
       "intro": "セキュリティレポートを真摯に受け止めます。問題が存在するリポジトリに直接脆弱性を報告してください：",
       "repos": [
-        { "label": "コアCLIおよびGateway", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw" },
-        { "label": "macOSデスクトップアプリ", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/macos)" },
-        { "label": "iOSアプリ", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/ios)" },
-        { "label": "Androidアプリ", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/android)" },
-        { "label": "CoderClaw Skills", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw" },
+        { "label": "コアCLIおよびGateway", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw" },
+        { "label": "macOSデスクトップアプリ", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw (apps/macos)" },
+        { "label": "iOSアプリ", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw (apps/ios)" },
+        { "label": "Androidアプリ", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw (apps/android)" },
+        { "label": "CoderClaw Skills", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw" },
         { "label": "トラストおよび脅威モデル", "url": "https://github.com/coderclaw/trust/issues/new", "name": "coderclaw/trust" }
       ],
       "fallback": "特定のリポジトリに該当しない場合、または不明な場合は <span class=\"email-display\" style=\"display: inline; padding: 4px 8px; font-size: 13px;\">security@coderclaw.ai</span> にメールをお送りください。適切に転送いたします。",
@@ -283,8 +283,8 @@
   },
   "securityTrust": {
     "heading": "セキュリティとトラスト",
-    "bio": "<strong>Jamieson O'Reilly</strong>（<a href=\"https://twitter.com/theonejvo\">@theonejvo</a>）がCoderClawのセキュリティとトラストを担当しています。",
-    "bioDetail": "Jamiesonは<a href=\"https://dvuln.com\">Dvuln</a>の創設者、<a href=\"https://tryaether.ai\">Aether AI</a>（世界で最も危険なAI、あなたの味方）の共同創設者であり、CRESTアドバイザリーカウンシルのメンバーです。攻撃的セキュリティ、ペネトレーションテスト、セキュリティプログラム開発において豊富な経験を有しています。",
+    "bio": "<strong>Sean Hogg</strong>がCoderClawのセキュリティとトラストを担当しています。",
+    "bioDetail": "Seanは脅威モデリング、セキュアアーキテクチャ、脆弱性対応を統括し、オプションのTOTP MFA、リカバリーコード、セッション/トークン失効といった実践的な保護策の導入を推進しています。",
     "responsibilitiesTitle": "責任範囲",
     "responsibilities": [
       "脅威モデリングとリスク評価の主導",
@@ -304,7 +304,10 @@
       { "title": "デフォルトAllowFrom: 自分のみ", "desc": "未設定の場合、自分の番号のみがエージェントにDMを送信できます" },
       { "title": "セッション分離", "desc": "会話はセッションキーごとに分離されます" },
       { "title": "SSRF防御", "desc": "web_fetch内で内部IPとlocalhostをブロック" },
-      { "title": "Gateway認証必須", "desc": "WebSocket接続には認証が必要です" }
+      { "title": "Gateway認証必須", "desc": "WebSocket接続には認証が必要です" },
+      { "title": "オプションのTOTP MFA", "desc": "ユーザーは認証アプリのQRセットアップと使い切りリカバリーコードでMFAを有効化できます" },
+      { "title": "セッション可視化と失効", "desc": "複数デバイスのアクティブセッションを確認し、特定セッションまたは他セッションを失効できます" },
+      { "title": "JWTトークンライフサイクル制御", "desc": "発行済みトークンを追跡し、トークン/セッション失効で早期無効化できます" }
     ],
     "verifyTitle": "設定の確認",
     "verifyCommand": "coderclaw security audit --deep",

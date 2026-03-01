@@ -17,5 +17,5 @@ See the [Trust page](https://coderclaw.ai/trust/) for full reporting instruction
 
 ## Contact
 
-- **Jamieson O'Reilly** ([@theonejvo](https://twitter.com/theonejvo)) - Security & Trust
+- **Sean Hogg** - Security & Trust
 - Discord: #security channel

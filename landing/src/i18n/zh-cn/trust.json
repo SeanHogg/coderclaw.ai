@@ -248,11 +248,11 @@
       "title": "报告漏洞",
       "intro": "我们认真对待安全报告。请直接向问题所在的仓库报告漏洞：",
       "repos": [
-        { "label": "核心 CLI 和 Gateway", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw" },
-        { "label": "macOS 桌面应用", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/macos)" },
-        { "label": "iOS 应用", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/ios)" },
-        { "label": "Android 应用", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/android)" },
-        { "label": "CoderClaw Skills", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw" },
+        { "label": "核心 CLI 和 Gateway", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw" },
+        { "label": "macOS 桌面应用", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw (apps/macos)" },
+        { "label": "iOS 应用", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw (apps/ios)" },
+        { "label": "Android 应用", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw (apps/android)" },
+        { "label": "CoderClaw Skills", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw" },
         { "label": "信任与威胁模型", "url": "https://github.com/coderclaw/trust/issues/new", "name": "coderclaw/trust" }
       ],
       "fallback": "对于不适用于特定仓库的问题，或者如果您不确定，请发送邮件至 <span class=\"email-display\" style=\"display: inline; padding: 4px 8px; font-size: 13px;\">security@coderclaw.ai</span>，我们会进行转发处理。",
@@ -283,8 +283,8 @@
   },
   "securityTrust": {
     "heading": "安全与信任",
-    "bio": "<strong>Jamieson O'Reilly</strong>（<a href=\"https://twitter.com/theonejvo\">@theonejvo</a>）负责 CoderClaw 的安全与信任事务。",
-    "bioDetail": "Jamieson 是 <a href=\"https://dvuln.com\">Dvuln</a> 的创始人、<a href=\"https://tryaether.ai\">Aether AI</a>（世界上最危险的 AI，站在你这边）的联合创始人、CREST 顾问委员会成员，在攻击性安全、渗透测试和安全计划制定方面拥有丰富的经验。",
+    "bio": "<strong>Sean Hogg</strong> 负责 CoderClaw 的安全与信任事务。",
+    "bioDetail": "Sean 负责威胁建模、安全架构和漏洞响应，并推动落地可选 TOTP MFA、恢复代码以及会话/令牌吊销等实用防护能力。",
     "responsibilitiesTitle": "职责",
     "responsibilities": [
       "主导威胁建模和风险评估",
@@ -304,7 +304,10 @@
       { "title": "默认 AllowFrom：仅自己", "desc": "如未配置，仅您自己的号码可以向代理发送私信" },
       { "title": "会话隔离", "desc": "对话按会话密钥隔离" },
       { "title": "SSRF 防护", "desc": "web_fetch 中阻止内部 IP 和 localhost" },
-      { "title": "Gateway 认证必需", "desc": "WebSocket 连接必须进行认证" }
+      { "title": "Gateway 认证必需", "desc": "WebSocket 连接必须进行认证" },
+      { "title": "可选 TOTP MFA", "desc": "用户可通过认证器应用扫码配置并使用一次性恢复代码启用 MFA" },
+      { "title": "会话可见与吊销", "desc": "可查看多设备活跃会话，并吊销指定会话或其他所有会话" },
+      { "title": "JWT 生命周期控制", "desc": "已签发令牌可追踪，并可通过令牌/会话吊销提前失效" }
     ],
     "verifyTitle": "验证您的配置",
     "verifyCommand": "coderclaw security audit --deep",

@@ -248,11 +248,11 @@
       "title": "취약점 보고",
       "intro": "우리는 보안 보고서를 진지하게 다룹니다. 이슈가 존재하는 리포지토리에 직접 취약점을 보고해 주세요:",
       "repos": [
-        { "label": "핵심 CLI 및 Gateway", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw" },
-        { "label": "macOS 데스크톱 앱", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/macos)" },
-        { "label": "iOS 앱", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/ios)" },
-        { "label": "Android 앱", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw (apps/android)" },
-        { "label": "CoderClaw Skills", "url": "https://github.com/coderclaw/coderclaw/security/advisories/new", "name": "coderclaw/coderclaw" },
+        { "label": "핵심 CLI 및 Gateway", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw" },
+        { "label": "macOS 데스크톱 앱", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw (apps/macos)" },
+        { "label": "iOS 앱", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw (apps/ios)" },
+        { "label": "Android 앱", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw (apps/android)" },
+        { "label": "CoderClaw Skills", "url": "https://github.com/seanhogg/coderclaw/security/advisories/new", "name": "seanhogg/coderclaw" },
         { "label": "Trust 및 위협 모델", "url": "https://github.com/coderclaw/trust/issues/new", "name": "coderclaw/trust" }
       ],
       "fallback": "특정 리포지토리에 해당하지 않거나 확실하지 않은 경우 <span class=\"email-display\" style=\"display: inline; padding: 4px 8px; font-size: 13px;\">security@coderclaw.ai</span>로 이메일을 보내주시면 적절히 전달하겠습니다.",
@@ -283,8 +283,8 @@
   },
   "securityTrust": {
     "heading": "보안 및 신뢰",
-    "bio": "<strong>Jamieson O'Reilly</strong> (<a href=\"https://twitter.com/theonejvo\">@theonejvo</a>)는 CoderClaw의 보안 및 신뢰 담당입니다.",
-    "bioDetail": "Jamieson은 <a href=\"https://dvuln.com\">Dvuln</a>의 창업자이자, <a href=\"https://tryaether.ai\">Aether AI</a>(세계에서 가장 강력한 AI, 당신 편에서)의 공동 창업자이며, CREST 자문 위원회 위원으로 공격 보안, 침투 테스트, 보안 프로그램 개발에 풍부한 경험을 갖고 있습니다.",
+    "bio": "<strong>Sean Hogg</strong>는 CoderClaw의 보안 및 신뢰를 총괄합니다.",
+    "bioDetail": "Sean은 위협 모델링, 보안 아키텍처, 취약점 대응을 이끌며 선택형 TOTP MFA, 복구 코드, 세션/토큰 폐기 같은 실질적인 보호 기능 도입을 추진하고 있습니다.",
     "responsibilitiesTitle": "책임",
     "responsibilities": [
       "위협 모델링 및 위험 평가 주도",
@@ -304,7 +304,10 @@
       { "title": "기본 AllowFrom: 본인만", "desc": "구성되지 않은 경우, 본인의 번호만 에이전트에 DM을 보낼 수 있습니다" },
       { "title": "세션 격리", "desc": "대화는 세션 키별로 격리됩니다" },
       { "title": "SSRF 방어", "desc": "web_fetch에서 내부 IP 및 localhost 차단" },
-      { "title": "Gateway 인증 필수", "desc": "WebSocket 연결은 인증이 필요합니다" }
+      { "title": "Gateway 인증 필수", "desc": "WebSocket 연결은 인증이 필요합니다" },
+      { "title": "선택형 TOTP MFA", "desc": "사용자는 인증 앱 QR 설정과 일회용 복구 코드로 MFA를 활성화할 수 있습니다" },
+      { "title": "세션 가시성 및 폐기", "desc": "여러 기기의 활성 세션을 확인하고 특정 세션 또는 다른 모든 세션을 폐기할 수 있습니다" },
+      { "title": "JWT 토큰 수명주기 제어", "desc": "발급된 토큰을 추적하고 토큰/세션 폐기로 조기 무효화할 수 있습니다" }
     ],
     "verifyTitle": "설정 확인하기",
     "verifyCommand": "coderclaw security audit --deep",
