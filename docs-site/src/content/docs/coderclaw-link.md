@@ -62,6 +62,10 @@ Each task supports:
 - Register any number of CoderClaw instances (claws) to your workspace
 - Each claw gets a unique one-time API key
 - Assign marketplace skills to your entire workspace or individual claws
+- Each registered claw maintains a **live WebSocket relay** via `ClawRelayDO`:
+  - When the claw's gateway is running, it connects to the relay automatically
+  - Browser users can chat directly with the remote agent from the Claw panel
+  - Relay status (online/offline, last seen timestamp) is shown in real time
 
 ## Architecture
 
@@ -94,12 +98,22 @@ Set start and due dates to use the Gantt view.
 
 ### 5. Register your CoderClaw
 
-Go to **Claws → + Register Claw**. Copy the one-time API key and add it to your CoderClaw config:
+Go to **Claws → + Register Claw**. Copy the one-time API key. CoderClaw reads two environment variables from `~/.coderclaw/.env`:
 
 ```bash
-export CODERCLAW_API_KEY=your-key-here
-# or save to .env file (download button available in UI)
+CODERCLAW_LINK_API_KEY=your-key-here   # one-time key from the Claws panel
+CODERCLAW_LINK_URL=https://api.coderclaw.ai  # default, can be omitted
 ```
+
+You also need the claw's instance ID in your project's `.coderClaw/context.yaml` (set automatically by `coderclaw link` or the onboarding wizard):
+
+```yaml
+clawLink:
+  instanceId: "42"          # numeric ID from the Claws panel
+  instanceSlug: my-project
+```
+
+Once both are present, starting the CoderClaw gateway connects the relay automatically.
 
 ### 6. Configure AI settings
 
@@ -143,7 +157,24 @@ The Gantt view shows all tasks as horizontal timeline bars. Tasks without explic
 
 ## Connecting CoderClaw to CoderClawLink
 
-CoderClaw agents can submit tasks directly to CoderClawLink via the execution API:
+CoderClaw connects to CoderClawLink in two ways simultaneously when the gateway starts.
+
+### 1. WebSocket Relay (real-time chat)
+
+`ClawLinkRelayService` opens a persistent WebSocket to the `ClawRelayDO` Durable Object for the registered claw:
+
+```
+GET wss://api.coderclaw.ai/api/claws/:id/upstream?key=<apiKey>
+```
+
+This enables:
+- **Browser → agent**: messages typed in the browser Claw panel are forwarded to the local gateway in real time
+- **Agent → browser**: streaming responses (deltas, tool calls, results) are broadcast to all connected browser sessions
+- **Heartbeat**: a `PATCH /api/claws/:id/heartbeat` keeps the "Last seen" timestamp fresh every 5 minutes
+
+### 2. HTTP Task API
+
+CoderClaw agents can submit tasks directly via the execution API:
 
 ```
 POST /api/runtime/executions           Submit a task for agent execution
@@ -155,8 +186,8 @@ PATCH /api/runtime/executions/:id/state  Agent callback to update state
 import { ClawLinkTransportAdapter } from "coderclaw/transport";
 
 const adapter = new ClawLinkTransportAdapter({
-  baseUrl: "https://app.coderclaw.ai",
-  apiKey: process.env.CODERCLAW_API_KEY,
+  baseUrl: "https://api.coderclaw.ai",
+  apiKey: process.env.CODERCLAW_LINK_API_KEY,
 });
 
 await adapter.connect();
@@ -187,6 +218,17 @@ All API endpoints are at `https://api.coderclaw.ai`.
 | `POST`   | `/api/projects` | Create project |
 | `PATCH`  | `/api/projects/:id` | Update project |
 | `DELETE` | `/api/projects/:id` | Delete project |
+
+### Claws (Agent Instances)
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET`    | `/api/claws` | List registered claws (tenant-scoped) |
+| `POST`   | `/api/claws` | Register a new claw (returns one-time API key) |
+| `DELETE` | `/api/claws/:id` | Remove a claw |
+| `GET`    | `/api/claws/:id/status` | Connection status (`connectedAt`, `lastSeenAt`) |
+| `PATCH`  | `/api/claws/:id/heartbeat?key=<apiKey>` | Update last-seen timestamp |
+| `GET`    | `/api/claws/:id/ws?token=<jwt>` | Browser WebSocket connection to relay |
+| `GET`    | `/api/claws/:id/upstream?key=<apiKey>` | CoderClaw upstream WebSocket to relay |
 
 ### Runtime (Agent Execution)
 | Method | Path | Description |

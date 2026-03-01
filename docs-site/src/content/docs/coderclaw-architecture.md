@@ -113,13 +113,18 @@ The top layer responsible for coordinating multiple agents.
 
 #### Orchestration Engine Components
 
+**Orchestrator (`src/coderclaw/orchestrator.ts`)**
+
+- Active workflow engine — `createWorkflow()` + `executeWorkflow()` both wired
+- Dependency-aware task scheduling (DAG)
+- Marks workflow status: `running` → `completed` / `failed`
+- Supports: `feature`, `bugfix`, `refactor`, `custom` workflow types
+
 **Enhanced Orchestrator (`src/coderclaw/orchestrator-enhanced.ts`)**
 
-- Creates and manages workflows
-- Coordinates multi-agent execution
-- Tracks task dependencies
-- Aggregates results
-- Integrates with distributed task engine
+- Extended workflow types: `planning` and `adversarial` review
+- Distributed orchestration hooks (Phase 2 target)
+- Not yet wired into the `orchestrate` tool switch — uses main `orchestrator.ts` today
 
 **Task Engine (`src/transport/task-engine.ts`)**
 
@@ -131,9 +136,9 @@ The top layer responsible for coordinating multiple agents.
 
 **Workflow Patterns**
 
-- Pre-defined patterns: feature, bugfix, refactor
-- Custom workflow support
-- Dependency resolution
+- Active (wired to `orchestrate` tool): `feature`, `bugfix`, `refactor`, `custom`
+- Implemented but not yet wired: `planning`, `adversarial` (in `orchestrator-enhanced.ts`)
+- Dependency resolution via DAG
 - Parallel execution where possible
 
 #### Orchestration Flow
@@ -170,9 +175,13 @@ The outer layer connecting to CoderClaw infrastructure.
 
 **Transport Layer**
 
-- Local execution via `LocalTransportAdapter`
-- Remote execution support (future)
-- Protocol-agnostic runtime interface
+- `ClawLinkTransportAdapter` — HTTP task lifecycle (`/api/runtime/executions`)
+- `ClawLinkRelayService` (`src/infra/clawlink-relay.ts`) — persistent upstream WebSocket relay:
+  - Connects to `ClawRelayDO` at `wss://api.coderclaw.ai/api/claws/:id/upstream`
+  - Bridges browser chat ↔ local gateway in real time
+  - Sends HTTP heartbeat every 5 minutes to keep `lastSeenAt` current
+  - Auto-reconnects with exponential backoff on disconnect
+- `ClawLinkDirectorySync` (`src/infra/clawlink-directory-sync.ts`) — uploads `.coderClaw/` files to the API on gateway boot
 
 **Security Service**
 
