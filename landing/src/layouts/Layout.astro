@@ -13,6 +13,8 @@ const {
   description = "CoderClaw — The ultimate coding agent framework. Transition from coding to managing business outcomes with autonomous agents, subagents, and CoderClawLink mesh orchestration.",
   canonicalUrl = "https://coderclaw.ai/",
 } = Astro.props;
+
+const previewImageUrl = "https://cdn.builder.io/api/v1/image/assets%2Fac94883aaa0849cc897eb61793256164%2Fc284d818569a472aa80fdbee574db744?format=webp&width=1200&height=630&v=20260228";
 ---
 
 <!doctype html>
@@ -34,7 +36,7 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content="https://coderclaw.ai/og-image.png" />
+    <meta property="og:image" content={previewImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -42,7 +44,7 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://coderclaw.ai/og-image.png" />
+    <meta name="twitter:image" content={previewImageUrl} />
 
     <!-- Fonts: Clash Display + Satoshi from Fontshare with font-display swap for performance -->
     <link rel="preconnect" href="https://api.fontshare.com">
