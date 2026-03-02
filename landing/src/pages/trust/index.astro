@@ -936,7 +936,7 @@ const langLinks = {
         <section class="section">
           <h2>Security & Trust</h2>
           <p><strong>Sean Hogg</strong> leads Security & Trust at CoderClaw.</p>
-          <p>Sean oversees threat modeling, secure architecture, vulnerability response, and rollout of practical controls such as optional TOTP MFA, recovery codes, and session/token revocation across CoderClaw services.</p>
+          <p>Sean oversees threat modeling, secure architecture, vulnerability response, and rollout of practical controls such as optional TOTP MFA, recovery codes, session/token revocation, and legal-compliance controls across CoderClaw services.</p>
 
           <h3>Responsibilities</h3>
           <ul>
@@ -945,6 +945,15 @@ const langLinks = {
             <li>Establish triage process and response procedures</li>
             <li>Review security-critical code changes</li>
             <li>Provide guidance on security architecture decisions</li>
+          </ul>
+
+          <h3>Recent Security Enhancements (Q1 2026)</h3>
+          <ul>
+            <li><strong>Terms/version enforcement:</strong> users must accept the currently active Terms version before accessing protected application areas.</li>
+            <li><strong>Versioned legal documents:</strong> Terms of Use and Privacy Policy are now versioned and published with timestamps.</li>
+            <li><strong>Tracked legal acceptance:</strong> accepted Terms version is recorded per user and re-consent is required after Terms updates.</li>
+            <li><strong>Superadmin legal controls:</strong> platform admins can publish new Terms versions and immediately enforce re-acceptance.</li>
+            <li><strong>Expanded account defenses:</strong> MFA, session visibility/revocation, and token lifecycle controls are integrated across web, tenant, and admin surfaces.</li>
           </ul>
         </section>
 
