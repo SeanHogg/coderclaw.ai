@@ -70,7 +70,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
 
       <p class="description">
         Transition from coding to managing business outcomes.<br/>
-        <strong>CoderClaw</strong> manages independent agents &amp; sub-agents. <strong><a href="https://app.coderclaw.ai" target="_blank" rel="noopener" class="description-link" aria-label="CoderClawLink (opens in new tab)">CoderClawLink</a></strong> orchestrates projects across your entire mesh.
+        <strong>CoderClaw</strong> manages independent agents &amp; sub-agents with persistent memory &amp; self-repair. <strong><a href="https://app.coderclaw.ai" target="_blank" rel="noopener" class="description-link" aria-label="CoderClawLink (opens in new tab)">CoderClawLink</a></strong> orchestrates projects across your entire mesh.
       </p>
     </header>
 
@@ -134,6 +134,21 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
           <h3 class="feature-title">Business Outcome Focus</h3>
           <p class="feature-desc">Transition from writing code to managing business outcomes. Let the agents handle execution while you focus on strategy.</p>
         </a>
+        <a href="https://docs.coderclaw.ai/coderclaw-overview" target="_blank" rel="noopener" class="feature-card">
+          <div class="feature-icon"><Icon icon="lucide:heart-pulse" color="var(--coral-bright)" size={28} /></div>
+          <h3 class="feature-title">Self-Healing Runtime</h3>
+          <p class="feature-desc">Agents detect failures, fix themselves, and adapt over time. Persistent memory means context survives restarts — no re-explaining your codebase.</p>
+        </a>
+        <a href="https://app.coderclaw.ai" target="_blank" rel="noopener" class="feature-card">
+          <div class="feature-icon"><Icon icon="lucide:users" color="var(--coral-bright)" size={28} /></div>
+          <h3 class="feature-title">Human-in-the-Loop Control</h3>
+          <p class="feature-desc">CoderClawLink replaces Jira with workflow visibility, auditability, and approval gates — keeping humans in control of every agent decision that matters.</p>
+        </a>
+        <a href="https://docs.coderclaw.ai/coderclaw-overview" target="_blank" rel="noopener" class="feature-card">
+          <div class="feature-icon"><Icon icon="lucide:zap" color="var(--coral-bright)" size={28} /></div>
+          <h3 class="feature-title">coderClawLLM</h3>
+          <p class="feature-desc">Pay-per-use API layer for AI agent compute — managed model access for startups (5–50 devs) through enterprises (100–1,000+) without provider key sprawl.</p>
+        </a>
         <a href="https://docs.coderclaw.ai/browser" target="_blank" rel="noopener" class="feature-card">
           <div class="feature-icon"><Icon icon="lucide:globe" color="var(--coral-bright)" size={28} /></div>
           <h3 class="feature-title">Full Automation</h3>
@@ -177,11 +192,16 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
       <h2 class="section-title">
         <span class="claw-accent">⟩</span> Why CoderClaw?
       </h2>
-      <p>Self-hosted, multi-agent orchestration built for developers. Key differentiators:</p>
+      <p>Self-hosted, multi-agent orchestration built for developers — from startups (5–50 devs) to enterprises (100–1,000+). Key differentiators:</p>
       <ul>
         <li>Deep codebase understanding (AST, semantic maps, git history, persistent context).</li>
         <li>Pre‑built multi-agent workflows: planning, coding, review, testing, adversarial passes.</li>
+        <li>Self-healing runtime: agents detect failures, fix themselves, and adapt over time.</li>
+        <li>Persistent memory &amp; context-aware reasoning across sessions — no re-explaining your codebase.</li>
         <li>Security &amp; governance: RBAC, device trust, audit trails.</li>
+        <li>Human-in-the-loop governance: approval flows and workflow visibility via CoderClawLink.</li>
+        <li>coderClawLLM: pay-per-use API layer for AI agent compute.</li>
+        <li>CI/CD integration and private/self-hosted deployments.</li>
         <li>Works from any channel or CLI, with any model provider.</li>
         <li>Open source (MIT) with no vendor lock-in.</li>
       </ul>

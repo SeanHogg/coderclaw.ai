@@ -1,5 +1,17 @@
 # coderclaw.ai
 
+**CoderClaw** is a self-healing AI engineering agent and orchestration platform that manages tasks, workflows, and collaboration across all AI agents. It provides persistent memory, context-aware reasoning, and self-repair — allowing AI systems to detect failures, fix themselves, and adapt over time — while keeping humans in the loop for governance and approval.
+
+**[CoderClawLink](https://app.coderclaw.ai)** replaces Jira with a centralized orchestration portal offering workflow visibility, auditability, and human-in-the-loop control, making adoption seamless across teams of any size.
+
+Our platform serves:
+- **Startups (5–50 developers)** using AI as a virtual workforce
+- **Enterprises (100–1,000+ developers)** running complex multi-agent pipelines
+
+It integrates with CI/CD workflows, supports private/self-hosted deployments, and includes **coderClawLLM** — a pay-per-use API layer for AI agent compute. CoderClaw enables teams to build resilient, self-healing software systems while reducing engineering toil and improving delivery outcomes.
+
+---
+
 Monorepo for the CoderClaw web properties.
 
 **Live sites:**
