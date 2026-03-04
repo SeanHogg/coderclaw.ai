@@ -1,5 +1,5 @@
 ---
-summary: "Overview of CoderClaw: self-hosted AI coding assistant with multi-channel messaging and enterprise features"
+summary: "Overview of CoderClaw: self-healing AI engineering agent and orchestration platform with persistent memory, self-repair, human-in-the-loop governance, and multi-channel messaging"
 read_when:
   - Learning what CoderClaw is and what it does
   - Deciding if CoderClaw fits your use case
@@ -11,16 +11,22 @@ title: "CoderClaw Overview"
 
 CoderClaw is a **self-hosted, open-source AI coding assistant** that connects your favorite messaging apps to powerful AI agents. Run it on your own infrastructure — no cloud lock-in, no data leaving your control.
 
+It is also a **self-healing AI engineering agent and orchestration platform** that manages tasks, workflows, and collaboration across all AI agents. It provides persistent memory, context-aware reasoning, and self-repair — allowing AI systems to detect failures, fix themselves, and adapt over time — while keeping humans in the loop for governance and approval.
+
 ## TL;DR
 
 **CoderClaw** connects messaging apps (WhatsApp, Telegram, Discord, Slack, and more) to AI coding agents with a secure, extensible gateway.
 
 - Personal use → spin up with a single command, message your AI from anywhere
 - Team use → add RBAC, distributed execution, and audit logs as you grow
+- **Self-healing** → agents detect failures, fix themselves, and adapt over time
+- **Persistent memory** → context and knowledge survive restarts and session changes
+- **Human-in-the-loop** → governance, approval flows, and audit trails built in
+- **Any scale** → startups (5–50 devs) through enterprise (100–1,000+ devs)
 
 ## What is CoderClaw?
 
-CoderClaw is a **self-hosted multi-channel AI gateway** that lets you interact with AI coding agents through the chat apps you already use.
+CoderClaw is a **self-hosted multi-channel AI gateway** that lets you interact with AI coding agents through the chat apps you already use. It is also a **self-hosted multi-agent AI orchestration platform** that coordinates specialized agents across the full development lifecycle — planning, coding, reviewing, testing, debugging, and refactoring — while maintaining persistent context and enabling self-repair.
 
 **Core Features:**
 
@@ -30,6 +36,13 @@ CoderClaw is a **self-hosted multi-channel AI gateway** that lets you interact w
 - Mobile nodes (iOS/Android)
 - Canvas and voice features
 - Tool system with skills support
+- Self-healing agent runtime (failure detection, auto-repair, adaptive execution)
+- Persistent memory and context-aware reasoning across sessions
+- Multi-agent orchestration with 7 built-in roles and custom agent support
+- Human-in-the-loop governance with approval flows and audit trails
+- CI/CD integration and private/self-hosted deployment support
+
+**coderClawLLM** — a pay-per-use API layer for AI agent compute — is included for teams who need managed model access without managing their own provider keys.
 
 **Best For:**
 
@@ -37,6 +50,9 @@ CoderClaw is a **self-hosted multi-channel AI gateway** that lets you interact w
 - Small teams in a trusted environment
 - Local or distributed execution
 - Projects requiring full data sovereignty
+- Startups (5–50 developers) using AI as a virtual workforce
+- Enterprises (100–1,000+ developers) running complex multi-agent pipelines
+- Organizations that need compliance, audit trails, and human approval workflows
 
 ## Enterprise Features
 
@@ -49,6 +65,8 @@ CoderClaw includes enterprise-grade capabilities for teams that need more:
 - 🔐 **Enhanced Security** - RBAC, device trust, comprehensive audit logs
 - 🎯 **Team Collaboration** - Multi-session isolation, shared registries
 - 🏢 **Enterprise Ready** - CI/CD integration, deterministic execution
+- 🧠 **Self-Healing Runtime** - Agents detect failures and repair automatically
+- 💰 **coderClawLLM** - Pay-per-use API layer for AI agent compute
 
 **Best For:**
 
@@ -68,6 +86,11 @@ CoderClaw includes enterprise-grade capabilities for teams that need more:
 | Plugin system                              | ✅       | ✅          |
 | Mobile nodes                               | ✅       | ✅          |
 | Canvas & voice                             | ✅       | ✅          |
+| **Self-Healing & Memory**                  |          |             |
+| Persistent memory across sessions          | ✅       | ✅          |
+| Context-aware reasoning                    | ✅       | ✅          |
+| Self-repair on failure                     | ✅       | ✅          |
+| Human-in-the-loop approval flows          | ❌       | ✅          |
 | **Execution**                              |          |             |
 | Local task execution                       | ✅       | ✅          |
 | Remote task execution                      | ❌       | ✅          |
@@ -100,6 +123,7 @@ CoderClaw includes enterprise-grade capabilities for teams that need more:
 | macOS/iOS/Android apps                     | ✅       | ✅          |
 | Project knowledge engine                   | ❌       | ✅          |
 | Multi-agent workflows                      | Basic    | ✅ Advanced |
+| coderClawLLM compute API                   | ❌       | ✅          |
 
 ## Architecture
 
@@ -172,6 +196,16 @@ CoderClaw includes enterprise-grade capabilities for teams that need more:
 
 **Example**: "I want an AI assistant I can message on WhatsApp from my phone that runs on my Mac at home."
 
+### Startup Use (5–50 developers)
+
+✅ Use AI as a virtual workforce to ship faster with a small team
+✅ Self-healing agents handle failures automatically, reducing on-call burden
+✅ Persistent memory means agents understand your codebase without re-explaining
+✅ CoderClawLink gives a Jira-like view of what every agent is doing
+✅ coderClawLLM provides pay-per-use compute without managing provider keys
+
+**Example**: "We're a 10-person startup. Our AI agents write code, review PRs, and fix failing tests automatically — all visible in CoderClawLink. We don't need a dedicated DevOps engineer to babysit CI."
+
 ### Team and Enterprise Use
 
 ✅ Development team (5+ people)
@@ -181,8 +215,13 @@ CoderClaw includes enterprise-grade capabilities for teams that need more:
 ✅ CI/CD automation requirements
 ✅ Enterprise compliance needs
 ✅ Multi-tenant deployments
+✅ Complex multi-agent pipelines with deterministic execution and full audit trails
+✅ Human-in-the-loop approval gates for sensitive changes
+✅ Private/self-hosted deployments for air-gapped or regulated environments
 
 **Example**: "Our team needs an AI assistant that runs on a shared server, with different permission levels for developers, reviewers, and CI pipelines, plus full audit logs for compliance."
+
+**Extended example**: "Our team needs AI agents that orchestrate across 50 microservice repos, with different permission levels for developers, reviewers, and CI pipelines, plus full audit logs for compliance — all governed by CoderClawLink."
 
 ## Pricing and Licensing
 
@@ -244,12 +283,22 @@ A: If you're just exploring — start simple. If you know you need team features
 
 ## Summary
 
-**CoderClaw** = Self-hosted, open-source AI coding assistant + multi-channel messaging gateway.
+**CoderClaw** = Self-hosted, open-source AI coding assistant + multi-channel messaging gateway + self-healing multi-agent orchestration platform.
+
+- Connects messaging apps (WhatsApp, Telegram, Discord, Slack, and more) to powerful AI coding agents
+- Manages tasks, workflows, and collaboration across all AI agents
+- Persistent memory and context-aware reasoning across sessions
+- Self-repair: agents detect failures, fix themselves, and adapt over time
+- Human-in-the-loop governance with approval flows and audit trails
+- **[CoderClawLink](https://app.coderclaw.ai)** replaces Jira with a centralized orchestration portal
+- **coderClawLLM** — pay-per-use API layer for AI agent compute
 
 Choose your setup based on requirements:
 
 - **Solo or small team + local only** — start with the default configuration
+- **Startup (5–50 devs)** — use AI as a virtual workforce with full visibility in CoderClawLink
 - **Team or enterprise + distributed + security** — enable enterprise runtime features
+- **Enterprise (100–1,000+ devs)** — multi-agent pipelines with RBAC, audit trails, and human approval gates
 
 ---
 
