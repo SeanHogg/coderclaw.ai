@@ -21,9 +21,9 @@ mkdir -p ~/.coderclaw/workspace
 2. Copy the default workspace templates into the workspace:
 
 ```bash
-cp docs/reference/templates/AGENTS.md ~/.coderclaw/workspace/AGENTS.md
-cp docs/reference/templates/SOUL.md ~/.coderclaw/workspace/SOUL.md
-cp docs/reference/templates/TOOLS.md ~/.coderclaw/workspace/TOOLS.md
+cp foundation/AGENTS.md ~/.coderclaw/workspace/AGENTS.md
+cp foundation/SOUL.md ~/.coderclaw/workspace/SOUL.md
+cp foundation/TOOLS.md ~/.coderclaw/workspace/TOOLS.md
 ```
 
 3. Optional: if you want the personal assistant skill roster, replace AGENTS.md with this file:

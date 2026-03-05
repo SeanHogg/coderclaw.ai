@@ -29,9 +29,9 @@ mkdir -p ~/.coderclaw/workspace
 2. 将默认工作区模板复制到工作区：
 
 ```bash
-cp docs/reference/templates/AGENTS.md ~/.coderclaw/workspace/AGENTS.md
-cp docs/reference/templates/SOUL.md ~/.coderclaw/workspace/SOUL.md
-cp docs/reference/templates/TOOLS.md ~/.coderclaw/workspace/TOOLS.md
+cp foundation/AGENTS.md ~/.coderclaw/workspace/AGENTS.md
+cp foundation/SOUL.md ~/.coderclaw/workspace/SOUL.md
+cp foundation/TOOLS.md ~/.coderclaw/workspace/TOOLS.md
 ```
 
 3. 可选：如果你想要个人助手 Skills 列表，用此文件替换 AGENTS.md：
