@@ -9,12 +9,14 @@ Installer CI scripts live in `scripts/`. They test the install scripts hosted at
 
 ## Deploy
 
+Both sites auto-deploy on push to `main` via GitHub Actions (path-filtered).
+
+Manual deploy:
+
 ```bash
-# Landing
-cd landing && npx wrangler deploy
+# Landing (Cloudflare Workers)
+cd landing && npm install && npx astro build && npx wrangler deploy
 
-# Docs
-cd docs-site && npx wrangler deploy
+# Docs (Cloudflare Pages)
+cd docs-site && npm install && npx astro build && npx wrangler pages deploy dist
 ```
-
-Both auto-deploy on push to main via `.github/workflows/`.

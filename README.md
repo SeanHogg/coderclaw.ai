@@ -56,11 +56,11 @@ Both sites deploy automatically on push to `main` via GitHub Actions.
 Manual deploy (Wrangler):
 
 ```bash
-# Landing page
-cd landing && npx wrangler deploy
+# Landing page (Cloudflare Workers)
+cd landing && npx astro build && npx wrangler deploy
 
-# Docs site
-cd docs-site && npx wrangler deploy
+# Docs site (Cloudflare Pages)
+cd docs-site && npx astro build && npx wrangler pages deploy dist
 ```
 
 ## Install Scripts
