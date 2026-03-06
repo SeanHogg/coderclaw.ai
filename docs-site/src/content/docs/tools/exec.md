@@ -38,15 +38,16 @@ Notes:
   from `PATH` to avoid fish-incompatible scripts, then falls back to `SHELL` if neither exists.
 - Host execution (`gateway`/`node`) rejects `env.PATH` and loader overrides (`LD_*`/`DYLD_*`) to
   prevent binary hijacking or injected code.
-- Important: sandboxing is **off by default**. If sandboxing is off, `host=sandbox` runs directly on
-  the gateway host (no container) and **does not require approvals**. To require approvals, run with
-  `host=gateway` and configure exec approvals (or enable sandboxing).
+- Important: sandboxing is **off by default**. If you explicitly set `host=sandbox` without a
+  sandbox runtime, exec runs directly on the gateway host (no container) and **does not require
+  approvals**. To require approvals, run with `host=gateway` and configure exec approvals (or
+  enable sandboxing).
 
 ## Config
 
 - `tools.exec.notifyOnExit` (default: true): when true, backgrounded exec sessions enqueue a system event and request a heartbeat on exit.
-- `tools.exec.approvalRunningNoticeMs` (default: 10000): emit a single “running” notice when an approval-gated exec runs longer than this (0 disables).
-- `tools.exec.host` (default: `sandbox`)
+- `tools.exec.approvalRunningNoticeMs` (default: 10000): emit a single "running" notice when an approval-gated exec runs longer than this (0 disables).
+- `tools.exec.host` (default: `gateway`)
 - `tools.exec.security` (default: `deny` for sandbox, `allowlist` for gateway + node when unset)
 - `tools.exec.ask` (default: `on-miss`)
 - `tools.exec.node` (default: unset)

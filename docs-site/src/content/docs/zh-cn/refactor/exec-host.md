@@ -75,8 +75,8 @@ x-i18n:
 
 ## 默认安全
 
-- 默认 `exec.host = sandbox`。
-- `gateway` 和 `node` 默认 `exec.security = deny`。
+- 默认 `exec.host = gateway`。
+- `gateway` 和 `node` 默认 `exec.security = allowlist`。
 - 默认 `exec.ask = on-miss`（仅在安全允许时相关）。
 - 如果未设置节点绑定，**智能体可以定向任何节点**，但仅在策略允许时。
 
