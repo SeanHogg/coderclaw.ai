@@ -52,7 +52,7 @@ import Layout from '../layouts/Layout.astro';
       statusEl.textContent = 'Submitting…';
       submitButton.disabled = true;
       try {
-        const res = await fetch('https://api.coderclaw.ai/api/auth/privacy-requests', {
+        const res = await fetch('https://api.builderforce.ai/api/auth/privacy-requests', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, requestType: 'ccpa', details }),

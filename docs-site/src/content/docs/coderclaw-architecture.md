@@ -177,7 +177,7 @@ The outer layer connecting to CoderClaw infrastructure.
 
 - `ClawLinkTransportAdapter` — HTTP task lifecycle (`/api/runtime/executions`)
 - `ClawLinkRelayService` (`src/infra/clawlink-relay.ts`) — persistent upstream WebSocket relay:
-  - Connects to `ClawRelayDO` at `wss://api.coderclaw.ai/api/claws/:id/upstream`
+  - Connects to `ClawRelayDO` at `wss://api.builderforce.ai/api/claws/:id/upstream`
   - Bridges browser chat ↔ local gateway in real time
   - Sends HTTP heartbeat every 5 minutes to keep `lastSeenAt` current
   - Auto-reconnects with exponential backoff on disconnect

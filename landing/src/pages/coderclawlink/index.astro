@@ -19,7 +19,7 @@ import Layout from '../../layouts/Layout.astro';
     <h1>CoderClaw Web App</h1>
     <div id="content"></div>
     <script>
-      const CCL = 'https://api.coderclaw.ai';
+      const CCL = 'https://api.builderforce.ai';
       const api = (path, opts = {}) => {
         const headers = { 'Content-Type': 'application/json', ...(opts.headers ?? {}) };
         return fetch(`${CCL}/${path}`, { ...opts, headers });

@@ -17,7 +17,7 @@ CoderClaw is a powerful framework for building autonomous coding agents that can
 
 - **Manage Complex Tasks**: Break down large development projects into independent, manageable agent workflows
 - **Coordinate Multiple Agents**: Create hierarchical agent structures where parent agents manage sub-agents working in parallel
-- **Orchestrate Across Your Mesh**: Use CoderClawLink to coordinate agents, projects, and services across your entire development infrastructure
+- **Orchestrate Across Your Mesh**: Use Builderforce.ai to coordinate agents, projects, and services across your entire development infrastructure
 - **Focus on Outcomes**: Stop writing boilerplate and start defining what you want to achieve. Let the agents handle the execution.
 
 ## Core Capabilities
@@ -28,8 +28,8 @@ Create specialized agents for different tasks�code review, testing, documentat
 ### Sub-Agent Architecture
 For complex projects, parent agents can dynamically create and manage sub-agents. This enables true parallel processing and dramatically improves throughput on large tasks.
 
-### Mesh Orchestration with CoderClawLink
-CoderClawLink is the brain of your agent network. It:
+### Mesh Orchestration with Builderforce.ai
+Builderforce.ai is the brain of your agent network. It:
 - Provides service discovery for agents across your infrastructure
 - Manages inter-agent communication and coordination
 - Monitors agent health and performance in real-time
@@ -89,7 +89,7 @@ const result = await codeReviewer.run({
 CoderClaw comes with:
 
 - **Framework SDK** for building and managing agents
-- **CoderClawLink Dashboard** for orchestration and monitoring
+- **Builderforce Dashboard** for orchestration and monitoring
 - **50+ Pre-built Integrations** (Discord, Slack, GitHub, etc.)
 - **Community Skills Directory** for extending functionality
 - **Complete Documentation** and examples

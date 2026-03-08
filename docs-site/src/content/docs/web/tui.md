@@ -65,7 +65,7 @@ Use `--password` if your Gateway uses password auth.
 - Model picker: list available models and set the session override.
 - Agent picker: choose a different agent.
 - Session picker: shows only sessions for the current agent.
-- Settings: toggle deliver, tool output expansion, and thinking visibility.
+- Settings: toggle deliver, file‑logging (on/off), tool output expansion, and thinking visibility.
 
 ## Keyboard shortcuts
 

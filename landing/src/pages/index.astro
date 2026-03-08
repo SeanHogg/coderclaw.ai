@@ -70,7 +70,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
 
       <p class="description">
         Transition from coding to managing business outcomes.<br/>
-        <strong>CoderClaw</strong> manages independent agents &amp; sub-agents with persistent memory &amp; self-repair. <strong><a href="https://app.coderclaw.ai" target="_blank" rel="noopener" class="description-link" aria-label="CoderClawLink (opens in new tab)">CoderClawLink</a></strong> orchestrates projects across your entire mesh.
+        <strong>CoderClaw</strong> manages independent agents &amp; sub-agents with persistent memory &amp; self-repair. <strong><a href="https://builderforce.ai" target="_blank" rel="noopener" class="description-link" aria-label="Builderforce (opens in new tab)">Builderforce.ai</a></strong> orchestrates projects across your entire mesh (API: api.builderforce.ai).
       </p>
     </header>
 
@@ -124,10 +124,10 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
           <h3 class="feature-title">Agent &amp; Sub-agent Manager</h3>
           <p class="feature-desc">CoderClaw runs and coordinates independent coding agents and sub-agents. Delegate work autonomously across your entire workflow.</p>
         </a>
-        <a href="https://app.coderclaw.ai" target="_blank" rel="noopener" class="feature-card">
+        <a href="https://builderforce.ai" target="_blank" rel="noopener" class="feature-card">
           <div class="feature-icon"><Icon icon="lucide:network" color="var(--coral-bright)" size={28} /></div>
           <h3 class="feature-title">Mesh Orchestration</h3>
-          <p class="feature-desc">CoderClawLink is the project management and mesh orchestrator — coordinating agents, tasks, and outcomes across your entire team.</p>
+          <p class="feature-desc">Builderforce.ai is the project management and mesh orchestrator — coordinating agents, tasks, and outcomes across your entire team (api.builderforce.ai).</p>
         </a>
         <a href="https://docs.coderclaw.ai/getting-started" target="_blank" rel="noopener" class="feature-card">
           <div class="feature-icon"><Icon icon="lucide:trending-up" color="var(--coral-bright)" size={28} /></div>
@@ -139,10 +139,10 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
           <h3 class="feature-title">Self-Healing Runtime</h3>
           <p class="feature-desc">Agents detect failures, fix themselves, and adapt over time. Persistent memory means context survives restarts — no re-explaining your codebase.</p>
         </a>
-        <a href="https://app.coderclaw.ai" target="_blank" rel="noopener" class="feature-card">
+        <a href="https://builderforce.ai" target="_blank" rel="noopener" class="feature-card">
           <div class="feature-icon"><Icon icon="lucide:users" color="var(--coral-bright)" size={28} /></div>
           <h3 class="feature-title">Human-in-the-Loop Control</h3>
-          <p class="feature-desc">CoderClawLink replaces Jira with workflow visibility, auditability, and approval gates — keeping humans in control of every agent decision that matters.</p>
+          <p class="feature-desc">Builderforce.ai replaces Jira with workflow visibility, auditability, and approval gates — keeping humans in control of every agent decision that matters.</p>
         </a>
         <a href="https://docs.coderclaw.ai/coderclaw-overview" target="_blank" rel="noopener" class="feature-card">
           <div class="feature-icon"><Icon icon="lucide:zap" color="var(--coral-bright)" size={28} /></div>
@@ -199,7 +199,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
         <li>Self-healing runtime: agents detect failures, fix themselves, and adapt over time.</li>
         <li>Persistent memory &amp; context-aware reasoning across sessions — no re-explaining your codebase.</li>
         <li>Security &amp; governance: RBAC, device trust, audit trails.</li>
-        <li>Human-in-the-loop governance: approval flows and workflow visibility via CoderClawLink.</li>
+        <li>Human-in-the-loop governance: approval flows and workflow visibility via Builderforce.ai.</li>
         <li>coderClawLLM: pay-per-use API layer for AI agent compute.</li>
         <li>CI/CD integration and private/self-hosted deployments.</li>
         <li>Works from any channel or CLI, with any model provider.</li>
@@ -239,12 +239,12 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
 
     <!-- CTA Grid -->
     <nav class="cta-grid">
-      <a href="https://app.coderclaw.ai" class="cta cta-link" target="_blank" rel="noopener">
+      <a href="https://builderforce.ai" class="cta cta-link" target="_blank" rel="noopener">
         <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="5" r="3"/><circle cx="19" cy="19" r="3"/><circle cx="5" cy="19" r="3"/>
           <line x1="12" y1="8" x2="12" y2="14"/><line x1="12" y1="14" x2="5" y2="19"/><line x1="12" y1="14" x2="19" y2="19"/>
         </svg>
-        <span class="cta-label">CoderClawLink</span>
+        <span class="cta-label">Builderforce.ai</span>
         <span class="cta-sub">Orchestration platform</span>
       </a>
 
@@ -335,7 +335,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
           submitButton.disabled = true;
 
           try {
-            const response = await fetch('https://api.coderclaw.ai/api/auth/newsletter/subscribers', {
+            const response = await fetch('https://api.builderforce.ai/api/auth/newsletter/subscribers', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -393,7 +393,7 @@ const duration2 = (row2.length / 2 * pixelsPerItem) / pixelsPerSecond;
         <span class="footer-separator">·</span>
         <a href="/integrations">Integrations</a>
         <span class="footer-separator">·</span>
-        <a href="https://app.coderclaw.ai" target="_blank" rel="noopener">CoderClawLink</a>
+        <a href="https://builderforce.ai" target="_blank" rel="noopener">Builderforce.ai</a>
         <span class="footer-separator">·</span>
         <a href="https://docs.coderclaw.ai" target="_blank" rel="noopener">Docs</a>
         <span class="footer-separator">·</span>

@@ -2,7 +2,7 @@
 
 **CoderClaw** is a self-healing AI engineering agent and orchestration platform that manages tasks, workflows, and collaboration across all AI agents. It provides persistent memory, context-aware reasoning, and self-repair — allowing AI systems to detect failures, fix themselves, and adapt over time — while keeping humans in the loop for governance and approval.
 
-**[CoderClawLink](https://app.coderclaw.ai)** replaces Jira with a centralized orchestration portal offering workflow visibility, auditability, and human-in-the-loop control, making adoption seamless across teams of any size.
+**[Builderforce.ai](https://builderforce.ai)** provides the orchestration layer (CoderClawLink has been replaced by Builderforce): centralized project/task/agent management, workflow visibility, auditability, and human-in-the-loop control. CoderClaw integrates with **api.builderforce.ai**.
 
 Our platform serves:
 - **Startups (5–50 developers)** using AI as a virtual workforce
@@ -73,4 +73,4 @@ The landing page hosts CLI installer scripts at `landing/public/`:
 ## Related
 
 - [CoderClaw](https://github.com/SeanHogg/coderClaw) — Core agent runtime
-- [CoderClawLink](https://github.com/SeanHogg/coderClawLink) — Project management & mesh orchestrator
+- [Builderforce.ai](https://builderforce.ai) — Orchestration portal + browser IDE + API (api.builderforce.ai); replaces CoderClawLink

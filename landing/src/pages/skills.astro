@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 // Fetch skills from the coderClawLink API at build/runtime
-const registryUrl = import.meta.env.SKILLS_REGISTRY_URL || 'https://api.coderclaw.ai';
+const registryUrl = import.meta.env.SKILLS_REGISTRY_URL || 'https://api.builderforce.ai';
 let skills = [];
 
 try {
@@ -61,7 +61,7 @@ const categories = [...new Set(skills.map(s => s.category).filter(Boolean))];
       <p class="lead">
         Discover and share powerful agent skills. Browse our community-created skills or upload your own.
       </p>
-      <a href="https://app.coderclaw.ai/login" class="btn-upload-skill">
+      <a href="https://builderforce.ai/login" class="btn-upload-skill">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 5v14M5 12h14"/>
         </svg>
@@ -138,7 +138,7 @@ const categories = [...new Set(skills.map(s => s.category).filter(Boolean))];
                   <span>{skill.downloads}</span>
                 </div>
               </div>
-              <a href="https://app.coderclaw.ai/login" class="btn-use-skill">Use Skill →</a>
+              <a href="https://builderforce.ai/login" class="btn-use-skill">Use Skill →</a>
             </div>
           </div>
         </article>
@@ -148,7 +148,7 @@ const categories = [...new Set(skills.map(s => s.category).filter(Boolean))];
     <section class="upload-cta">
       <h2>Created an Amazing Skill?</h2>
       <p>Share it with our community and help other developers build better agents.</p>
-      <a href="https://app.coderclaw.ai/login" class="btn-primary-large">
+      <a href="https://builderforce.ai/login" class="btn-primary-large">
         Upload Your Skill
       </a>
     </section>

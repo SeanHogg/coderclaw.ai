@@ -1,22 +1,22 @@
 ---
-summary: "CoderClawLink — human-facing project management portal with AI-powered task writing, Kanban/List/Gantt views, and OpenRouter integration"
+summary: "Builderforce — orchestration portal (replaces CoderClawLink) with project/task management, Kanban/List/Gantt views, and OpenRouter integration"
 read_when:
   - You want to manage projects and tasks in a Jira-style web UI
   - You want to use AI to write PRDs and task descriptions
   - You want Kanban, List, or Gantt views for your work
-  - You want to connect CoderClaw agents to a remote execution portal
-title: "CoderClawLink"
+  - You want to connect CoderClaw agents to the orchestration API
+title: "Builderforce (Orchestration)"
 ---
 
-# CoderClawLink
+# Builderforce (Orchestration)
 
-[CoderClawLink](https://app.coderclaw.ai) is the human-facing project management portal for the CoderClaw ecosystem. It provides a Jira-style web UI for managing projects, tasks, and AI agent mesh — with Kanban, List, and Gantt views, AI-powered PRD writing via OpenRouter, drag-and-drop task management, and full multi-tenant workspace support.
+**[Builderforce.ai](https://builderforce.ai)** is the orchestration platform for the CoderClaw ecosystem (CoderClawLink has been replaced by Builderforce.ai). Portal at [builderforce.ai](https://builderforce.ai), API at **api.builderforce.ai**. It provides a Jira-style web UI for managing projects, tasks, and AI agent mesh — with Kanban, List, and Gantt views, AI-powered PRD writing via OpenRouter, drag-and-drop task management, and full multi-tenant workspace support.
 
 ## Features
 
 ### Task Board Views
 
-CoderClawLink supports three task board views you can switch between at any time:
+Builderforce supports three task board views you can switch between at any time:
 
 - **Kanban** — swim-lane board with drag-and-drop between columns (To Do, In Progress, In Review, Done, Blocked)
 - **List** — sortable table view with all task fields visible at a glance
@@ -69,7 +69,7 @@ Each task supports:
 
 ## Architecture
 
-CoderClawLink is built on:
+Builderforce is built on:
 - **Cloudflare Workers** — serverless edge hosting
 - **Hono** — lightweight TypeScript web framework
 - **Drizzle ORM + Neon Postgres** — type-safe database with serverless PostgreSQL
@@ -80,7 +80,7 @@ CoderClawLink is built on:
 
 ### 1. Sign up
 
-Go to [app.coderclaw.ai](https://app.coderclaw.ai) and create a free account.
+Go to [builderforce.ai](https://builderforce.ai) and create a free account.
 
 ### 2. Create a workspace
 
@@ -102,7 +102,7 @@ Go to **Claws → + Register Claw**. Copy the one-time API key. CoderClaw reads 
 
 ```bash
 CODERCLAW_LINK_API_KEY=your-key-here   # one-time key from the Claws panel
-CODERCLAW_LINK_URL=https://api.coderclaw.ai  # default, can be omitted
+CODERCLAW_LINK_URL=https://api.builderforce.ai  # default
 ```
 
 You also need the claw's instance ID in your project's `.coderClaw/context.yaml` (set automatically by `coderclaw link` or the onboarding wizard):
@@ -121,7 +121,7 @@ Go to **Workspace → AI Settings** and enter your OpenRouter API key. Choose yo
 
 ## OpenRouter Integration
 
-CoderClawLink uses [OpenRouter](https://openrouter.ai) as a unified gateway to access Claude, GPT-4o, Gemini, Llama, and other models for task and PRD generation.
+Builderforce uses [OpenRouter](https://openrouter.ai) as a unified gateway to access Claude, GPT-4o, Gemini, Llama, and other models for task and PRD generation.
 
 **Supported models:**
 | Model | Notes |
@@ -134,7 +134,7 @@ CoderClawLink uses [OpenRouter](https://openrouter.ai) as a unified gateway to a
 | `google/gemini-2.0-flash-001` | Good quality/speed ratio |
 | `meta-llama/llama-3.3-70b-instruct` | Open-weight model |
 
-Your API key is stored locally in your browser and never sent to CoderClawLink servers. All AI calls go directly from your browser to OpenRouter.
+Your API key is stored locally in your browser and never sent to Builderforce servers. All AI calls go directly from your browser to OpenRouter.
 
 ## Task Status Flow
 
@@ -155,16 +155,16 @@ The Gantt view shows all tasks as horizontal timeline bars. Tasks without explic
 - **Today marker** shows the current date as a red vertical line
 - Click any bar or row to open the task edit modal
 
-## Connecting CoderClaw to CoderClawLink
+## Connecting CoderClaw to Builderforce
 
-CoderClaw connects to CoderClawLink in two ways simultaneously when the gateway starts.
+CoderClaw connects to Builderforce in two ways simultaneously when the gateway starts.
 
 ### 1. WebSocket Relay (real-time chat)
 
 `ClawLinkRelayService` opens a persistent WebSocket to the `ClawRelayDO` Durable Object for the registered claw:
 
 ```
-GET wss://api.coderclaw.ai/api/claws/:id/upstream?key=<apiKey>
+GET wss://api.builderforce.ai/api/claws/:id/upstream?key=<apiKey>
 ```
 
 This enables:
@@ -186,7 +186,7 @@ PATCH /api/runtime/executions/:id/state  Agent callback to update state
 import { ClawLinkTransportAdapter } from "coderclaw/transport";
 
 const adapter = new ClawLinkTransportAdapter({
-  baseUrl: "https://api.coderclaw.ai",
+  baseUrl: "https://api.builderforce.ai",
   apiKey: process.env.CODERCLAW_LINK_API_KEY,
 });
 
@@ -200,7 +200,7 @@ const state = await adapter.submitTask({
 
 ## API Reference
 
-All API endpoints are at `https://api.coderclaw.ai`.
+All API endpoints are at `https://api.builderforce.ai`.
 
 ### Tasks
 | Method | Path | Description |
@@ -248,7 +248,8 @@ All API endpoints are at `https://api.coderclaw.ai`.
 
 ## Further reading
 
-- [CoderClawLink repository](https://github.com/SeanHogg/coderClawLink)
+- **[Orchestration docs](/link/)** — Full documentation (Builderforce.ai replaces CoderClawLink): [Getting Started](/link/getting-started/), [Architecture](/link/architecture/), [API Reference](/link/api-reference/), [Marketplace](/link/marketplace/), [Multi-Agent Orchestration](/link/multi-agent-orchestration/), [Pricing](/link/pricing/), [Visual Debugging](/link/visual-debugging/).
+- [Builderforce.ai](https://builderforce.ai) · [CoderClawLink repository (legacy)](https://github.com/SeanHogg/coderClawLink)
 - [OpenRouter documentation](https://openrouter.ai/docs)
 - [CoderClaw workflows](/coderclaw-workflows)
 - [Phase 2 distributed runtime](/phase2)

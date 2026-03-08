@@ -103,6 +103,8 @@ All logging configuration lives under `logging` in `~/.coderclaw/coderclaw.json`
 ```json
 {
   "logging": {
+    "enabled": true,               // turn off file logging when false
+    "format": "json",            // "json" (default) or "text" for human-readable files
     "level": "info",
     "file": "/tmp/coderclaw/coderclaw-YYYY-MM-DD.log",
     "consoleLevel": "info",
@@ -112,7 +114,36 @@ All logging configuration lives under `logging` in `~/.coderclaw/coderclaw.json`
   }
 }
 ```
+### Turning file‑logging on or off
 
+By default the gateway writes to a rolling log in your temporary directory and
+`enabled` is implicitly `true`.  You only need to set `enabled: false` if you
+*want to disable* file logging entirely (for example, to conserve disk space
+in tests or a constrained container).  To make sure the file is created and
+used, simply leave `enabled` unset or set it to `true`:
+
+```json
+{
+  "logging": {
+    "enabled": true,
+    "level": "debug",
+    "file": "/var/log/my-claw.log"
+  }
+}
+```
+
+The CLI and Control UI automatically pick up the value from this configuration;
+commands like `coderclaw logs` will advise you when file logging is disabled.
+
+If you're experimenting from code, use:
+
+```ts
+import { setLoggerOverride } from "./logging.js";
+setLoggerOverride({enabled: true, file: "/tmp/foo.log"});
+```
+
+Once the gateway starts you can inspect the path shown in the startup output to
+see the active log file.
 ### Log levels
 
 - `logging.level`: **file logs** (JSONL) level.

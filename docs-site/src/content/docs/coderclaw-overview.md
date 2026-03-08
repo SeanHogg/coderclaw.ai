@@ -201,10 +201,10 @@ CoderClaw includes enterprise-grade capabilities for teams that need more:
 ✅ Use AI as a virtual workforce to ship faster with a small team
 ✅ Self-healing agents handle failures automatically, reducing on-call burden
 ✅ Persistent memory means agents understand your codebase without re-explaining
-✅ CoderClawLink gives a Jira-like view of what every agent is doing
+✅ Builderforce.ai gives a Jira-like view of what every agent is doing (api.builderforce.ai)
 ✅ coderClawLLM provides pay-per-use compute without managing provider keys
 
-**Example**: "We're a 10-person startup. Our AI agents write code, review PRs, and fix failing tests automatically — all visible in CoderClawLink. We don't need a dedicated DevOps engineer to babysit CI."
+**Example**: "We're a 10-person startup. Our AI agents write code, review PRs, and fix failing tests automatically — all visible in Builderforce.ai. We don't need a dedicated DevOps engineer to babysit CI."
 
 ### Team and Enterprise Use
 
@@ -221,7 +221,7 @@ CoderClaw includes enterprise-grade capabilities for teams that need more:
 
 **Example**: "Our team needs an AI assistant that runs on a shared server, with different permission levels for developers, reviewers, and CI pipelines, plus full audit logs for compliance."
 
-**Extended example**: "Our team needs AI agents that orchestrate across 50 microservice repos, with different permission levels for developers, reviewers, and CI pipelines, plus full audit logs for compliance — all governed by CoderClawLink."
+**Extended example**: "Our team needs AI agents that orchestrate across 50 microservice repos, with different permission levels for developers, reviewers, and CI pipelines, plus full audit logs for compliance — all governed by Builderforce.ai."
 
 ## Pricing and Licensing
 
@@ -290,13 +290,13 @@ A: If you're just exploring — start simple. If you know you need team features
 - Persistent memory and context-aware reasoning across sessions
 - Self-repair: agents detect failures, fix themselves, and adapt over time
 - Human-in-the-loop governance with approval flows and audit trails
-- **[CoderClawLink](https://app.coderclaw.ai)** replaces Jira with a centralized orchestration portal
+- **[Builderforce.ai](https://builderforce.ai)** (API: api.builderforce.ai) replaces Jira with a centralized orchestration portal (replaces CoderClawLink)
 - **coderClawLLM** — pay-per-use API layer for AI agent compute
 
 Choose your setup based on requirements:
 
 - **Solo or small team + local only** — start with the default configuration
-- **Startup (5–50 devs)** — use AI as a virtual workforce with full visibility in CoderClawLink
+- **Startup (5–50 devs)** — use AI as a virtual workforce with full visibility in Builderforce.ai
 - **Team or enterprise + distributed + security** — enable enterprise runtime features
 - **Enterprise (100–1,000+ devs)** — multi-agent pipelines with RBAC, audit trails, and human approval gates
 

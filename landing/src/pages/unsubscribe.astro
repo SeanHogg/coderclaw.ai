@@ -44,7 +44,7 @@ import Layout from '../layouts/Layout.astro';
       statusEl.textContent = 'Processing…';
       submitButton.disabled = true;
       try {
-        const res = await fetch('https://api.coderclaw.ai/api/auth/newsletter/subscribers', {
+        const res = await fetch('https://api.builderforce.ai/api/auth/newsletter/subscribers', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, action: 'unsubscribe', source: 'coderclaw.ai' }),

@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 
 export const get: APIRoute = async ({ env, request }) => {
-  const registry = env.SKILLS_REGISTRY_URL || 'https://api.coderclaw.ai';
+  const registry = env.SKILLS_REGISTRY_URL || 'https://api.builderforce.ai';
   const url = new URL(request.url);
   // forward query string
   const dest = new URL('/marketplace/skills', registry);
